@@ -479,7 +479,7 @@ function aw2(){if(!ir)return;document.querySelectorAll('.wvb').forEach(b=>{b.sty
 // ═══ CHAMADA IA ═══
 async function cai(msgs,sys){
   const sp=sys||`Você é especialista em golpes digitais no Brasil 2025. Conhece todos os golpes atuais e emergentes. Responda APENAS em JSON válido sem markdown: {"riskLevel":"ALTO"|"MÉDIO"|"BAIXO","riskPercent":0-100,"headline":"máx 55 chars","explanation":"2-3 frases simples","signals":["s1","s2","s3"],"action":"orientação prática"}. Detecte: urgência, PIX, segredo, pressão, links suspeitos, ofertas boas demais, dados bancários, falsa identidade. Português do Brasil.`;
-  const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':K,'anthropic-version':'2023-06-01'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:sp,messages:msgs})});
+  const r=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:systemPrompt,messages:msgs})});
   if(!r.ok){const e=await r.json();throw new Error(e.error?.message||'Erro '+r.status);}
   const d=await r.json();
   const raw=d.content.map(c=>c.text||'').join('').replace(/```json|```/g,'').trim();
