@@ -402,7 +402,7 @@ body{display:flex;align-items:center;justify-content:center}
 <script>
 // ═══ CONFIGURAÇÃO ═══
 // IMPORTANTE: Cole aqui sua chave da Anthropic (começa com sk-ant-)
-const K = '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';
+const K = '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';
 
 // ═══ ESTADO ═══
 let ac=1,mx=3,os=0,mr=null,ch=[],rt=null,rs=0,ir=false,ib64=null,itp='image/jpeg';
@@ -512,7 +512,7 @@ document.getElementById('atb').addEventListener('click',async()=>{
   const t=document.getElementById('ai').value.trim();
   if(!t){alert('Cole ou descreva a situação suspeita.');return;}
   if(ac>=mx){sn('plans');return;}
-  if(K==='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'){alert('⚠️ Configure sua chave de API!\n\nAbra o arquivo index.html no GitHub, encontre a linha:\nconst K = \'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\';\n\nSubstitua pelo seu sk-ant-...');return;}
+  
   uq();sl();
   try{const r=await cai([{role:'user',content:t}]);ah('💬',t,r.riskLevel==='ALTO'?'#ef4444':r.riskLevel==='MÉDIO'?'#f59e0b':'#22c55e');rr(r);}
   catch(e){se(e.message);}
@@ -522,7 +522,7 @@ document.getElementById('atb').addEventListener('click',async()=>{
 document.getElementById('aib').addEventListener('click',async()=>{
   if(!ib64){alert('Selecione uma imagem.');return;}
   if(ac>=mx){sn('plans');return;}
-  if(K==='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'){alert('Configure sua chave de API primeiro.');return;}
+  
   uq();sl();
   try{
     const c=[{type:'image',source:{type:'base64',media_type:itp,data:ib64}},{type:'text',text:'Analise essa imagem. Verifique se contém sinais de golpe: textos suspeitos, links falsos, pedidos de PIX, urgência, falsa identidade de banco/governo, qualquer padrão de fraude digital no Brasil 2025.'}];
@@ -535,7 +535,7 @@ document.getElementById('aib').addEventListener('click',async()=>{
 // ═══ ANALISAR ÁUDIO ═══
 document.getElementById('aab').addEventListener('click',async()=>{
   if(ac>=mx){sn('plans');return;}
-  if(K==='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'){alert('Configure sua chave de API primeiro.');return;}
+  
   uq();sl();
   try{
     const p=`Usuário gravou áudio de ${rs}s descrevendo situação suspeita de golpe no Brasil. Baseado nos golpes mais comuns em 2025 (PIX falso, WhatsApp clonado, suporte falso, phishing, FGTS, sorteios, emprego falso), faça análise de risco e oriente.`;
