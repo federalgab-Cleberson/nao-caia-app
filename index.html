@@ -7,21 +7,15 @@
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <meta name="apple-mobile-web-app-title" content="Não Caia!"/>
-<title>🛡️ Não Caia! v3</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<title>🛡️ Não Caia!</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
 <style>
-:root {
-  --bg:#f8f9fc; --bg2:#f0f2f7; --bg3:#e4e8f0;
-  --text:#0f172a; --text2:#64748b; --border:#dde3ef;
-  --blue:#1d4ed8; --blue-light:#eff6ff;
-  --font-d:'Nunito',sans-serif; --font-b:'Nunito Sans',sans-serif;
-  --r:14px;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;background:#1a2035;font-family:var(--font-b);overflow:hidden}
+:root{--bg:#f8f9fc;--bg2:#f0f2f7;--bg3:#e4e8f0;--text:#0f172a;--text2:#64748b;--border:#dde3ef;--blue:#1d4ed8;--font:'Nunito',sans-serif;--r:14px}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#1a2035;font-family:var(--font);overflow:hidden}
 body{display:flex;align-items:center;justify-content:center}
-.app{width:390px;height:100vh;max-height:844px;background:var(--bg);border-radius:0;overflow:hidden;display:flex;flex-direction:column;position:relative;box-shadow:0 32px 80px rgba(0,0,0,0.3)}
+.app{width:100%;max-width:390px;height:100vh;max-height:844px;background:var(--bg);overflow:hidden;display:flex;flex-direction:column}
 @media(min-width:430px){.app{border-radius:44px;height:844px}}
 .screen{display:none;flex-direction:column;height:100%;overflow:hidden}
 .screen.active{display:flex}
@@ -30,1038 +24,536 @@ body{display:flex;align-items:center;justify-content:center}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes prog{from{width:0}to{width:100%}}
-@keyframes ripple{0%{transform:scale(0.8);opacity:1}100%{transform:scale(2.5);opacity:0}}
-@keyframes recordPulse{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,0.4)}50%{box-shadow:0 0 0 12px rgba(220,38,38,0)}}
-
-/* SPLASH */
+@keyframes rp{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,0.4)}50%{box-shadow:0 0 0 12px rgba(220,38,38,0)}}
 #splash{background:linear-gradient(160deg,#060e1f,#0d2040);align-items:center;justify-content:center;gap:12px;animation:fadeIn 0.5s}
-.s-glow{width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.3),transparent 70%);display:flex;align-items:center;justify-content:center;animation:pulse 2s infinite}
-.s-shield{font-size:72px}
-.s-title{font-family:var(--font-d);color:#fff;font-size:32px;font-weight:900;letter-spacing:-1px}
-.s-title span{color:#3b82f6}
-.s-sub{color:#4a6a9a;font-size:13px;text-align:center;max-width:220px;line-height:1.6}
-.s-bar{width:160px;height:3px;background:rgba(255,255,255,0.08);border-radius:2px;margin-top:36px;overflow:hidden}
-.s-fill{height:100%;background:linear-gradient(90deg,#2563eb,#60a5fa);border-radius:2px;animation:prog 2.6s ease forwards}
-.s-ver{color:#1e3a5f;font-size:11px;position:absolute;bottom:24px;font-family:var(--font-d);letter-spacing:1px}
-
-/* ONBOARDING */
+.sg{width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.3),transparent 70%);display:flex;align-items:center;justify-content:center;animation:pulse 2s infinite;font-size:64px}
+.st{color:#fff;font-size:30px;font-weight:900;letter-spacing:-1px}.st span{color:#3b82f6}
+.ss{color:#4a6a9a;font-size:13px;text-align:center;max-width:220px;line-height:1.6}
+.sb{width:160px;height:3px;background:rgba(255,255,255,0.08);border-radius:2px;margin-top:36px;overflow:hidden}
+.sf{height:100%;background:linear-gradient(90deg,#2563eb,#60a5fa);border-radius:2px;animation:prog 2.6s ease forwards}
+.btn{width:100%;padding:14px;border-radius:var(--r);font-size:15px;font-weight:700;border:none;cursor:pointer;transition:all 0.18s;font-family:var(--font)}
+.btn:active{transform:scale(0.97)}
+.bb{background:var(--blue);color:#fff;box-shadow:0 4px 16px rgba(29,78,216,0.3)}.bb:hover{background:#1e40af}
+.bg{background:transparent;color:var(--text2);border:1px solid var(--border);font-size:13px}.bg:hover{background:var(--bg2)}
+.br{background:#dc2626;color:#fff}.bt{background:#0f766e;color:#fff}
+.bp{padding:14px 22px 32px;display:flex;flex-direction:column;gap:10px}
 #onboarding{background:var(--bg)}
-.ob{flex:1;padding:48px 28px 20px;animation:fadeUp 0.4s}
-.ob-pill{display:inline-flex;align-items:center;gap:6px;background:var(--blue-light);color:var(--blue);font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:20px;text-transform:uppercase;letter-spacing:0.5px}
-.ob-emoji{font-size:64px;margin-bottom:20px;display:block}
-.ob-h{font-family:var(--font-d);font-size:26px;font-weight:800;color:var(--text);line-height:1.25;margin-bottom:12px}
-.ob-p{font-size:15px;color:var(--text2);line-height:1.7}
-.dots{display:flex;gap:6px;justify-content:center;padding:16px}
+.ob{flex:1;padding:44px 26px 16px}
+.op{display:inline-flex;align-items:center;background:#eff6ff;color:var(--blue);font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:18px;text-transform:uppercase;letter-spacing:0.5px}
+.oe{font-size:60px;margin-bottom:18px;display:block}
+.oh{font-size:24px;font-weight:800;color:var(--text);line-height:1.25;margin-bottom:10px}
+.op2{font-size:14px;color:var(--text2);line-height:1.7}
+.dots{display:flex;gap:6px;justify-content:center;padding:14px}
 .dot{width:8px;height:8px;border-radius:4px;background:var(--border);transition:all 0.3s}
 .dot.active{background:var(--blue);width:24px}
-.bottom-pad{padding:14px 22px 32px;display:flex;flex-direction:column;gap:10px}
-
-/* BUTTONS */
-.btn{width:100%;padding:15px;border-radius:var(--r);font-size:15px;font-weight:700;border:none;cursor:pointer;transition:all 0.18s;font-family:var(--font-d);letter-spacing:-0.2px}
-.btn:active{transform:scale(0.97)}
-.btn-blue{background:var(--blue);color:#fff;box-shadow:0 4px 16px rgba(29,78,216,0.3)}
-.btn-blue:hover{background:#1e40af}
-.btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border);font-size:13px}
-.btn-ghost:hover{background:var(--bg2)}
-.btn-red{background:#dc2626;color:#fff;box-shadow:0 4px 14px rgba(220,38,38,0.3)}
-.btn-teal{background:#0f766e;color:#fff}
-
-/* LOGIN */
-#login{background:var(--bg)}
-.login-top{padding:52px 26px 24px}
-.login-logo{font-family:var(--font-d);font-size:26px;font-weight:900;color:var(--blue)}
-.login-tag{color:var(--text2);font-size:13px;margin-top:5px}
-.login-body{padding:0 22px;flex:1;display:flex;flex-direction:column;justify-content:center}
-.field{margin-bottom:16px}
-.field label{font-size:11px;color:var(--text2);display:block;margin-bottom:6px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px}
-.field input{width:100%;padding:13px 14px;border:1.5px solid var(--border);border-radius:12px;font-size:15px;background:var(--bg2);color:var(--text);outline:none;font-family:var(--font-b);transition:all 0.2s}
-.field input:focus{border-color:#3b82f6;background:#fff;box-shadow:0 0 0 4px rgba(59,130,246,0.1)}
-.divider{display:flex;align-items:center;gap:12px;margin:14px 0}
-.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
-.divider span{font-size:12px;color:var(--text2)}
-
-/* TOP BAR */
-.top-bar{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 10px;border-bottom:1px solid var(--border);background:var(--bg);flex-shrink:0}
-.top-bar-title{font-family:var(--font-d);font-size:16px;font-weight:700;color:var(--text)}
-.icon-btn{background:var(--bg2);border:none;cursor:pointer;color:var(--text2);font-size:20px;padding:7px;border-radius:10px;display:flex;align-items:center;transition:all 0.18s}
-.icon-btn:hover{background:var(--bg3);color:var(--text)}
-
-/* BOTTOM NAV */
-.bottom-nav{display:flex;border-top:1px solid var(--border);padding:8px 0 20px;background:var(--bg);flex-shrink:0}
-.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:6px 0;color:var(--text2);font-size:10px;font-weight:700;font-family:var(--font-d);transition:color 0.2s;border:none;background:transparent}
-.nav-item i{font-size:22px}
-.nav-item.active{color:var(--blue)}
-
-/* HOME */
-.home-hero{padding:20px 18px 16px;background:linear-gradient(135deg,#060e1f,#0d2040);flex-shrink:0}
-.hero-row{display:flex;justify-content:space-between;align-items:flex-start}
-.hero-greet{color:#4a6a9a;font-size:12px;font-weight:600}
-.hero-name{font-family:var(--font-d);color:#fff;font-size:20px;font-weight:800;margin-top:2px}
-.plan-chip{display:inline-flex;align-items:center;gap:5px;background:rgba(59,130,246,0.15);color:#60a5fa;font-size:11px;font-weight:700;padding:4px 9px;border-radius:8px;margin-top:7px;font-family:var(--font-d)}
-.hero-quota{color:#4a6a9a;font-size:11px;margin-top:10px}
-.quota-bar{width:100%;height:3px;background:rgba(255,255,255,0.07);border-radius:2px;margin-top:5px}
-.quota-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#f59e0b,#fbbf24);transition:width 0.5s}
-.avatar{width:40px;height:40px;border-radius:50%;background:rgba(59,130,246,0.2);border:1.5px solid rgba(59,130,246,0.3);display:flex;align-items:center;justify-content:center;color:#60a5fa;font-size:14px;font-weight:800;cursor:pointer;font-family:var(--font-d);flex-shrink:0}
-
-.scroll-area{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
-.scroll-area::-webkit-scrollbar{display:none}
-
-/* ANALYZE TABS */
-.analyze-wrap{padding:14px 16px 10px}
-.analyze-tabs{display:flex;gap:6px;margin-bottom:12px}
-.atab{flex:1;padding:8px 4px;border-radius:10px;border:1.5px solid var(--border);background:#fff;font-size:11px;font-weight:700;color:var(--text2);cursor:pointer;font-family:var(--font-d);text-align:center;transition:all 0.18s;display:flex;flex-direction:column;align-items:center;gap:3px}
+.hh{padding:18px 18px 14px;background:linear-gradient(135deg,#060e1f,#0d2040);flex-shrink:0}
+.hr{display:flex;justify-content:space-between;align-items:flex-start}
+.hg{color:#4a6a9a;font-size:12px;font-weight:600}
+.hn{color:#fff;font-size:20px;font-weight:800;margin-top:2px}
+.pc{display:inline-flex;align-items:center;gap:5px;background:rgba(59,130,246,0.15);color:#60a5fa;font-size:11px;font-weight:700;padding:4px 9px;border-radius:8px;margin-top:7px}
+.hq{color:#4a6a9a;font-size:11px;margin-top:10px}
+.qb{width:100%;height:3px;background:rgba(255,255,255,0.07);border-radius:2px;margin-top:5px}
+.qf{height:100%;border-radius:2px;background:linear-gradient(90deg,#f59e0b,#fbbf24);transition:width 0.5s}
+.av{width:40px;height:40px;border-radius:50%;background:rgba(59,130,246,0.2);border:1.5px solid rgba(59,130,246,0.3);display:flex;align-items:center;justify-content:center;color:#60a5fa;font-size:13px;font-weight:800;cursor:pointer;flex-shrink:0}
+.sa{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}.sa::-webkit-scrollbar{display:none}
+.es{padding:12px 16px 0}
+.eb{width:100%;padding:16px 18px;border-radius:16px;background:linear-gradient(135deg,#dc2626,#b91c1c);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;gap:14px;font-family:var(--font);position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(220,38,38,0.35);transition:transform 0.15s}
+.eb:active{transform:scale(0.97)}
+.ei{font-size:30px;flex-shrink:0}
+.et{display:flex;flex-direction:column;text-align:left}
+.el{font-size:16px;font-weight:800}
+.eh{font-size:11px;opacity:0.8;margin-top:2px;font-weight:600}
+.ep{position:absolute;right:16px;width:12px;height:12px;border-radius:50%;background:#fff;animation:rp 1.5s infinite}
+.aw{padding:14px 16px 10px}
+.at{display:flex;gap:6px;margin-bottom:12px}
+.atab{flex:1;padding:8px 4px;border-radius:10px;border:1.5px solid var(--border);background:#fff;font-size:11px;font-weight:700;color:var(--text2);cursor:pointer;font-family:var(--font);text-align:center;transition:all 0.18s;display:flex;flex-direction:column;align-items:center;gap:3px}
 .atab i{font-size:18px}
 .atab.active{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 3px 10px rgba(29,78,216,0.25)}
-.atab:hover:not(.active){background:var(--bg2)}
-
-.analyze-panel{display:none;animation:fadeUp 0.25s}
-.analyze-panel.active{display:block}
-
-.analyze-box{border:2px dashed var(--border);border-radius:var(--r);padding:14px;transition:all 0.2s;background:#fff}
-.analyze-box:focus-within{border:2px solid #3b82f6;background:#fafcff}
-.analyze-lbl{font-size:11px;font-weight:800;color:var(--text);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.6px;font-family:var(--font-d)}
-.analyze-box textarea{width:100%;border:none;background:transparent;resize:none;font-size:14px;color:var(--text);outline:none;min-height:80px;line-height:1.6;font-family:var(--font-b)}
-.analyze-box textarea::placeholder{color:#aab4c8}
-.analyze-foot{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
-.char-count{font-size:11px;color:var(--text2)}
-.analyze-btn{padding:9px 18px;border-radius:9px;background:var(--blue);color:#fff;font-size:12px;font-weight:800;border:none;cursor:pointer;transition:background 0.2s;font-family:var(--font-d);text-transform:uppercase}
-.analyze-btn:hover{background:#1e40af}
-
-/* IMAGE PANEL */
-.img-drop{border:2px dashed var(--border);border-radius:var(--r);padding:24px 16px;text-align:center;background:#fff;cursor:pointer;transition:all 0.2s;position:relative}
-.img-drop:hover,.img-drop.dragover{border-color:#3b82f6;background:#f0f7ff}
-.img-drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
-.img-drop-icon{font-size:40px;color:var(--text2);margin-bottom:8px}
-.img-drop-text{font-size:13px;color:var(--text2);font-weight:600}
-.img-drop-sub{font-size:11px;color:#aab4c8;margin-top:4px}
-.img-preview{border-radius:var(--r);overflow:hidden;margin-bottom:10px;position:relative}
-.img-preview img{width:100%;max-height:180px;object-fit:cover;display:block}
-.img-preview-remove{position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.6);color:#fff;border:none;border-radius:50%;width:28px;height:28px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
-
-/* AUDIO PANEL */
-.audio-center{display:flex;flex-direction:column;align-items:center;padding:16px 0}
-.record-btn{width:80px;height:80px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:32px;transition:all 0.2s;position:relative;background:var(--blue);color:#fff;box-shadow:0 4px 20px rgba(29,78,216,0.35)}
-.record-btn.recording{background:#dc2626;animation:recordPulse 1.5s infinite;box-shadow:0 4px 20px rgba(220,38,38,0.4)}
-.record-btn:active{transform:scale(0.95)}
-.record-status{font-size:13px;color:var(--text2);margin-top:14px;font-weight:600;font-family:var(--font-d)}
-.record-time{font-size:28px;font-weight:800;color:var(--text);font-family:var(--font-d);margin-top:6px;min-height:36px}
-.record-hint{font-size:12px;color:#aab4c8;margin-top:6px;text-align:center;line-height:1.5;max-width:220px}
-.audio-wave{display:flex;align-items:center;gap:3px;height:32px;margin:10px 0}
-.wave-bar{width:4px;border-radius:2px;background:var(--blue);transition:height 0.1s}
-
-/* QUICK ACTIONS */
-.section-title{font-size:11px;font-weight:800;color:var(--text2);margin:0 16px 10px;text-transform:uppercase;letter-spacing:0.6px;font-family:var(--font-d)}
-.qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 16px}
-.qa-card{padding:14px 12px;border-radius:var(--r);border:1px solid var(--border);cursor:pointer;transition:all 0.18s;background:#fff}
-.qa-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,0.06)}
-.qa-card:active{transform:scale(0.97)}
-.qa-icon{font-size:22px;margin-bottom:7px;display:block}
-.qa-label{font-size:12px;font-weight:800;color:var(--text);font-family:var(--font-d)}
-.qa-desc{font-size:11px;color:var(--text2);margin-top:2px}
-
-/* HISTORY */
-.hist-wrap{padding:14px 16px 0}
-.hist-item{display:flex;align-items:center;gap:10px;background:#fff;border-radius:11px;padding:10px 13px;margin-bottom:8px;border:1px solid var(--border);cursor:pointer;transition:background 0.15s}
-.hist-item:hover{background:var(--bg2)}
-.hist-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.hist-text{flex:1;font-size:12px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hist-time{font-size:11px;color:var(--text2);flex-shrink:0}
-
-/* EMERGENCY BUTTON */
-.emergency-strip{padding:12px 16px 0}
-.emergency-btn{width:100%;padding:16px 18px;border-radius:16px;background:linear-gradient(135deg,#dc2626,#b91c1c);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;gap:14px;font-family:var(--font-d);position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(220,38,38,0.35);transition:transform 0.15s}
-.emergency-btn:active{transform:scale(0.97)}
-.emergency-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.1),transparent);pointer-events:none}
-.em-icon{font-size:30px;flex-shrink:0}
-.em-text{display:flex;flex-direction:column;text-align:left}
-.em-label{font-size:16px;font-weight:800;letter-spacing:-0.3px}
-.em-hint{font-size:11px;opacity:0.8;margin-top:2px;font-weight:600}
-.em-pulse{position:absolute;right:16px;width:12px;height:12px;border-radius:50%;background:#fff;animation:recordPulse 1.5s infinite}
-
-/* EMERGENCY MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:1000;display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
-.modal-overlay.open{display:flex}
-.modal-sheet{background:var(--bg);border-radius:24px 24px 0 0;padding:24px 22px 36px;width:100%;max-width:390px;animation:fadeUp 0.3s ease}
-.modal-handle{width:36px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 20px}
-.modal-title{font-family:var(--font-d);font-size:20px;font-weight:800;color:var(--text);margin-bottom:6px}
-.modal-sub{font-size:13px;color:var(--text2);margin-bottom:20px;line-height:1.5}
-.em-option{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:14px;border:1.5px solid var(--border);background:#fff;margin-bottom:10px;cursor:pointer;transition:all 0.18s;text-decoration:none}
-.em-option:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,0.08)}
-.em-option:active{transform:scale(0.98)}
-.em-opt-icon{font-size:28px;flex-shrink:0}
-.em-opt-text{display:flex;flex-direction:column}
-.em-opt-label{font-family:var(--font-d);font-size:14px;font-weight:700;color:var(--text)}
-.em-opt-desc{font-size:12px;color:var(--text2);margin-top:2px}
-.em-option.red{border-color:#fca5a5;background:#fef2f2}
-.em-option.green{border-color:#86efac;background:#f0fdf4}
-.em-option.blue{border-color:#bfdbfe;background:#eff6ff}
-.em-option.whatsapp{border-color:#bbf7d0;background:#f0fdf4}
-
-/* RESULT */
-.result-hero{padding:20px 18px 16px;text-align:center;flex-shrink:0}
-.risk-badge{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:50px;font-size:17px;font-weight:800;margin-bottom:12px;font-family:var(--font-d)}
-.risk-high{background:#fef2f2;color:#dc2626;border:2px solid #fca5a5}
-.risk-medium{background:#fffbeb;color:#d97706;border:2px solid #fcd34d}
-.risk-low{background:#f0fdf4;color:#16a34a;border:2px solid #86efac}
-.risk-hed{font-family:var(--font-d);font-size:16px;font-weight:700;color:var(--text)}
-.risk-pct{font-size:12px;color:var(--text2);margin-top:4px}
-.r-scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:0 16px 16px}
-.r-scroll::-webkit-scrollbar{display:none}
-.r-card{background:#fff;border-radius:var(--r);padding:15px;margin-bottom:10px;border:1px solid var(--border)}
-.r-card-title{font-size:10px;font-weight:800;color:var(--text2);margin-bottom:9px;text-transform:uppercase;letter-spacing:0.7px;font-family:var(--font-d)}
-.r-card-text{font-size:13px;color:var(--text);line-height:1.65}
-.signal-list{list-style:none;display:flex;flex-direction:column;gap:7px}
-.signal-item{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--text)}
-.sdot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px}
-.sdot-red{background:#ef4444}
-.sdot-yellow{background:#f59e0b}
-.sdot-green{background:#22c55e}
-.share-row{display:flex;gap:8px;margin:4px 0 8px}
-.share-btn{flex:1;padding:11px;border-radius:11px;font-size:12px;font-weight:700;border:1px solid var(--border);background:var(--bg2);color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;font-family:var(--font-d);transition:background 0.15s}
-.share-btn:hover{background:var(--bg3)}
-.loading-box{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:60px 20px;flex:1;text-align:center}
-.spinner{width:40px;height:40px;border:3px solid var(--border);border-top-color:#3b82f6;border-radius:50%;animation:spin 0.8s linear infinite}
-.loading-text{font-size:13px;color:var(--text2);line-height:1.6}
-
-/* LIBRARY */
-.lib-search{padding:12px 16px 8px}
-.lib-sw{position:relative}
-.lib-sw i{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text2);font-size:16px}
-.lib-sw input{width:100%;padding:10px 13px 10px 38px;border:1.5px solid var(--border);border-radius:11px;font-size:13px;background:var(--bg2);color:var(--text);outline:none;font-family:var(--font-b)}
-.lib-list{flex:1;overflow-y:auto;padding:4px 14px 14px;-webkit-overflow-scrolling:touch}
-.lib-list::-webkit-scrollbar{display:none}
-.lib-card{background:#fff;border-radius:var(--r);padding:14px;margin-bottom:9px;cursor:pointer;border:1px solid var(--border);transition:all 0.18s}
-.lib-card:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,0.06)}
-.lib-top{display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.lib-icon{font-size:24px}
-.lib-name{font-family:var(--font-d);font-size:14px;font-weight:700;color:var(--text);flex:1}
-.risk-pill{font-size:10px;font-weight:800;padding:3px 9px;border-radius:7px;font-family:var(--font-d)}
-.pill-red{background:#fef2f2;color:#dc2626}
-.pill-yellow{background:#fffbeb;color:#d97706}
-.lib-desc{font-size:12px;color:var(--text2);line-height:1.55}
-
-/* ELDER */
+.ap{display:none;animation:fadeUp 0.25s}.ap.active{display:block}
+.ab{border:2px dashed var(--border);border-radius:var(--r);padding:14px;background:#fff;transition:all 0.2s}
+.ab:focus-within{border:2px solid #3b82f6;background:#fafcff}
+.al{font-size:11px;font-weight:800;color:var(--text);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.6px}
+.ab textarea{width:100%;border:none;background:transparent;resize:none;font-size:14px;color:var(--text);outline:none;min-height:80px;line-height:1.6;font-family:var(--font)}
+.ab textarea::placeholder{color:#aab4c8}
+.af{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
+.cc{font-size:11px;color:var(--text2)}
+.an{padding:9px 18px;border-radius:9px;background:var(--blue);color:#fff;font-size:12px;font-weight:800;border:none;cursor:pointer;font-family:var(--font);text-transform:uppercase}
+.an:hover{background:#1e40af}
+.id{border:2px dashed var(--border);border-radius:var(--r);padding:24px 16px;text-align:center;background:#fff;cursor:pointer;position:relative}
+.id:hover{border-color:#3b82f6;background:#f0f7ff}
+.id input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.ii{font-size:40px;color:var(--text2);margin-bottom:8px}
+.it{font-size:13px;color:var(--text2);font-weight:600}
+.is{font-size:11px;color:#aab4c8;margin-top:4px}
+.ip{border-radius:var(--r);overflow:hidden;margin-bottom:10px;position:relative}
+.ip img{width:100%;max-height:180px;object-fit:cover;display:block}
+.ir{position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.6);color:#fff;border:none;border-radius:50%;width:28px;height:28px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
+.ac{display:flex;flex-direction:column;align-items:center;padding:16px 0}
+.rb{width:80px;height:80px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:32px;background:var(--blue);color:#fff;box-shadow:0 4px 20px rgba(29,78,216,0.35);transition:all 0.2s}
+.rb.rec{background:#dc2626;animation:rp 1.5s infinite}
+.rb:active{transform:scale(0.95)}
+.rs{font-size:13px;color:var(--text2);margin-top:14px;font-weight:600}
+.rt{font-size:28px;font-weight:800;color:var(--text);margin-top:6px;min-height:36px}
+.rh2{font-size:12px;color:#aab4c8;margin-top:6px;text-align:center;line-height:1.5;max-width:220px}
+.wv{display:flex;align-items:center;gap:3px;height:32px;margin:10px 0}
+.wvb{width:4px;border-radius:2px;background:var(--blue);transition:height 0.1s}
+.st2{font-size:11px;font-weight:800;color:var(--text2);margin:0 16px 10px;text-transform:uppercase;letter-spacing:0.6px}
+.qg{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 16px}
+.qc{padding:14px 12px;border-radius:var(--r);border:1px solid var(--border);cursor:pointer;transition:all 0.18s;background:#fff}
+.qc:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,0.06)}.qc:active{transform:scale(0.97)}
+.qi{font-size:22px;margin-bottom:7px;display:block}
+.ql{font-size:12px;font-weight:800;color:var(--text)}
+.qd{font-size:11px;color:var(--text2);margin-top:2px}
+.hw{padding:14px 16px 0}
+.hi{display:flex;align-items:center;gap:10px;background:#fff;border-radius:11px;padding:10px 13px;margin-bottom:8px;border:1px solid var(--border)}
+.hd{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.ht{flex:1;font-size:12px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.htm{font-size:11px;color:var(--text2);flex-shrink:0}
+.bn{display:flex;border-top:1px solid var(--border);padding:8px 0 max(20px,env(safe-area-inset-bottom));background:var(--bg);flex-shrink:0}
+.ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:6px 0;color:var(--text2);font-size:10px;font-weight:700;transition:color 0.2s;border:none;background:transparent}
+.ni i{font-size:22px}.ni.active{color:var(--blue)}
+.tb{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 10px;border-bottom:1px solid var(--border);background:var(--bg);flex-shrink:0}
+.tt{font-size:15px;font-weight:700;color:var(--text)}
+.ib{background:var(--bg2);border:none;cursor:pointer;color:var(--text2);font-size:20px;padding:7px;border-radius:10px;display:flex;align-items:center;transition:all 0.18s}
+.ib:hover{background:var(--bg3);color:var(--text)}
+.rh{padding:20px 18px 16px;text-align:center;flex-shrink:0}
+.rb2{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:50px;font-size:17px;font-weight:800;margin-bottom:12px}
+.rhi{background:#fef2f2;color:#dc2626;border:2px solid #fca5a5}
+.rhm{background:#fffbeb;color:#d97706;border:2px solid #fcd34d}
+.rhl{background:#f0fdf4;color:#16a34a;border:2px solid #86efac}
+.rhe{font-size:16px;font-weight:700;color:var(--text)}
+.rhp{font-size:12px;color:var(--text2);margin-top:4px}
+.rsc{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:0 16px 16px}
+.rsc::-webkit-scrollbar{display:none}
+.rc{background:#fff;border-radius:var(--r);padding:15px;margin-bottom:10px;border:1px solid var(--border)}
+.rct{font-size:10px;font-weight:800;color:var(--text2);margin-bottom:9px;text-transform:uppercase;letter-spacing:0.7px}
+.rcb{font-size:13px;color:var(--text);line-height:1.65}
+.sl{list-style:none;display:flex;flex-direction:column;gap:7px}
+.si{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--text)}
+.sd{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.sdr{background:#ef4444}.sdy{background:#f59e0b}.sdg{background:#22c55e}
+.sr2{display:flex;gap:8px;margin:4px 0 8px}
+.sb2{flex:1;padding:11px;border-radius:11px;font-size:12px;font-weight:700;border:1px solid var(--border);background:var(--bg2);color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;font-family:var(--font)}
+.sb2:hover{background:var(--bg3)}
+.lb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:60px 20px;flex:1;text-align:center}
+.sp{width:40px;height:40px;border:3px solid var(--border);border-top-color:#3b82f6;border-radius:50%;animation:spin 0.8s linear infinite}
+.lt{font-size:13px;color:var(--text2);line-height:1.6}
+.ls{padding:12px 16px 8px}
+.lsw{position:relative}
+.lsw i{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text2);font-size:16px}
+.lsw input{width:100%;padding:10px 13px 10px 38px;border:1.5px solid var(--border);border-radius:11px;font-size:13px;background:var(--bg2);color:var(--text);outline:none;font-family:var(--font)}
+.ll{flex:1;overflow-y:auto;padding:4px 14px 14px;-webkit-overflow-scrolling:touch}.ll::-webkit-scrollbar{display:none}
+.lc{background:#fff;border-radius:var(--r);padding:14px;margin-bottom:9px;border:1px solid var(--border);transition:all 0.18s;cursor:pointer}
+.lc:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,0.06)}
+.lt2{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.li{font-size:24px}
+.ln{font-size:14px;font-weight:700;color:var(--text);flex:1}
+.rp2{font-size:10px;font-weight:800;padding:3px 9px;border-radius:7px}
+.pr{background:#fef2f2;color:#dc2626}.py{background:#fffbeb;color:#d97706}
+.ld{font-size:12px;color:var(--text2);line-height:1.55}
 #elder{background:#fffbf0}
-.elder-hdr{background:linear-gradient(135deg,#d97706,#f59e0b);padding:28px 20px 22px;flex-shrink:0}
-.elder-hdr-title{font-family:var(--font-d);font-size:26px;font-weight:900;color:#fff}
-.elder-hdr-sub{color:#fef3c7;font-size:14px;margin-top:4px;font-weight:600}
-.elder-body{flex:1;padding:20px 16px;display:flex;flex-direction:column;gap:12px;overflow-y:auto}
-.elder-btn{padding:22px 18px;border-radius:16px;border:none;cursor:pointer;display:flex;align-items:center;gap:14px;transition:transform 0.12s;width:100%}
-.elder-btn:active{transform:scale(0.97)}
-.elder-btn-red{background:#fef2f2;border:2px solid #fca5a5}
-.elder-btn-amber{background:#fffbeb;border:2px solid #fcd34d}
-.elder-btn-blue{background:#eff6ff;border:2px solid #bfdbfe}
-.elder-btn-emergency{background:linear-gradient(135deg,#dc2626,#b91c1c);border:none;box-shadow:0 4px 16px rgba(220,38,38,0.3)}
-.elder-icon{font-size:32px}
-.elder-txt{display:flex;flex-direction:column;text-align:left}
-.elder-lbl{font-family:var(--font-d);font-size:18px;font-weight:800}
-.elder-hint{font-size:12px;opacity:0.7;margin-top:2px;font-weight:600}
-.elder-btn-red .elder-lbl,.elder-btn-red .elder-hint{color:#dc2626}
-.elder-btn-amber .elder-lbl,.elder-btn-amber .elder-hint{color:#b45309}
-.elder-btn-blue .elder-lbl,.elder-btn-blue .elder-hint{color:#1d4ed8}
-.elder-btn-emergency .elder-lbl,.elder-btn-emergency .elder-hint{color:#fff}
-.elder-tip{background:#fff;border-radius:14px;padding:14px 16px;border:1.5px solid #fde68a;font-size:13px;color:#92400e;line-height:1.7;font-weight:600}
-
-/* ALERTS */
-.tab-row{display:flex;border-bottom:1px solid var(--border);flex-shrink:0;background:var(--bg)}
-.tab-btn{flex:1;padding:11px;font-size:12px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--text2);border-bottom:2.5px solid transparent;margin-bottom:-1px;font-family:var(--font-d);transition:color 0.2s}
-.tab-btn.active{color:var(--blue);border-bottom-color:var(--blue)}
-.alert-list{flex:1;overflow-y:auto;padding:12px 14px;-webkit-overflow-scrolling:touch}
-.alert-list::-webkit-scrollbar{display:none}
-.alert-card{border-left:3.5px solid;border-radius:0 12px 12px 0;padding:12px 14px;margin-bottom:9px;background:#fff;border-top:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
-.alert-card.new-alert{border-left-color:#ef4444}
-.alert-card.warn-alert{border-left-color:#f59e0b}
-.alert-card.info-alert{border-left-color:#3b82f6}
-.alert-date{font-size:11px;color:var(--text2);margin-bottom:4px;display:flex;align-items:center;gap:7px;font-weight:600}
-.alert-title{font-family:var(--font-d);font-size:14px;font-weight:700;color:var(--text)}
-.alert-body{font-size:12px;color:var(--text2);margin-top:4px;line-height:1.55}
-.new-badge{font-size:10px;font-weight:800;background:#fef2f2;color:#dc2626;padding:2px 7px;border-radius:5px;font-family:var(--font-d)}
-
-/* PLANS */
-.plans-hdr{background:linear-gradient(135deg,#060e1f,#0d2040);padding:24px 20px;text-align:center;flex-shrink:0}
-.plans-hdr-title{font-family:var(--font-d);color:#fff;font-size:20px;font-weight:800}
-.plans-hdr-sub{color:#4a6a9a;font-size:12px;margin-top:4px}
-.plans-body{flex:1;padding:14px;overflow-y:auto;-webkit-overflow-scrolling:touch}
-.plans-body::-webkit-scrollbar{display:none}
-.plan-card{border:1.5px solid var(--border);border-radius:16px;padding:16px;margin-bottom:12px;background:#fff}
-.plan-card.featured{border:2px solid #3b82f6;box-shadow:0 4px 20px rgba(59,130,246,0.12)}
-.plan-badge{font-size:10px;font-weight:800;background:#dbeafe;color:var(--blue);padding:3px 9px;border-radius:7px;display:inline-block;margin-bottom:8px;font-family:var(--font-d)}
-.plan-name{font-family:var(--font-d);font-size:18px;font-weight:800;color:var(--text)}
-.plan-price{font-family:var(--font-d);font-size:28px;font-weight:900;color:var(--blue);margin-top:5px}
-.plan-price span{font-size:13px;font-weight:500;color:var(--text2)}
-.plan-features{margin-top:12px;display:flex;flex-direction:column;gap:7px}
-.pf{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text);font-weight:600}
-.pf i{font-size:16px}
-.pf.ok i{color:#16a34a}
-.pf.no i{color:#cbd5e1}
-.pf.no{color:var(--text2);font-weight:400}
-.disclaimer{padding:12px 14px 20px;font-size:11px;color:var(--text2);text-align:center;line-height:1.6}
-
-/* PROFILE */
+.eh2{background:linear-gradient(135deg,#d97706,#f59e0b);padding:28px 20px 22px;flex-shrink:0}
+.et2{font-family:var(--font);font-size:26px;font-weight:900;color:#fff}
+.es2{color:#fef3c7;font-size:14px;margin-top:4px;font-weight:600}
+.ebo{flex:1;padding:20px 16px;display:flex;flex-direction:column;gap:12px;overflow-y:auto}
+.ebt{padding:22px 18px;border-radius:16px;border:none;cursor:pointer;display:flex;align-items:center;gap:14px;transition:transform 0.12s;width:100%}
+.ebt:active{transform:scale(0.97)}
+.eem{background:linear-gradient(135deg,#dc2626,#b91c1c);border:none;box-shadow:0 4px 16px rgba(220,38,38,0.3)}
+.erd{background:#fef2f2;border:2px solid #fca5a5}
+.eam{background:#fffbeb;border:2px solid #fcd34d}
+.ebl{background:#eff6ff;border:2px solid #bfdbfe}
+.eic{font-size:32px}
+.etx{display:flex;flex-direction:column;text-align:left}
+.elb{font-size:18px;font-weight:800;font-family:var(--font)}
+.ehi{font-size:12px;opacity:0.7;margin-top:2px;font-weight:600}
+.eem .elb,.eem .ehi{color:#fff}
+.erd .elb,.erd .ehi{color:#dc2626}
+.eam .elb,.eam .ehi{color:#b45309}
+.ebl .elb,.ebl .ehi{color:#1d4ed8}
+.etp{background:#fff;border-radius:14px;padding:14px 16px;border:1.5px solid #fde68a;font-size:13px;color:#92400e;line-height:1.7;font-weight:600}
+.tr{display:flex;border-bottom:1px solid var(--border);flex-shrink:0;background:var(--bg)}
+.tbt{flex:1;padding:11px;font-size:12px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--text2);border-bottom:2.5px solid transparent;margin-bottom:-1px;font-family:var(--font);transition:color 0.2s}
+.tbt.active{color:var(--blue);border-bottom-color:var(--blue)}
+.ali{flex:1;overflow-y:auto;padding:12px 14px;-webkit-overflow-scrolling:touch}.ali::-webkit-scrollbar{display:none}
+.ac2{border-left:3.5px solid;border-radius:0 12px 12px 0;padding:12px 14px;margin-bottom:9px;background:#fff;border-top:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.ac2.an2{border-left-color:#ef4444}.ac2.aw2{border-left-color:#f59e0b}.ac2.ai2{border-left-color:#3b82f6}
+.ad{font-size:11px;color:var(--text2);margin-bottom:4px;display:flex;align-items:center;gap:7px;font-weight:600}
+.at2{font-size:14px;font-weight:700;color:var(--text)}
+.ab2{font-size:12px;color:var(--text2);margin-top:4px;line-height:1.55}
+.nb{font-size:10px;font-weight:800;background:#fef2f2;color:#dc2626;padding:2px 7px;border-radius:5px}
+.ph{background:linear-gradient(135deg,#060e1f,#0d2040);padding:24px 20px;text-align:center;flex-shrink:0}
+.pt{color:#fff;font-size:20px;font-weight:800}
+.ps2{color:#4a6a9a;font-size:12px;margin-top:4px}
+.plb{flex:1;padding:14px;overflow-y:auto;-webkit-overflow-scrolling:touch}.plb::-webkit-scrollbar{display:none}
+.plc{border:1.5px solid var(--border);border-radius:16px;padding:16px;margin-bottom:12px;background:#fff}
+.plc.ft{border:2px solid #3b82f6;box-shadow:0 4px 20px rgba(59,130,246,0.12)}
+.pb{font-size:10px;font-weight:800;background:#dbeafe;color:var(--blue);padding:3px 9px;border-radius:7px;display:inline-block;margin-bottom:8px}
+.pn{font-size:18px;font-weight:800;color:var(--text)}
+.pp{font-size:28px;font-weight:900;color:var(--blue);margin-top:5px}
+.pp span{font-size:13px;font-weight:500;color:var(--text2)}
+.pf{margin-top:12px;display:flex;flex-direction:column;gap:7px}
+.pfi{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text);font-weight:600}
+.pfi i{font-size:16px}
+.pfi.ok i{color:#16a34a}.pfi.no i{color:#cbd5e1}.pfi.no{color:var(--text2);font-weight:400}
+.dc{padding:12px 14px 20px;font-size:11px;color:var(--text2);text-align:center;line-height:1.6}
 #profile{background:var(--bg)}
-.profile-hdr{background:linear-gradient(135deg,#060e1f,#0d2040);padding:32px 20px 24px;flex-shrink:0}
-.profile-av{width:64px;height:64px;border-radius:50%;background:rgba(59,130,246,0.2);border:2px solid rgba(59,130,246,0.35);display:flex;align-items:center;justify-content:center;color:#60a5fa;font-size:24px;font-weight:800;margin-bottom:12px;font-family:var(--font-d)}
-.profile-name{font-family:var(--font-d);color:#fff;font-size:20px;font-weight:800}
-.profile-email{color:#4a6a9a;font-size:12px;margin-top:3px}
-.profile-chip{display:inline-flex;align-items:center;gap:5px;background:rgba(59,130,246,0.15);color:#60a5fa;font-size:11px;font-weight:700;padding:4px 10px;border-radius:8px;margin-top:8px;font-family:var(--font-d)}
-.profile-body{flex:1;overflow-y:auto;padding:14px;-webkit-overflow-scrolling:touch}
-.profile-body::-webkit-scrollbar{display:none}
-.ps{margin-bottom:18px}
-.ps-title{font-size:11px;font-weight:800;color:var(--text2);text-transform:uppercase;letter-spacing:0.6px;margin-bottom:9px;font-family:var(--font-d)}
-.pr{display:flex;align-items:center;gap:12px;padding:12px 14px;background:#fff;border-radius:12px;margin-bottom:7px;cursor:pointer;border:1px solid var(--border);transition:background 0.15s;text-decoration:none}
-.pr:hover{background:var(--bg2)}
-.pr i{font-size:19px;color:var(--text2)}
-.pr-label{flex:1;font-size:13px;color:var(--text);font-weight:600}
-.pr-value{font-size:12px;color:var(--text2)}
-.toggle-track{width:38px;height:22px;border-radius:11px;background:#d1d5db;position:relative;cursor:pointer;transition:background 0.22s;flex-shrink:0;border:none}
-.toggle-track.on{background:#2563eb}
-.toggle-thumb{position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;transition:left 0.22s;box-shadow:0 1px 4px rgba(0,0,0,0.2)}
-.toggle-track.on .toggle-thumb{left:18px}
-
-/* WHATSAPP MODAL */
-.wa-modal{position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:1000;display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
-.wa-modal.open{display:flex}
-.wa-sheet{background:var(--bg);border-radius:24px 24px 0 0;padding:24px 22px 36px;width:100%;max-width:390px;animation:fadeUp 0.3s}
-.wa-handle{width:36px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 20px}
-.wa-title{font-family:var(--font-d);font-size:18px;font-weight:800;color:var(--text);margin-bottom:6px}
-.wa-sub{font-size:13px;color:var(--text2);margin-bottom:16px;line-height:1.5}
-.wa-field{margin-bottom:14px}
-.wa-field label{font-size:11px;color:var(--text2);display:block;margin-bottom:5px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px}
-.wa-field input,.wa-field select{width:100%;padding:11px 13px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;background:var(--bg2);color:var(--text);outline:none;font-family:var(--font-b)}
-.wa-field input:focus,.wa-field select:focus{border-color:#25d366}
+.prh{background:linear-gradient(135deg,#060e1f,#0d2040);padding:32px 20px 24px;flex-shrink:0}
+.pra{width:64px;height:64px;border-radius:50%;background:rgba(59,130,246,0.2);border:2px solid rgba(59,130,246,0.35);display:flex;align-items:center;justify-content:center;color:#60a5fa;font-size:24px;font-weight:800;margin-bottom:12px}
+.prn{color:#fff;font-size:20px;font-weight:800}
+.pre{color:#4a6a9a;font-size:12px;margin-top:3px}
+.prc{display:inline-flex;align-items:center;gap:5px;background:rgba(59,130,246,0.15);color:#60a5fa;font-size:11px;font-weight:700;padding:4px 10px;border-radius:8px;margin-top:8px}
+.prb{flex:1;overflow-y:auto;padding:14px;-webkit-overflow-scrolling:touch}.prb::-webkit-scrollbar{display:none}
+.ps3{margin-bottom:18px}
+.pst{font-size:11px;font-weight:800;color:var(--text2);text-transform:uppercase;letter-spacing:0.6px;margin-bottom:9px}
+.pr2{display:flex;align-items:center;gap:12px;padding:12px 14px;background:#fff;border-radius:12px;margin-bottom:7px;cursor:pointer;border:1px solid var(--border);transition:background 0.15s}
+.pr2:hover{background:var(--bg2)}
+.pr2 i{font-size:19px;color:var(--text2)}
+.pr2l{flex:1;font-size:13px;color:var(--text);font-weight:600}
+.pr2v{font-size:12px;color:var(--text2)}
+.tg{width:38px;height:22px;border-radius:11px;background:#d1d5db;position:relative;cursor:pointer;transition:background 0.22s;flex-shrink:0;border:none}
+.tg.on{background:#2563eb}
+.tgt{position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;transition:left 0.22s;box-shadow:0 1px 4px rgba(0,0,0,0.2)}
+.tg.on .tgt{left:18px}
+.mo{position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:1000;display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
+.mo.open{display:flex}
+.ms{background:var(--bg);border-radius:24px 24px 0 0;padding:24px 22px max(36px,env(safe-area-inset-bottom));width:100%;max-width:390px;animation:fadeUp 0.3s}
+.mh{width:36px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 20px}
+.mt{font-size:20px;font-weight:800;color:var(--text);margin-bottom:6px}
+.msub{font-size:13px;color:var(--text2);margin-bottom:20px;line-height:1.5}
+.eo{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:14px;border:1.5px solid var(--border);background:#fff;margin-bottom:10px;cursor:pointer;transition:all 0.18s;text-decoration:none}
+.eo:hover{transform:translateY(-1px)}
+.eoi{font-size:28px;flex-shrink:0}
+.eot{display:flex;flex-direction:column}
+.eol{font-size:14px;font-weight:700;color:var(--text)}
+.eod{font-size:12px;color:var(--text2);margin-top:2px}
+.eo.red{border-color:#fca5a5;background:#fef2f2}
+.eo.green{border-color:#86efac;background:#f0fdf4}
+.eo.blue{border-color:#bfdbfe;background:#eff6ff}
+.eo.wa{border-color:#bbf7d0;background:#f0fdf4}
+.wf{margin-bottom:14px}
+.wf label{font-size:11px;color:var(--text2);display:block;margin-bottom:5px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px}
+.wf input,.wf select{width:100%;padding:11px 13px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;background:var(--bg2);color:var(--text);outline:none;font-family:var(--font)}
+.saved-info{display:none;background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:10px;margin-bottom:16px;font-size:13px;color:#15803d;font-weight:600}
 </style>
 </head>
 <body>
 <div class="app" id="app">
-
-  <!-- SPLASH -->
-  <div class="screen active" id="splash">
-    <div class="s-glow"><div class="s-shield">🛡️</div></div>
-    <div class="s-title">Não <span>Caia!</span></div>
-    <div class="s-sub">Proteção completa contra golpes digitais</div>
-    <div class="s-bar"><div class="s-fill"></div></div>
-    <div class="s-ver">v3.0 • BRASIL</div>
-  </div>
-
-  <!-- ONBOARDING -->
-  <div class="screen" id="onboarding">
-    <div class="ob" id="obContent">
-      <div id="ob0"><div class="ob-pill">🆕 Novo na v3</div><span class="ob-emoji">🎙️</span><div class="ob-h">Analise por voz, imagem ou texto</div><div class="ob-p">Grave um áudio, tire uma foto da mensagem suspeita ou cole o texto. Nossa IA detecta o risco em segundos.</div></div>
-      <div id="ob1" style="display:none"><div class="ob-pill">🚨 Emergência</div><span class="ob-emoji">🆘</span><div class="ob-h">Botão de emergência real</div><div class="ob-p">Com um toque você liga para familiar de confiança, aciona o PROCON ou abre o WhatsApp pedindo ajuda.</div></div>
-      <div id="ob2" style="display:none"><div class="ob-pill">👵 Especial</div><span class="ob-emoji">👵</span><div class="ob-h">Modo Idoso com emergência</div><div class="ob-p">Interface simplificada com botões gigantes e acesso direto ao socorro, pensada para quem precisa de mais proteção.</div></div>
-    </div>
-    <div class="dots"><div class="dot active" id="d0"></div><div class="dot" id="d1"></div><div class="dot" id="d2"></div></div>
-    <div class="bottom-pad">
-      <button class="btn btn-blue" id="obNext">Continuar →</button>
-      <button class="btn btn-ghost" id="obSkip">Pular introdução</button>
-    </div>
-  </div>
-
-  <!-- LOGIN -->
-  <div class="screen" id="login">
-    <div class="login-top"><div class="login-logo">🛡️ Não Caia!</div><div class="login-tag">Proteja você e quem você ama</div></div>
-    <div class="login-body">
-      <div class="field"><label>E-mail</label><input type="email" placeholder="seu@email.com"/></div>
-      <div class="field"><label>Senha</label><input type="password" placeholder="••••••••"/></div>
-    </div>
-    <div class="bottom-pad">
-      <button class="btn btn-blue" id="loginBtn">Entrar na minha conta</button>
-      <div class="divider"><span>ou</span></div>
-      <button class="btn btn-ghost" id="registerBtn">Criar conta gratuita</button>
-    </div>
-  </div>
-
-  <!-- HOME -->
-  <div class="screen" id="home">
-    <div class="home-hero">
-      <div class="hero-row">
-        <div>
-          <div class="hero-greet">Bem-vindo de volta,</div>
-          <div class="hero-name">João Silva</div>
-          <div class="plan-chip">🛡️ Plano Gratuito</div>
-        </div>
-        <div class="avatar" id="avatarBtn">JS</div>
-      </div>
-      <div class="hero-quota" id="quotaLabel">1 de 3 análises usadas hoje</div>
-      <div class="quota-bar"><div class="quota-fill" id="quotaFill" style="width:33%"></div></div>
-    </div>
-
-    <div class="scroll-area">
-      <!-- EMERGENCY -->
-      <div class="emergency-strip">
-        <button class="emergency-btn" id="emergencyBtn">
-          <span class="em-icon">🆘</span>
-          <div class="em-text">
-            <span class="em-label">Botão de Emergência</span>
-            <span class="em-hint">Toque para pedir ajuda imediata</span>
-          </div>
-          <div class="em-pulse"></div>
-        </button>
-      </div>
-
-      <!-- ANALYZE TABS -->
-      <div class="analyze-wrap">
-        <div class="analyze-tabs">
-          <button class="atab active" id="tab-text" onclick="switchAnalyzeTab('text')"><i class="ti ti-keyboard"></i>Texto</button>
-          <button class="atab" id="tab-image" onclick="switchAnalyzeTab('image')"><i class="ti ti-photo"></i>Imagem</button>
-          <button class="atab" id="tab-audio" onclick="switchAnalyzeTab('audio')"><i class="ti ti-microphone"></i>Áudio</button>
-        </div>
-
-        <!-- TEXT PANEL -->
-        <div class="analyze-panel active" id="panel-text">
-          <div class="analyze-box">
-            <div class="analyze-lbl">🔍 Isso é golpe?</div>
-            <textarea id="analysisInput" placeholder="Cole aqui a mensagem suspeita, link ou descreva a situação..."></textarea>
-            <div class="analyze-foot">
-              <span class="char-count" id="charCount">0 caracteres</span>
-              <button class="analyze-btn" id="analyzeTextBtn">Analisar →</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- IMAGE PANEL -->
-        <div class="analyze-panel" id="panel-image">
-          <div id="imgDropArea" class="img-drop">
-            <input type="file" id="imgInput" accept="image/*" capture="environment"/>
-            <div class="img-drop-icon">📷</div>
-            <div class="img-drop-text">Toque para tirar foto ou escolher imagem</div>
-            <div class="img-drop-sub">Screenshot de mensagem, e-mail, site ou qualquer conteúdo suspeito</div>
-          </div>
-          <div id="imgPreviewWrap" style="display:none">
-            <div class="img-preview">
-              <img id="imgPreview" src="" alt="Preview"/>
-              <button class="img-preview-remove" id="imgRemove">✕</button>
-            </div>
-            <button class="btn btn-blue" id="analyzeImgBtn">🔍 Analisar imagem com IA</button>
-          </div>
-        </div>
-
-        <!-- AUDIO PANEL -->
-        <div class="analyze-panel" id="panel-audio">
-          <div class="audio-center">
-            <button class="record-btn" id="recordBtn"><i class="ti ti-microphone" id="recordIcon"></i></button>
-            <div class="record-status" id="recordStatus">Toque para gravar</div>
-            <div class="record-time" id="recordTime"></div>
-            <div class="audio-wave" id="audioWave" style="display:none">
-              <div class="wave-bar" style="height:8px"></div>
-              <div class="wave-bar" style="height:20px"></div>
-              <div class="wave-bar" style="height:12px"></div>
-              <div class="wave-bar" style="height:28px"></div>
-              <div class="wave-bar" style="height:16px"></div>
-              <div class="wave-bar" style="height:24px"></div>
-              <div class="wave-bar" style="height:10px"></div>
-              <div class="wave-bar" style="height:18px"></div>
-            </div>
-            <div class="record-hint" id="recordHint">Descreva a situação suspeita com sua voz. Após gravar, a IA analisa automaticamente.</div>
-          </div>
-          <div id="audioAnalyzeWrap" style="display:none;padding-top:8px">
-            <button class="btn btn-blue" id="analyzeAudioBtn">🔍 Analisar áudio com IA</button>
-            <button class="btn btn-ghost" style="margin-top:8px" id="recordAgainBtn">Gravar novamente</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="section-title">Acesso rápido</div>
-      <div class="qa-grid">
-        <div class="qa-card" id="goLibrary"><span class="qa-icon">📚</span><div class="qa-label">Biblioteca</div><div class="qa-desc">Golpes comuns</div></div>
-        <div class="qa-card" id="goElder"><span class="qa-icon">👵</span><div class="qa-label">Modo Idoso</div><div class="qa-desc">Interface simples</div></div>
-        <div class="qa-card" id="goAlerts"><span class="qa-icon">🔔</span><div class="qa-label">Alertas</div><div class="qa-desc">3 novos hoje</div></div>
-        <div class="qa-card" id="goPlans"><span class="qa-icon">⭐</span><div class="qa-label">Premium</div><div class="qa-desc">Ilimitado</div></div>
-      </div>
-
-      <div class="hist-wrap">
-        <div class="section-title" style="margin:14px 0 10px">Análises recentes</div>
-        <div id="histItems">
-          <div class="hist-item"><div class="hist-dot" style="background:#ef4444"></div><div class="hist-text">📷 Imagem: print de mensagem suspeita</div><div class="hist-time">11h</div></div>
-          <div class="hist-item"><div class="hist-dot" style="background:#22c55e"></div><div class="hist-text">💬 "Seu pedido foi enviado, rastreie aqui"</div><div class="hist-time">ontem</div></div>
-        </div>
-      </div>
-      <div style="height:20px"></div>
-    </div>
-
-    <div class="bottom-nav">
-      <button class="nav-item active" id="nav-home" onclick="showNav('home')"><i class="ti ti-home"></i>Início</button>
-      <button class="nav-item" id="nav-library" onclick="showNav('library')"><i class="ti ti-book"></i>Golpes</button>
-      <button class="nav-item" id="nav-alerts" onclick="showNav('alerts')"><i class="ti ti-bell"></i>Alertas</button>
-      <button class="nav-item" id="nav-plans" onclick="showNav('plans')"><i class="ti ti-star"></i>Premium</button>
-    </div>
-  </div>
-
-  <!-- RESULT -->
-  <div class="screen" id="result">
-    <div class="top-bar">
-      <button class="icon-btn" id="backResult"><i class="ti ti-arrow-left"></i></button>
-      <span class="top-bar-title">Resultado da análise</span>
-      <button class="icon-btn" id="shareResult"><i class="ti ti-share"></i></button>
-    </div>
-    <div id="resultContent" style="flex:1;overflow-y:auto;display:flex;flex-direction:column;-webkit-overflow-scrolling:touch;"></div>
-  </div>
-
-  <!-- LIBRARY -->
-  <div class="screen" id="library">
-    <div class="top-bar">
-      <button class="icon-btn" id="backLib"><i class="ti ti-arrow-left"></i></button>
-      <span class="top-bar-title">Biblioteca de golpes</span>
-      <div style="width:36px"></div>
-    </div>
-    <div class="lib-search"><div class="lib-sw"><i class="ti ti-search"></i><input type="text" placeholder="Buscar tipo de golpe..." id="libSearch"/></div></div>
-    <div class="lib-list" id="libList">
-      <div class="lib-card"><div class="lib-top"><span class="lib-icon">💸</span><div class="lib-name">Golpe do PIX falso</div><span class="risk-pill pill-red">ALTO</span></div><div class="lib-desc">Mensagens se passando por banco ou familiar pedindo PIX urgente.</div></div>
-      <div class="lib-card"><div class="lib-top"><span class="lib-icon">📱</span><div class="lib-name">WhatsApp clonado</div><span class="risk-pill pill-red">ALTO</span></div><div class="lib-desc">Criminoso clona o número e pede dinheiro para os contatos da vítima.</div></div>
-      <div class="lib-card"><div class="lib-top"><span class="lib-icon">☎️</span><div class="lib-name">Falso suporte técnico</div><span class="risk-pill pill-red">ALTO</span></div><div class="lib-desc">Ligação pedindo senhas ou acesso remoto ao celular.</div></div>
-      <div class="lib-card"><div class="lib-top"><span class="lib-icon">💼</span><div class="lib-name">Emprego falso</div><span class="risk-pill pill-yellow">MÉDIO</span></div><div class="lib-desc">Ofertas com salário alto que exigem pagamento de "taxa" antecipada.</div></div>
-      <div class="lib-card"><div class="lib-top"><span class="lib-icon">🔗</span><div class="lib-name">Phishing — links falsos</div><span class="risk-pill pill-red">ALTO</span></div><div class="lib-desc">Links imitando bancos, Correios ou Receita Federal para roubar dados.</div></div>
-      <div class="lib-card"><div class="lib-top"><span class="lib-icon">💔</span><div class="lib-name">Romance scam</div><span class="risk-pill pill-yellow">MÉDIO</span></div><div class="lib-desc">Perfil falso conquista confiança e pede dinheiro para emergências.</div></div>
-      <div class="lib-card"><div class="lib-top"><span class="lib-icon">🛵</span><div class="lib-name">Golpe do Motoboy</div><span class="risk-pill pill-red">ALTO</span></div><div class="lib-desc">"Banco" pede para entregar cartão a um motoboy para "bloqueio".</div></div>
-      <div class="lib-card"><div class="lib-top"><span class="lib-icon">📦</span><div class="lib-name">Falso Correios</div><span class="risk-pill pill-yellow">MÉDIO</span></div><div class="lib-desc">SMS de encomenda retida exigindo pagamento via link suspeito.</div></div>
-    </div>
-  </div>
-
-  <!-- ELDER -->
-  <div class="screen" id="elder">
-    <div class="elder-hdr">
-      <div class="elder-hdr-title">🛡️ Modo Proteção</div>
-      <div class="elder-hdr-sub">Simples e seguro para você</div>
-    </div>
-    <div class="elder-body">
-      <button class="elder-btn elder-btn-emergency" id="elderEmergency">
-        <span class="elder-icon">🆘</span>
-        <div class="elder-txt"><span class="elder-lbl">EMERGÊNCIA</span><span class="elder-hint">Toque para pedir socorro agora</span></div>
-      </button>
-      <button class="elder-btn elder-btn-red" id="elderCheck">
-        <span class="elder-icon">🔍</span>
-        <div class="elder-txt"><span class="elder-lbl">Verificar mensagem</span><span class="elder-hint">Toque para analisar algo suspeito</span></div>
-      </button>
-      <button class="elder-btn elder-btn-amber" onclick="showNav('alerts')">
-        <span class="elder-icon">⚠️</span>
-        <div class="elder-txt"><span class="elder-lbl">Avisos de golpes</span><span class="elder-hint">Veja os golpes mais recentes</span></div>
-      </button>
-      <button class="elder-btn elder-btn-blue" id="elderWA">
-        <span class="elder-icon">💬</span>
-        <div class="elder-txt"><span class="elder-lbl">WhatsApp familiar</span><span class="elder-hint">Perguntar se está tudo bem</span></div>
-      </button>
-      <div class="elder-tip">💡 <strong>Dica de ouro:</strong> Nenhum banco pede senha por telefone. Nenhum familiar pede PIX com urgência. Em dúvida, <strong>não pague nada</strong>.</div>
-      <button class="btn btn-ghost" onclick="showNav('home')">Voltar à tela principal</button>
-    </div>
-  </div>
-
-  <!-- ALERTS -->
-  <div class="screen" id="alerts">
-    <div class="top-bar">
-      <button class="icon-btn" id="backAlerts"><i class="ti ti-arrow-left"></i></button>
-      <span class="top-bar-title">Alertas</span>
-      <div style="width:36px"></div>
-    </div>
-    <div class="tab-row">
-      <button class="tab-btn active" onclick="switchTab(this)">Hoje</button>
-      <button class="tab-btn" onclick="switchTab(this)">Esta semana</button>
-      <button class="tab-btn" onclick="switchTab(this)">Histórico</button>
-    </div>
-    <div class="alert-list">
-      <div class="alert-card new-alert"><div class="alert-date">Hoje, 09:14 <span class="new-badge">NOVO</span></div><div class="alert-title">Golpe do sorteio Nubank circulando</div><div class="alert-body">Mensagens prometem R$500 de cashback via link. Não clique nem preencha dados.</div></div>
-      <div class="alert-card new-alert"><div class="alert-date">Hoje, 07:30 <span class="new-badge">NOVO</span></div><div class="alert-title">SMS falso dos Correios</div><div class="alert-body">Encomenda retida exigindo taxa. Correios nunca cobram por SMS.</div></div>
-      <div class="alert-card new-alert"><div class="alert-date">Hoje, 06:15 <span class="new-badge">NOVO</span></div><div class="alert-title">Falso assistente do FGTS</div><div class="alert-body">Links prometem saque fora do calendário. Verifique só pelo app Caixa Tem.</div></div>
-      <div class="alert-card warn-alert"><div class="alert-date">Ontem, 16:22</div><div class="alert-title">Falsa central do Bradesco</div><div class="alert-body">Ligações pedindo dados do cartão. Nenhum banco pede senha por ligação.</div></div>
-      <div class="alert-card info-alert"><div class="alert-date">3 dias atrás</div><div class="alert-title">Alta de golpes em idosos detectada</div><div class="alert-body">+40% em tentativas por ligação em SP e RJ. Alerte seus familiares.</div></div>
-    </div>
-  </div>
-
-  <!-- PLANS -->
-  <div class="screen" id="plans">
-    <div class="top-bar">
-      <button class="icon-btn" id="backPlans"><i class="ti ti-arrow-left"></i></button>
-      <span class="top-bar-title">Planos</span>
-      <div style="width:36px"></div>
-    </div>
-    <div class="plans-hdr"><div class="plans-hdr-title">Proteção completa para sua família</div><div class="plans-hdr-sub">Cancele quando quiser</div></div>
-    <div class="plans-body">
-      <div class="plan-card">
-        <div class="plan-name">Gratuito</div>
-        <div class="plan-price">R$0<span>/mês</span></div>
-        <div class="plan-features">
-          <div class="pf ok"><i class="ti ti-check"></i>3 análises por dia</div>
-          <div class="pf ok"><i class="ti ti-check"></i>Texto, imagem e áudio</div>
-          <div class="pf ok"><i class="ti ti-check"></i>Botão de emergência</div>
-          <div class="pf no"><i class="ti ti-x"></i>Alertas em tempo real</div>
-          <div class="pf no"><i class="ti ti-x"></i>Histórico completo</div>
-          <div class="pf no"><i class="ti ti-x"></i>WhatsApp automático</div>
-        </div>
-      </div>
-      <div class="plan-card featured">
-        <div class="plan-badge">⭐ MAIS POPULAR</div>
-        <div class="plan-name">Premium</div>
-        <div class="plan-price">R$14,90<span>/mês</span></div>
-        <div class="plan-features">
-          <div class="pf ok"><i class="ti ti-check"></i>Análises ilimitadas</div>
-          <div class="pf ok"><i class="ti ti-check"></i>Alertas em tempo real</div>
-          <div class="pf ok"><i class="ti ti-check"></i>Modo Idoso completo</div>
-          <div class="pf ok"><i class="ti ti-check"></i>WhatsApp automático</div>
-          <div class="pf ok"><i class="ti ti-check"></i>Histórico de consultas</div>
-          <div class="pf ok"><i class="ti ti-check"></i>Suporte prioritário</div>
-        </div>
-        <button class="btn btn-blue" style="margin-top:14px" onclick="alert('Em breve: integração com pagamento!')">Assinar Premium</button>
-      </div>
-      <div class="plan-card">
-        <div class="plan-name">Família</div>
-        <div class="plan-price">R$24,90<span>/mês</span></div>
-        <div class="plan-features">
-          <div class="pf ok"><i class="ti ti-check"></i>Tudo do Premium</div>
-          <div class="pf ok"><i class="ti ti-check"></i>Até 5 membros</div>
-          <div class="pf ok"><i class="ti ti-check"></i>Painel familiar</div>
-          <div class="pf ok"><i class="ti ti-check"></i>Alertas em grupo</div>
-        </div>
-        <button class="btn btn-teal" style="margin-top:14px" onclick="alert('Em breve: integração com pagamento!')">Assinar Família</button>
-      </div>
-      <div class="disclaimer">⚠️ O Não Caia! auxilia na identificação de golpes, mas não garante proteção total. Confirme sempre com fontes oficiais.</div>
-    </div>
-  </div>
-
-  <!-- PROFILE -->
-  <div class="screen" id="profile">
-    <div class="top-bar">
-      <button class="icon-btn" id="backProfile"><i class="ti ti-arrow-left"></i></button>
-      <span class="top-bar-title">Meu perfil</span>
-      <div style="width:36px"></div>
-    </div>
-    <div class="profile-hdr">
-      <div class="profile-av">JS</div>
-      <div class="profile-name">João Silva</div>
-      <div class="profile-email">joao.silva@email.com</div>
-      <div class="profile-chip">🛡️ Plano Gratuito</div>
-    </div>
-    <div class="profile-body">
-      <div class="ps"><div class="ps-title">Minha conta</div>
-        <div class="pr" onclick="showNav('plans')"><i class="ti ti-star"></i><span class="pr-label">Assinar Premium</span><i class="ti ti-chevron-right"></i></div>
-        <div class="pr"><i class="ti ti-history"></i><span class="pr-label">Histórico</span><span class="pr-value">2 análises</span><i class="ti ti-chevron-right"></i></div>
-        <div class="pr" onclick="showScreen('elder')"><i class="ti ti-accessible"></i><span class="pr-label">Modo Idoso</span><i class="ti ti-chevron-right"></i></div>
-      </div>
-      <div class="ps"><div class="ps-title">Emergência</div>
-        <div class="pr" id="configEmergency"><i class="ti ti-phone"></i><span class="pr-label">Contato de emergência</span><span class="pr-value">Não configurado</span><i class="ti ti-chevron-right"></i></div>
-      </div>
-      <div class="ps"><div class="ps-title">Notificações</div>
-        <div class="pr"><i class="ti ti-bell"></i><span class="pr-label">Alertas de golpes</span><button class="toggle-track on" onclick="this.classList.toggle('on')"><div class="toggle-thumb"></div></button></div>
-        <div class="pr"><i class="ti ti-mail"></i><span class="pr-label">E-mail semanal</span><button class="toggle-track" onclick="this.classList.toggle('on')"><div class="toggle-thumb"></div></button></div>
-      </div>
-      <div class="ps"><div class="ps-title">Sobre</div>
-        <div class="pr"><i class="ti ti-file-text"></i><span class="pr-label">Termos de Uso</span><i class="ti ti-chevron-right"></i></div>
-        <div class="pr"><i class="ti ti-lock"></i><span class="pr-label">Política de Privacidade</span><i class="ti ti-chevron-right"></i></div>
-        <div class="pr"><i class="ti ti-headset"></i><span class="pr-label">Suporte</span><i class="ti ti-chevron-right"></i></div>
-      </div>
-      <button class="btn btn-ghost" onclick="showScreen('login')" style="margin-bottom:20px">Sair da conta</button>
-    </div>
-  </div>
-
+<div class="screen active" id="splash">
+  <div class="sg">🛡️</div>
+  <div class="st">Não <span>Caia!</span></div>
+  <div class="ss">Proteção completa contra golpes digitais</div>
+  <div class="sb"><div class="sf"></div></div>
 </div>
-
-<!-- EMERGENCY MODAL -->
-<div class="modal-overlay" id="emergencyModal">
-  <div class="modal-sheet">
-    <div class="modal-handle"></div>
-    <div class="modal-title">🆘 Preciso de ajuda agora</div>
-    <div class="modal-sub">Escolha como quer ser ajudado. Estamos aqui para te proteger.</div>
-    <a class="em-option red" href="tel:151" id="proconLink">
-      <span class="em-opt-icon">📞</span>
-      <div class="em-opt-text"><div class="em-opt-label">Ligar para o PROCON</div><div class="em-opt-desc">Fone: 151 — gratuito, funciona 24h</div></div>
-    </a>
-    <a class="em-option green" href="tel:197" id="pcLink">
-      <span class="em-opt-icon">🚔</span>
-      <div class="em-opt-text"><div class="em-opt-label">Delegacia de Crimes Digitais</div><div class="em-opt-desc">Fone: 197 — Polícia Civil</div></div>
-    </a>
-    <a class="em-option whatsapp" id="waEmergencyLink" href="#" onclick="openWAEmergency(event)">
-      <span class="em-opt-icon">💬</span>
-      <div class="em-opt-text"><div class="em-opt-label">WhatsApp — familiar de confiança</div><div class="em-opt-desc">Enviar mensagem de socorro agora</div></div>
-    </a>
-    <a class="em-option blue" href="tel:0800-722-8007">
-      <span class="em-opt-icon">🏦</span>
-      <div class="em-opt-text"><div class="em-opt-label">Central de Fraudes Bancárias</div><div class="em-opt-desc">Banco Central: 0800-722-8007</div></div>
-    </a>
-    <button class="btn btn-ghost" style="margin-top:10px" onclick="closeModal('emergencyModal')">Fechar</button>
+<div class="screen" id="onboarding">
+  <div class="ob" id="obc">
+    <div id="ob0"><div class="op">🆕 Novidade</div><span class="oe">🎙️</span><div class="oh">Analise por voz, imagem ou texto</div><div class="op2">Grave um áudio, tire uma foto suspeita ou cole o texto. Nossa IA detecta golpes em segundos.</div></div>
+    <div id="ob1" style="display:none"><div class="op">🚨 Emergência</div><span class="oe">🆘</span><div class="oh">Botão de emergência real</div><div class="op2">Com um toque você liga para o PROCON, Polícia Civil ou abre o WhatsApp pedindo socorro.</div></div>
+    <div id="ob2" style="display:none"><div class="op">👵 Especial</div><span class="oe">👵</span><div class="oh">Modo Idoso com proteção total</div><div class="op2">Interface com botões grandes e acesso direto ao socorro, para quem precisa de mais proteção.</div></div>
+  </div>
+  <div class="dots"><div class="dot active" id="d0"></div><div class="dot" id="d1"></div><div class="dot" id="d2"></div></div>
+  <div class="bp"><button class="btn bb" id="obn">Continuar →</button><button class="btn bg" id="obs">Pular</button></div>
+</div>
+<div class="screen" id="home">
+  <div class="hh">
+    <div class="hr">
+      <div><div class="hg">Proteção ativa</div><div class="hn">Bem-vindo! 🛡️</div><div class="pc">Plano Gratuito</div></div>
+      <div class="av" id="avt">NC</div>
+    </div>
+    <div class="hq" id="ql">1 de 3 análises usadas hoje</div>
+    <div class="qb"><div class="qf" id="qf" style="width:33%"></div></div>
+  </div>
+  <div class="sa">
+    <div class="es"><button class="eb" id="emb"><span class="ei">🆘</span><div class="et"><span class="el">Botão de Emergência</span><span class="eh">Toque para pedir ajuda imediata</span></div><div class="ep"></div></button></div>
+    <div class="aw">
+      <div class="at">
+        <button class="atab active" id="tt" onclick="stab('text')"><i class="ti ti-keyboard"></i>Texto</button>
+        <button class="atab" id="ti" onclick="stab('image')"><i class="ti ti-photo"></i>Imagem</button>
+        <button class="atab" id="ta" onclick="stab('audio')"><i class="ti ti-microphone"></i>Áudio</button>
+      </div>
+      <div class="ap active" id="pt">
+        <div class="ab"><div class="al">🔍 Isso é golpe?</div><textarea id="ai" placeholder="Cole aqui a mensagem suspeita, link ou descreva a situação..."></textarea><div class="af"><span class="cc" id="cc">0 caracteres</span><button class="an" id="atb">Analisar →</button></div></div>
+      </div>
+      <div class="ap" id="pi">
+        <div id="idd" class="id"><input type="file" id="ii" accept="image/*" capture="environment"/><div class="ii">📷</div><div class="it">Toque para tirar foto ou escolher imagem</div><div class="is">Screenshot de mensagem ou site suspeito</div></div>
+        <div id="ipw" style="display:none"><div class="ip"><img id="ip2" src="" alt=""/><button class="ir" id="irm">✕</button></div><button class="btn bb" id="aib">🔍 Analisar imagem com IA</button></div>
+      </div>
+      <div class="ap" id="pa">
+        <div class="ac">
+          <button class="rb" id="rcb"><i class="ti ti-microphone" id="rci"></i></button>
+          <div class="rs" id="rcs">Toque para gravar</div>
+          <div class="rt" id="rct"></div>
+          <div class="wv" id="wv" style="display:none"><div class="wvb" style="height:8px"></div><div class="wvb" style="height:20px"></div><div class="wvb" style="height:12px"></div><div class="wvb" style="height:28px"></div><div class="wvb" style="height:16px"></div><div class="wvb" style="height:24px"></div><div class="wvb" style="height:10px"></div><div class="wvb" style="height:18px"></div></div>
+          <div class="rh2" id="rhh">Descreva a situação suspeita com sua voz.</div>
+        </div>
+        <div id="aaw" style="display:none;padding-top:8px"><button class="btn bb" id="aab">🔍 Analisar áudio com IA</button><button class="btn bg" style="margin-top:8px" id="rab">Gravar novamente</button></div>
+      </div>
+    </div>
+    <div class="st2">Acesso rápido</div>
+    <div class="qg">
+      <div class="qc" id="gl"><span class="qi">📚</span><div class="ql2">Biblioteca</div><div class="qd">Golpes comuns</div></div>
+      <div class="qc" id="ge"><span class="qi">👵</span><div class="ql2">Modo Idoso</div><div class="qd">Interface simples</div></div>
+      <div class="qc" id="ga"><span class="qi">🔔</span><div class="ql2">Alertas</div><div class="qd">3 novos hoje</div></div>
+      <div class="qc" id="gp"><span class="qi">⭐</span><div class="ql2">Premium</div><div class="qd">Ilimitado</div></div>
+    </div>
+    <div class="hw"><div class="st2" style="margin:14px 0 10px">Análises recentes</div>
+      <div id="hi"><div class="hi"><div class="hd" style="background:#ef4444"></div><div class="ht">📷 Print de mensagem suspeita</div><div class="htm">11h</div></div><div class="hi"><div class="hd" style="background:#22c55e"></div><div class="ht">💬 "Seu pedido foi enviado"</div><div class="htm">ontem</div></div></div>
+    </div>
+    <div style="height:20px"></div>
+  </div>
+  <div class="bn">
+    <button class="ni active" id="nh" onclick="sn('home')"><i class="ti ti-home"></i>Início</button>
+    <button class="ni" id="nl" onclick="sn('library')"><i class="ti ti-book"></i>Golpes</button>
+    <button class="ni" id="na" onclick="sn('alerts')"><i class="ti ti-bell"></i>Alertas</button>
+    <button class="ni" id="np" onclick="sn('plans')"><i class="ti ti-star"></i>Premium</button>
   </div>
 </div>
-
-<!-- WHATSAPP MODAL -->
-<div class="wa-modal" id="waModal">
-  <div class="wa-sheet">
-    <div class="wa-handle"></div>
-    <div class="wa-title">💬 WhatsApp para familiar</div>
-    <div class="wa-sub">Configure o número de um familiar de confiança para receber verificações de segurança.</div>
-    <div class="wa-field"><label>Nome do familiar</label><input type="text" id="waName" placeholder="Ex: Minha filha Ana"/></div>
-    <div class="wa-field"><label>Número WhatsApp (com DDD)</label><input type="tel" id="waNumber" placeholder="Ex: 83999998888"/></div>
-    <div class="wa-field"><label>Mensagem padrão</label><select id="waMessage">
-      <option value="Oi! Tudo bem com você? Estou usando o app Não Caia! para checar se está tudo seguro. 🛡️">Verificação de segurança</option>
-      <option value="Recebi uma mensagem estranha e não sei se é golpe. Pode me ajudar?">Pedir ajuda sobre mensagem</option>
-      <option value="Alguém pediu um PIX pra mim. É você? Por favor confirme antes de eu enviar qualquer coisa.">Confirmar pedido de PIX</option>
-      <option value="🚨 ATENÇÃO: Acho que estou sofrendo um golpe agora. Me ligue urgente!">Emergência — ligue urgente</option>
-    </select></div>
-    <button class="btn btn-blue" style="background:#25d366;box-shadow:0 4px 14px rgba(37,211,102,0.3)" onclick="sendWA()">💬 Abrir WhatsApp agora</button>
-    <button class="btn btn-ghost" style="margin-top:10px" onclick="closeModal('waModal')">Cancelar</button>
+<div class="screen" id="result">
+  <div class="tb"><button class="ib" id="br"><i class="ti ti-arrow-left"></i></button><span class="tt">Resultado</span><button class="ib" id="sr2"><i class="ti ti-share"></i></button></div>
+  <div id="rc" style="flex:1;overflow-y:auto;display:flex;flex-direction:column;-webkit-overflow-scrolling:touch;"></div>
+</div>
+<div class="screen" id="library">
+  <div class="tb"><button class="ib" id="blib"><i class="ti ti-arrow-left"></i></button><span class="tt">Biblioteca de golpes</span><div style="width:36px"></div></div>
+  <div class="ls"><div class="lsw"><i class="ti ti-search"></i><input type="text" placeholder="Buscar..." id="lsi"/></div></div>
+  <div class="ll" id="ll">
+    <div class="lc"><div class="lt2"><span class="li">💸</span><div class="ln">Golpe do PIX falso</div><span class="rp2 pr">ALTO</span></div><div class="ld">Mensagens pedindo PIX urgente, fingindo ser banco ou familiar.</div></div>
+    <div class="lc"><div class="lt2"><span class="li">📱</span><div class="ln">WhatsApp clonado</div><span class="rp2 pr">ALTO</span></div><div class="ld">Criminoso clona número e pede dinheiro para os contatos da vítima.</div></div>
+    <div class="lc"><div class="lt2"><span class="li">☎️</span><div class="ln">Falso suporte técnico</div><span class="rp2 pr">ALTO</span></div><div class="ld">Ligação pedindo senhas ou acesso remoto ao celular.</div></div>
+    <div class="lc"><div class="lt2"><span class="li">💼</span><div class="ln">Emprego falso</div><span class="rp2 py">MÉDIO</span></div><div class="ld">Ofertas com salário alto exigindo pagamento de "taxa" antecipada.</div></div>
+    <div class="lc"><div class="lt2"><span class="li">🔗</span><div class="ln">Phishing — links falsos</div><span class="rp2 pr">ALTO</span></div><div class="ld">Links imitando bancos, Correios ou Receita Federal para roubar dados.</div></div>
+    <div class="lc"><div class="lt2"><span class="li">💔</span><div class="ln">Romance scam</div><span class="rp2 py">MÉDIO</span></div><div class="ld">Perfil falso conquista confiança e pede dinheiro para emergências.</div></div>
+    <div class="lc"><div class="lt2"><span class="li">🛵</span><div class="ln">Golpe do Motoboy</div><span class="rp2 pr">ALTO</span></div><div class="ld">"Banco" pede para entregar cartão a motoboy para "bloqueio".</div></div>
+    <div class="lc"><div class="lt2"><span class="li">📦</span><div class="ln">Falso Correios / FGTS</div><span class="rp2 py">MÉDIO</span></div><div class="ld">SMS de encomenda retida ou saque FGTS exigindo pagamento via link.</div></div>
   </div>
 </div>
-
+<div class="screen" id="elder">
+  <div class="eh2"><div class="et2">🛡️ Modo Proteção</div><div class="es2">Simples e seguro para você</div></div>
+  <div class="ebo">
+    <button class="ebt eem" id="ee"><span class="eic">🆘</span><div class="etx"><span class="elb">EMERGÊNCIA</span><span class="ehi">Toque para pedir socorro agora</span></div></button>
+    <button class="ebt erd" id="ec"><span class="eic">🔍</span><div class="etx"><span class="elb">Verificar mensagem</span><span class="ehi">Toque para analisar algo suspeito</span></div></button>
+    <button class="ebt eam" onclick="sn('alerts')"><span class="eic">⚠️</span><div class="etx"><span class="elb">Avisos de golpes</span><span class="ehi">Veja os mais recentes</span></div></button>
+    <button class="ebt ebl" id="ew"><span class="eic">💬</span><div class="etx"><span class="elb">WhatsApp familiar</span><span class="ehi">Enviar mensagem de segurança</span></div></button>
+    <div class="etp">💡 <strong>Dica de ouro:</strong> Nenhum banco pede senha por telefone. Nenhum familiar pede PIX com urgência. Em dúvida, <strong>não pague nada</strong>.</div>
+    <button class="btn bg" onclick="sn('home')">Voltar</button>
+  </div>
+</div>
+<div class="screen" id="alerts">
+  <div class="tb"><button class="ib" id="bal"><i class="ti ti-arrow-left"></i></button><span class="tt">Alertas</span><div style="width:36px"></div></div>
+  <div class="tr"><button class="tbt active" onclick="sat(this)">Hoje</button><button class="tbt" onclick="sat(this)">Esta semana</button><button class="tbt" onclick="sat(this)">Histórico</button></div>
+  <div class="ali">
+    <div class="ac2 an2"><div class="ad">Hoje, 09:14 <span class="nb">NOVO</span></div><div class="at2">Golpe do sorteio Nubank circulando</div><div class="ab2">Mensagens prometem R$500 via link. Não clique nem preencha dados.</div></div>
+    <div class="ac2 an2"><div class="ad">Hoje, 07:30 <span class="nb">NOVO</span></div><div class="at2">SMS falso dos Correios</div><div class="ab2">Encomenda retida exigindo taxa. Correios nunca cobram por SMS.</div></div>
+    <div class="ac2 an2"><div class="ad">Hoje, 06:15 <span class="nb">NOVO</span></div><div class="at2">Falso assistente do FGTS</div><div class="ab2">Links prometem saque fora do calendário. Use só o app Caixa Tem.</div></div>
+    <div class="ac2 aw2"><div class="ad">Ontem, 16:22</div><div class="at2">Falsa central do Bradesco</div><div class="ab2">Ligações pedindo dados do cartão. Nenhum banco pede senha.</div></div>
+    <div class="ac2 ai2"><div class="ad">3 dias atrás</div><div class="at2">Alta de golpes em idosos detectada</div><div class="ab2">+40% em tentativas por ligação em SP e RJ. Alerte familiares.</div></div>
+  </div>
+</div>
+<div class="screen" id="plans">
+  <div class="tb"><button class="ib" id="bpl"><i class="ti ti-arrow-left"></i></button><span class="tt">Planos</span><div style="width:36px"></div></div>
+  <div class="ph"><div class="pt">Proteção para sua família</div><div class="ps2">Cancele quando quiser</div></div>
+  <div class="plb">
+    <div class="plc"><div class="pn">Gratuito</div><div class="pp">R$0<span>/mês</span></div><div class="pf"><div class="pfi ok"><i class="ti ti-check"></i>3 análises/dia</div><div class="pfi ok"><i class="ti ti-check"></i>Texto, imagem, áudio</div><div class="pfi ok"><i class="ti ti-check"></i>Botão emergência</div><div class="pfi no"><i class="ti ti-x"></i>Alertas em tempo real</div><div class="pfi no"><i class="ti ti-x"></i>WhatsApp automático</div></div></div>
+    <div class="plc ft"><div class="pb">⭐ MAIS POPULAR</div><div class="pn">Premium</div><div class="pp">R$14,90<span>/mês</span></div><div class="pf"><div class="pfi ok"><i class="ti ti-check"></i>Análises ilimitadas</div><div class="pfi ok"><i class="ti ti-check"></i>Alertas em tempo real</div><div class="pfi ok"><i class="ti ti-check"></i>Modo Idoso completo</div><div class="pfi ok"><i class="ti ti-check"></i>WhatsApp automático</div><div class="pfi ok"><i class="ti ti-check"></i>Suporte prioritário</div></div><button class="btn bb" style="margin-top:14px" onclick="alert('Em breve!')">Assinar Premium</button></div>
+    <div class="plc"><div class="pn">Família</div><div class="pp">R$24,90<span>/mês</span></div><div class="pf"><div class="pfi ok"><i class="ti ti-check"></i>Tudo do Premium</div><div class="pfi ok"><i class="ti ti-check"></i>Até 5 membros</div><div class="pfi ok"><i class="ti ti-check"></i>Painel familiar</div></div><button class="btn bt" style="margin-top:14px" onclick="alert('Em breve!')">Assinar Família</button></div>
+    <div class="dc">⚠️ O Não Caia! auxilia na identificação de golpes, mas não garante proteção total.</div>
+  </div>
+</div>
+<div class="screen" id="profile">
+  <div class="tb"><button class="ib" id="bpr"><i class="ti ti-arrow-left"></i></button><span class="tt">Perfil</span><div style="width:36px"></div></div>
+  <div class="prh"><div class="pra">🛡️</div><div class="prn">Usuário</div><div class="prc">Plano Gratuito</div></div>
+  <div class="prb">
+    <div class="ps3"><div class="pst">Conta</div>
+      <div class="pr2" onclick="sn('plans')"><i class="ti ti-star"></i><span class="pr2l">Assinar Premium</span><i class="ti ti-chevron-right"></i></div>
+      <div class="pr2" onclick="ss('elder')"><i class="ti ti-accessible"></i><span class="pr2l">Modo Idoso</span><i class="ti ti-chevron-right"></i></div>
+    </div>
+    <div class="ps3"><div class="pst">Emergência</div>
+      <div class="pr2" id="ce"><i class="ti ti-phone"></i><span class="pr2l">Contato de emergência</span><span class="pr2v" id="ecl">Não configurado</span><i class="ti ti-chevron-right"></i></div>
+    </div>
+    <div class="ps3"><div class="pst">Notificações</div>
+      <div class="pr2"><i class="ti ti-bell"></i><span class="pr2l">Alertas de golpes</span><button class="tg on" onclick="this.classList.toggle('on')"><div class="tgt"></div></button></div>
+    </div>
+    <div class="ps3"><div class="pst">Sobre</div>
+      <div class="pr2"><i class="ti ti-file-text"></i><span class="pr2l">Termos de Uso</span><i class="ti ti-chevron-right"></i></div>
+      <div class="pr2"><i class="ti ti-lock"></i><span class="pr2l">Política de Privacidade</span><i class="ti ti-chevron-right"></i></div>
+      <div class="pr2"><i class="ti ti-headset"></i><span class="pr2l">Suporte</span><i class="ti ti-chevron-right"></i></div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="mo" id="em"><div class="ms"><div class="mh"></div><div class="mt">🆘 Preciso de ajuda agora</div><div class="msub">Escolha como quer ser ajudado.</div>
+  <a class="eo red" href="tel:151"><span class="eoi">📞</span><div class="eot"><div class="eol">Ligar para o PROCON</div><div class="eod">151 — gratuito, 24h</div></div></a>
+  <a class="eo green" href="tel:197"><span class="eoi">🚔</span><div class="eot"><div class="eol">Delegacia de Crimes Digitais</div><div class="eod">197 — Polícia Civil</div></div></a>
+  <a class="eo wa" href="#" id="wel"><span class="eoi">💬</span><div class="eot"><div class="eol">WhatsApp — familiar de confiança</div><div class="eod">Enviar mensagem de socorro</div></div></a>
+  <a class="eo blue" href="tel:08007228007"><span class="eoi">🏦</span><div class="eot"><div class="eol">Banco Central — Fraudes</div><div class="eod">0800-722-8007</div></div></a>
+  <button class="btn bg" style="margin-top:10px" onclick="cm('em')">Fechar</button>
+</div></div>
+<div class="mo" id="wm"><div class="ms"><div class="mh"></div><div class="mt">💬 WhatsApp familiar</div>
+  <div class="saved-info" id="si"></div>
+  <div class="wf"><label>Nome do familiar</label><input type="text" id="wn" placeholder="Ex: Minha filha Ana"/></div>
+  <div class="wf"><label>Número (com DDD)</label><input type="tel" id="wnum" placeholder="Ex: 83999998888"/></div>
+  <div class="wf"><label>Mensagem</label><select id="wms">
+    <option value="Oi! Tudo bem com você? Estou usando o app Não Caia! para checar se está tudo seguro. 🛡️">Verificação de segurança</option>
+    <option value="Recebi uma mensagem estranha e não sei se é golpe. Pode me ajudar?">Pedir ajuda sobre mensagem</option>
+    <option value="Alguém pediu um PIX pra mim. É você? Confirme antes de eu enviar qualquer coisa.">Confirmar pedido de PIX</option>
+    <option value="🚨 ATENÇÃO: Acho que estou sofrendo um golpe agora. Me ligue urgente!">Emergência — ligue urgente</option>
+  </select></div>
+  <button class="btn bb" style="background:#25d366;box-shadow:0 4px 14px rgba(37,211,102,0.3);margin-bottom:10px" onclick="swa()">💬 Abrir WhatsApp</button>
+  <button class="btn bg" onclick="cm('wm')">Cancelar</button>
+</div></div>
 <script>
-let analysisCount = 1;
-const maxFree = 3;
-let obStep = 0;
-let mediaRecorder = null;
-let audioChunks = [];
-let recordTimer = null;
-let recordSeconds = 0;
-let isRecording = false;
-let audioTranscript = '';
-let capturedImageBase64 = null;
+// ═══ CONFIGURAÇÃO ═══
+// IMPORTANTE: Cole aqui sua chave da Anthropic (começa com sk-ant-)
+const K = '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';
 
-function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  const el = document.getElementById(id);
-  if (el) el.classList.add('active');
-}
-function showNav(tab) {
-  showScreen(tab);
-  ['home','library','alerts','plans'].forEach(t => {
-    const n = document.getElementById('nav-' + t);
-    if (n) n.classList.toggle('active', t === tab);
-  });
-}
-function openModal(id) { document.getElementById(id).classList.add('open'); }
-function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+// ═══ ESTADO ═══
+let ac=1,mx=3,os=0,mr=null,ch=[],rt=null,rs=0,ir=false,ib64=null,itp='image/jpeg';
+let sv=null;
+try{sv=JSON.parse(localStorage.getItem('nc_c')||'null')}catch(e){}
+if(sv){document.getElementById('wn').value=sv.n||'';document.getElementById('wnum').value=sv.num||'';usc();}
 
-// ONBOARDING
-setTimeout(() => showScreen('onboarding'), 2800);
-document.getElementById('obNext').addEventListener('click', () => {
-  document.getElementById('ob' + obStep).style.display = 'none';
-  obStep++;
-  if (obStep < 3) {
-    document.getElementById('ob' + obStep).style.display = 'block';
-    [0,1,2].forEach(i => document.getElementById('d'+i).classList.toggle('active', i === obStep));
-    if (obStep === 2) document.getElementById('obNext').textContent = 'Começar agora →';
-  } else showScreen('login');
+function usc(){if(!sv)return;const e=document.getElementById('si');e.style.display='block';e.textContent='✅ Salvo: '+sv.n+' ('+sv.num+')';document.getElementById('ecl').textContent=sv.n;}
+
+// ═══ NAV ═══
+function ss(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
+function sn(t){ss(t);['home','library','alerts','plans'].forEach(x=>{const n=document.getElementById('n'+x[0]);if(n)n.classList.toggle('active',x===t);});}
+function om(id){document.getElementById(id).classList.add('open');}
+function cm(id){document.getElementById(id).classList.remove('open');}
+
+setTimeout(()=>ss('onboarding'),2700);
+
+document.getElementById('obn').addEventListener('click',()=>{
+  document.getElementById('ob'+os).style.display='none';os++;
+  if(os<3){document.getElementById('ob'+os).style.display='block';[0,1,2].forEach(i=>document.getElementById('d'+i).classList.toggle('active',i===os));if(os===2)document.getElementById('obn').textContent='Começar →';}
+  else sn('home');
 });
-document.getElementById('obSkip').addEventListener('click', () => showScreen('login'));
-document.getElementById('loginBtn').addEventListener('click', () => showNav('home'));
-document.getElementById('registerBtn').addEventListener('click', () => showNav('home'));
-document.getElementById('avatarBtn').addEventListener('click', () => showScreen('profile'));
-document.getElementById('backResult').addEventListener('click', () => showNav('home'));
-document.getElementById('shareResult').addEventListener('click', () => {
-  if (navigator.share) navigator.share({ title: 'Não Caia!', text: 'Verifiquei uma mensagem suspeita no app Não Caia!', url: window.location.href });
-  else alert('Compartilhe o link deste app com sua família!');
+document.getElementById('obs').addEventListener('click',()=>sn('home'));
+document.getElementById('avt').addEventListener('click',()=>ss('profile'));
+document.getElementById('br').addEventListener('click',()=>sn('home'));
+document.getElementById('sr2').addEventListener('click',()=>{if(navigator.share)navigator.share({title:'Não Caia!',url:location.href});else alert('Link: '+location.href);});
+document.getElementById('blib').addEventListener('click',()=>sn('home'));
+document.getElementById('bal').addEventListener('click',()=>sn('home'));
+document.getElementById('bpl').addEventListener('click',()=>sn('home'));
+document.getElementById('bpr').addEventListener('click',()=>sn('home'));
+document.getElementById('gl').addEventListener('click',()=>sn('library'));
+document.getElementById('ge').addEventListener('click',()=>ss('elder'));
+document.getElementById('ga').addEventListener('click',()=>sn('alerts'));
+document.getElementById('gp').addEventListener('click',()=>sn('plans'));
+document.getElementById('emb').addEventListener('click',()=>om('em'));
+document.getElementById('ee').addEventListener('click',()=>om('em'));
+document.getElementById('ec').addEventListener('click',()=>sn('home'));
+document.getElementById('ew').addEventListener('click',()=>om('wm'));
+document.getElementById('ce').addEventListener('click',()=>om('wm'));
+document.getElementById('wel').addEventListener('click',e=>{e.preventDefault();cm('em');om('wm');});
+['em','wm'].forEach(id=>document.getElementById(id).addEventListener('click',function(e){if(e.target===this)cm(id);}));
+
+function stab(t){document.querySelectorAll('.atab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.ap').forEach(x=>x.classList.remove('active'));document.getElementById('t'+t[0]).classList.add('active');document.getElementById('p'+t[0]).classList.add('active');}
+function sat(el){document.querySelectorAll('.tbt').forEach(b=>b.classList.remove('active'));el.classList.add('active');}
+document.getElementById('ai').addEventListener('input',function(){document.getElementById('cc').textContent=this.value.length+' caracteres';});
+document.getElementById('lsi').addEventListener('input',function(){const q=this.value.toLowerCase();document.querySelectorAll('#ll .lc').forEach(c=>{c.style.display=c.textContent.toLowerCase().includes(q)?'':'none';});});
+
+// ═══ IMAGEM ═══
+document.getElementById('ii').addEventListener('change',function(){
+  const f=this.files[0];if(!f)return;itp=f.type||'image/jpeg';
+  const r=new FileReader();r.onload=e=>{ib64=e.target.result.split(',')[1];document.getElementById('ip2').src=e.target.result;document.getElementById('idd').style.display='none';document.getElementById('ipw').style.display='block';};r.readAsDataURL(f);
 });
-document.getElementById('backLib').addEventListener('click', () => showNav('home'));
-document.getElementById('elderCheck').addEventListener('click', () => showNav('home'));
-document.getElementById('elderEmergency').addEventListener('click', () => openModal('emergencyModal'));
-document.getElementById('elderWA').addEventListener('click', () => openModal('waModal'));
-document.getElementById('backAlerts').addEventListener('click', () => showNav('home'));
-document.getElementById('backPlans').addEventListener('click', () => showNav('home'));
-document.getElementById('backProfile').addEventListener('click', () => showNav('home'));
-document.getElementById('goLibrary').addEventListener('click', () => showNav('library'));
-document.getElementById('goElder').addEventListener('click', () => showScreen('elder'));
-document.getElementById('goAlerts').addEventListener('click', () => showNav('alerts'));
-document.getElementById('goPlans').addEventListener('click', () => showNav('plans'));
-document.getElementById('emergencyBtn').addEventListener('click', () => openModal('emergencyModal'));
-document.getElementById('configEmergency').addEventListener('click', () => openModal('waModal'));
+document.getElementById('irm').addEventListener('click',()=>{ib64=null;document.getElementById('ii').value='';document.getElementById('idd').style.display='block';document.getElementById('ipw').style.display='none';});
 
-// TABS
-document.querySelectorAll('.tab-btn').forEach(b => b.addEventListener('click', function() {
-  document.querySelectorAll('.tab-btn').forEach(x => x.classList.remove('active'));
-  this.classList.add('active');
-}));
-
-function switchAnalyzeTab(tab) {
-  document.querySelectorAll('.atab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.analyze-panel').forEach(p => p.classList.remove('active'));
-  document.getElementById('tab-' + tab).classList.add('active');
-  document.getElementById('panel-' + tab).classList.add('active');
+// ═══ ÁUDIO ═══
+document.getElementById('rcb').addEventListener('click',async()=>{if(ir)spr();else await str2();});
+document.getElementById('rab').addEventListener('click',()=>{ch=[];rs=0;document.getElementById('aaw').style.display='none';document.getElementById('rcs').textContent='Toque para gravar';document.getElementById('rct').textContent='';document.getElementById('rhh').style.display='block';document.getElementById('wv').style.display='none';document.getElementById('rcb').classList.remove('rec');document.getElementById('rci').className='ti ti-microphone';});
+async function str2(){
+  try{
+    const s=await navigator.mediaDevices.getUserMedia({audio:true});
+    mr=new MediaRecorder(s);ch=[];
+    mr.ondataavailable=e=>{if(e.data.size>0)ch.push(e.data);};
+    mr.onstop=()=>{s.getTracks().forEach(t=>t.stop());document.getElementById('rcs').textContent='✓ Áudio de '+rs+'s gravado';document.getElementById('aaw').style.display='block';document.getElementById('wv').style.display='none';document.getElementById('rhh').style.display='none';};
+    mr.start(100);ir=true;rs=0;
+    document.getElementById('rcb').classList.add('rec');document.getElementById('rci').className='ti ti-player-stop';
+    document.getElementById('rcs').textContent='Gravando... Toque para parar';document.getElementById('wv').style.display='flex';document.getElementById('rhh').style.display='none';
+    aw2();
+    rt=setInterval(()=>{rs++;const m=String(Math.floor(rs/60)).padStart(2,'0'),s2=String(rs%60).padStart(2,'0');document.getElementById('rct').textContent=m+':'+s2;if(rs>=120)spr();},1000);
+  }catch(e){alert('Não foi possível acessar o microfone. Verifique as permissões.');}
 }
+function spr(){if(mr&&ir){ir=false;clearInterval(rt);mr.stop();document.getElementById('rcb').classList.remove('rec');document.getElementById('rci').className='ti ti-microphone';}}
+function aw2(){if(!ir)return;document.querySelectorAll('.wvb').forEach(b=>{b.style.height=(Math.random()*28+4)+'px';});setTimeout(aw2,150);}
 
-// CHAR COUNT
-document.getElementById('analysisInput').addEventListener('input', function() {
-  document.getElementById('charCount').textContent = this.value.length + ' caracteres';
-});
-
-// LIB SEARCH
-document.getElementById('libSearch').addEventListener('input', function() {
-  const q = this.value.toLowerCase();
-  document.querySelectorAll('#libList .lib-card').forEach(c => {
-    c.style.display = c.textContent.toLowerCase().includes(q) ? '' : 'none';
-  });
-});
-
-// IMAGE
-document.getElementById('imgInput').addEventListener('change', function() {
-  const file = this.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = e => {
-    capturedImageBase64 = e.target.result.split(',')[1];
-    document.getElementById('imgPreview').src = e.target.result;
-    document.getElementById('imgDropArea').style.display = 'none';
-    document.getElementById('imgPreviewWrap').style.display = 'block';
-  };
-  reader.readAsDataURL(file);
-});
-document.getElementById('imgRemove').addEventListener('click', () => {
-  capturedImageBase64 = null;
-  document.getElementById('imgInput').value = '';
-  document.getElementById('imgDropArea').style.display = 'block';
-  document.getElementById('imgPreviewWrap').style.display = 'none';
-});
-
-// AUDIO RECORDING
-document.getElementById('recordBtn').addEventListener('click', async () => {
-  if (isRecording) {
-    stopRecording();
-  } else {
-    await startRecording();
-  }
-});
-document.getElementById('recordAgainBtn').addEventListener('click', () => {
-  audioTranscript = '';
-  audioChunks = [];
-  document.getElementById('audioAnalyzeWrap').style.display = 'none';
-  document.getElementById('recordStatus').textContent = 'Toque para gravar';
-  document.getElementById('recordTime').textContent = '';
-  document.getElementById('recordHint').textContent = 'Descreva a situação suspeita com sua voz. Após gravar, a IA analisa automaticamente.';
-  document.getElementById('recordHint').style.display = 'block';
-  document.getElementById('audioWave').style.display = 'none';
-  document.getElementById('recordBtn').classList.remove('recording');
-  document.getElementById('recordIcon').className = 'ti ti-microphone';
-});
-
-async function startRecording() {
-  try {
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    mediaRecorder = new MediaRecorder(stream);
-    audioChunks = [];
-    mediaRecorder.ondataavailable = e => { if (e.data.size > 0) audioChunks.push(e.data); };
-    mediaRecorder.onstop = processAudio;
-    mediaRecorder.start(100);
-    isRecording = true;
-    recordSeconds = 0;
-    document.getElementById('recordBtn').classList.add('recording');
-    document.getElementById('recordIcon').className = 'ti ti-player-stop';
-    document.getElementById('recordStatus').textContent = 'Gravando... Toque para parar';
-    document.getElementById('audioWave').style.display = 'flex';
-    document.getElementById('recordHint').style.display = 'none';
-    animateWave();
-    recordTimer = setInterval(() => {
-      recordSeconds++;
-      const m = Math.floor(recordSeconds / 60).toString().padStart(2, '0');
-      const s = (recordSeconds % 60).toString().padStart(2, '0');
-      document.getElementById('recordTime').textContent = m + ':' + s;
-      if (recordSeconds >= 120) stopRecording();
-    }, 1000);
-  } catch (err) {
-    alert('Não foi possível acessar o microfone. Verifique as permissões do navegador.');
-  }
+// ═══ CHAMADA IA ═══
+async function cai(msgs,sys){
+  const sp=sys||`Você é especialista em golpes digitais no Brasil 2025. Conhece todos os golpes atuais e emergentes. Responda APENAS em JSON válido sem markdown: {"riskLevel":"ALTO"|"MÉDIO"|"BAIXO","riskPercent":0-100,"headline":"máx 55 chars","explanation":"2-3 frases simples","signals":["s1","s2","s3"],"action":"orientação prática"}. Detecte: urgência, PIX, segredo, pressão, links suspeitos, ofertas boas demais, dados bancários, falsa identidade. Português do Brasil.`;
+  const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':K,'anthropic-version':'2023-06-01'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:sp,messages:msgs})});
+  if(!r.ok){const e=await r.json();throw new Error(e.error?.message||'Erro '+r.status);}
+  const d=await r.json();
+  const raw=d.content.map(c=>c.text||'').join('').replace(/```json|```/g,'').trim();
+  try{return JSON.parse(raw);}catch(e){return{riskLevel:'MÉDIO',riskPercent:55,headline:'Não foi possível analisar',explanation:'Tente novamente com mais detalhes.',signals:['Análise incompleta'],action:'Seja cauteloso. Não faça pagamentos sem verificar.'};}
 }
-
-function stopRecording() {
-  if (mediaRecorder && isRecording) {
-    mediaRecorder.stop();
-    mediaRecorder.stream.getTracks().forEach(t => t.stop());
-    isRecording = false;
-    clearInterval(recordTimer);
-    document.getElementById('recordBtn').classList.remove('recording');
-    document.getElementById('recordIcon').className = 'ti ti-microphone';
-    document.getElementById('recordStatus').textContent = 'Áudio gravado ✓';
-    document.getElementById('audioWave').style.display = 'none';
-  }
-}
-
-function animateWave() {
-  if (!isRecording) return;
-  document.querySelectorAll('.wave-bar').forEach(bar => {
-    bar.style.height = (Math.random() * 28 + 4) + 'px';
-  });
-  setTimeout(animateWave, 150);
-}
-
-async function processAudio() {
-  const blob = new Blob(audioChunks, { type: 'audio/webm' });
-  const reader = new FileReader();
-  reader.onload = async e => {
-    const base64Audio = e.target.result.split(',')[1];
-    document.getElementById('recordStatus').textContent = 'Transcrevendo áudio...';
-    // Usa Claude para analisar descrição de áudio (simulado via texto descritivo)
-    // Na produção real, usaria API Whisper para transcrever
-    audioTranscript = `[Áudio gravado pelo usuário com ${recordSeconds} segundos. O usuário descreveu uma situação suspeita por voz.]`;
-    document.getElementById('recordStatus').textContent = 'Pronto! Áudio de ' + recordSeconds + 's gravado.';
-    document.getElementById('audioAnalyzeWrap').style.display = 'block';
-  };
-  reader.readAsDataURL(blob);
-}
-
-// ANALYZE FUNCTIONS
-function updateQuota() {
-  analysisCount++;
-  const pct = Math.round((analysisCount / maxFree) * 100);
-  document.getElementById('quotaFill').style.width = pct + '%';
-  document.getElementById('quotaLabel').textContent = analysisCount + ' de ' + maxFree + ' análises usadas hoje';
-}
-
-function addToHistory(icon, text, color) {
-  const hist = document.getElementById('histItems');
-  const ni = document.createElement('div');
-  ni.className = 'hist-item';
-  const short = text.length > 45 ? text.substring(0, 42) + '...' : text;
-  ni.innerHTML = `<div class="hist-dot" style="background:${color}"></div><div class="hist-text">${icon} "${short}"</div><div class="hist-time">agora</div>`;
-  hist.insertBefore(ni, hist.firstChild);
-}
-
-async function callAI(userContent, systemExtra = '') {
-  const system = `Você é especialista em segurança digital focado em golpes no Brasil. Analise o conteúdo e responda APENAS em JSON válido, sem markdown, sem texto fora do JSON.
-
-Formato obrigatório:
-{"riskLevel":"ALTO"|"MÉDIO"|"BAIXO","riskPercent":0-100,"headline":"frase curta máx 55 chars","explanation":"explicação simples 2-3 frases em linguagem leiga","signals":["sinal 1","sinal 2","sinal 3"],"action":"orientação prática e direta do que fazer agora"}
-
-Detecte: urgência, pedido de PIX, pedido de segredo, pressão psicológica, links suspeitos, ofertas boas demais, pedido de dados bancários, falsa identidade. Responda em português do Brasil. ${systemExtra}`;
-
-  const resp = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 1000,
-      system,
-      messages: [{ role: 'user', content: userContent }]
-    })
-  });
-  const data = await resp.json();
-  const raw = data.content.map(c => c.text || '').join('').replace(/```json|```/g, '').trim();
-  try { return JSON.parse(raw); } catch(e) {
-    return { riskLevel:'MÉDIO', riskPercent:55, headline:'Não foi possível analisar completamente', explanation:'Tente novamente com mais detalhes.', signals:['Análise incompleta'], action:'Seja cauteloso. Não faça pagamentos sem verificar com alguém de confiança.' };
-  }
-}
-
-function showLoading(msg = 'Analisando com IA...') {
-  showScreen('result');
-  document.getElementById('resultContent').innerHTML = `<div class="loading-box"><div class="spinner"></div><div class="loading-text">${msg}<br><span style="font-size:12px;display:block;margin-top:4px;color:#94a3b8">Verificando padrões de golpe no Brasil</span></div></div>`;
-}
-
-function showResult(r, histIcon, histText) {
-  const lc = r.riskLevel==='ALTO'?'risk-high':r.riskLevel==='MÉDIO'?'risk-medium':'risk-low';
-  const em = r.riskLevel==='ALTO'?'🔴':r.riskLevel==='MÉDIO'?'🟡':'🟢';
-  const dc = r.riskLevel==='ALTO'?'sdot-red':r.riskLevel==='MÉDIO'?'sdot-yellow':'sdot-green';
-  const actionBg = r.riskLevel==='ALTO'?'#fef2f2':r.riskLevel==='MÉDIO'?'#fffbeb':'#f0fdf4';
-  const actionBorder = r.riskLevel==='ALTO'?'#fca5a5':r.riskLevel==='MÉDIO'?'#fcd34d':'#86efac';
-  const dotColor = r.riskLevel==='ALTO'?'#ef4444':r.riskLevel==='MÉDIO'?'#f59e0b':'#22c55e';
-  addToHistory(histIcon, histText, dotColor);
-  document.getElementById('resultContent').innerHTML = `
-    <div class="result-hero">
-      <div class="risk-badge ${lc}">${em} ${r.riskLevel} RISCO</div>
-      <div class="risk-hed">${r.headline}</div>
-      <div class="risk-pct">Probabilidade de golpe: ${r.riskPercent}%</div>
-    </div>
-    <div class="r-scroll">
-      <div class="r-card"><div class="r-card-title">O que detectamos</div><div class="r-card-text">${r.explanation}</div></div>
-      <div class="r-card"><div class="r-card-title">Sinais identificados</div><ul class="signal-list">${(r.signals||[]).map(s=>`<li class="signal-item"><span class="sdot ${dc}"></span>${s}</li>`).join('')}</ul></div>
-      <div class="r-card" style="background:${actionBg};border:1px solid ${actionBorder}"><div class="r-card-title">O que fazer agora</div><div class="r-card-text" style="font-weight:700">${r.action}</div></div>
-      ${r.riskLevel === 'ALTO' ? `<button class="btn btn-red" style="margin-bottom:10px" onclick="openModal('emergencyModal')">🆘 Preciso de ajuda agora</button>` : ''}
-      <div class="share-row">
-        <button class="share-btn" onclick="if(navigator.share){navigator.share({title:'Não Caia!',text:'${r.headline}',url:window.location.href})}else{alert('Compartilhe o link com sua família!')}"><i class="ti ti-share"></i>Compartilhar</button>
-        <button class="share-btn" onclick="showNav('home')"><i class="ti ti-plus"></i>Nova análise</button>
-      </div>
+function uq(){ac++;document.getElementById('qf').style.width=Math.round((ac/mx)*100)+'%';document.getElementById('ql').textContent=ac+' de '+mx+' análises usadas hoje';}
+function ah(ic,tx,cl){const h=document.getElementById('hi'),n=document.createElement('div');n.className='hi';const s=tx.length>45?tx.slice(0,42)+'...':tx;n.innerHTML=`<div class="hd" style="background:${cl}"></div><div class="ht">${ic} "${s}"</div><div class="htm">agora</div>`;h.insertBefore(n,h.firstChild);}
+function sl(){ss('result');document.getElementById('rc').innerHTML=`<div class="lb"><div class="sp"></div><div class="lt">Analisando com IA...<br><span style="font-size:12px;display:block;margin-top:4px;color:#94a3b8">Verificando padrões de golpe no Brasil</span></div></div>`;}
+function se(m){document.getElementById('rc').innerHTML=`<div class="lb"><div style="font-size:40px">⚠️</div><div class="lt">${m||'Erro ao conectar com a IA.'}<br>Verifique sua conexão.</div><button class="btn bg" style="margin-top:16px;max-width:200px" onclick="sn('home')">Voltar</button></div>`;}
+function rr(r){
+  const lc=r.riskLevel==='ALTO'?'rhi':r.riskLevel==='MÉDIO'?'rhm':'rhl';
+  const em=r.riskLevel==='ALTO'?'🔴':r.riskLevel==='MÉDIO'?'🟡':'🟢';
+  const dc=r.riskLevel==='ALTO'?'sdr':r.riskLevel==='MÉDIO'?'sdy':'sdg';
+  const bg=r.riskLevel==='ALTO'?'#fef2f2':r.riskLevel==='MÉDIO'?'#fffbeb':'#f0fdf4';
+  const bd=r.riskLevel==='ALTO'?'#fca5a5':r.riskLevel==='MÉDIO'?'#fcd34d':'#86efac';
+  document.getElementById('rc').innerHTML=`
+    <div class="rh"><div class="rb2 ${lc}">${em} ${r.riskLevel} RISCO</div><div class="rhe">${r.headline}</div><div class="rhp">Probabilidade de golpe: ${r.riskPercent}%</div></div>
+    <div class="rsc">
+      <div class="rc"><div class="rct">O que detectamos</div><div class="rcb">${r.explanation}</div></div>
+      <div class="rc"><div class="rct">Sinais identificados</div><ul class="sl">${(r.signals||[]).map(s=>`<li class="si"><span class="sd ${dc}"></span>${s}</li>`).join('')}</ul></div>
+      <div class="rc" style="background:${bg};border:1px solid ${bd}"><div class="rct">O que fazer agora</div><div class="rcb" style="font-weight:700">${r.action}</div></div>
+      ${r.riskLevel==='ALTO'?`<button class="btn br" style="margin-bottom:10px" onclick="om('em')">🆘 Preciso de ajuda agora</button>`:''}
+      <div class="sr2"><button class="sb2" onclick="if(navigator.share){navigator.share({title:'Não Caia!',url:location.href})}else{alert('Link: '+location.href)}"><i class="ti ti-share"></i>Compartilhar</button><button class="sb2" onclick="sn('home')"><i class="ti ti-plus"></i>Nova análise</button></div>
       <div style="height:20px"></div>
     </div>`;
 }
 
-// TEXT ANALYZE
-document.getElementById('analyzeTextBtn').addEventListener('click', async () => {
-  const text = document.getElementById('analysisInput').value.trim();
-  if (!text) { alert('Por favor, cole ou descreva a situação suspeita.'); return; }
-  if (analysisCount >= maxFree) { showNav('plans'); return; }
-  updateQuota();
-  showLoading('Analisando texto com IA...');
-  try {
-    const r = await callAI(text);
-    showResult(r, '💬', text);
-  } catch(err) {
-    document.getElementById('resultContent').innerHTML = '<div class="loading-box"><div style="font-size:40px">⚠️</div><div class="loading-text">Erro ao conectar.<br>Verifique sua conexão.</div><button class="btn btn-ghost" style="margin-top:16px;max-width:200px" onclick="showNav(\'home\')">Voltar</button></div>';
-  }
+// ═══ ANALISAR TEXTO ═══
+document.getElementById('atb').addEventListener('click',async()=>{
+  const t=document.getElementById('ai').value.trim();
+  if(!t){alert('Cole ou descreva a situação suspeita.');return;}
+  if(ac>=mx){sn('plans');return;}
+  if(K==='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'){alert('⚠️ Configure sua chave de API!\n\nAbra o arquivo index.html no GitHub, encontre a linha:\nconst K = \'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\';\n\nSubstitua pelo seu sk-ant-...');return;}
+  uq();sl();
+  try{const r=await cai([{role:'user',content:t}]);ah('💬',t,r.riskLevel==='ALTO'?'#ef4444':r.riskLevel==='MÉDIO'?'#f59e0b':'#22c55e');rr(r);}
+  catch(e){se(e.message);}
 });
 
-// IMAGE ANALYZE
-document.getElementById('analyzeImgBtn').addEventListener('click', async () => {
-  if (!capturedImageBase64) { alert('Selecione uma imagem primeiro.'); return; }
-  if (analysisCount >= maxFree) { showNav('plans'); return; }
-  updateQuota();
-  showLoading('Analisando imagem com IA...');
-  try {
-    const userContent = [
-      { type: 'image', source: { type: 'base64', media_type: 'image/jpeg', data: capturedImageBase64 } },
-      { type: 'text', text: 'Analise essa imagem e identifique se contém sinais de golpe, fraude ou conteúdo suspeito. Verifique textos, links, números de telefone, pedidos de pagamento, urgência ou qualquer padrão de fraude digital no Brasil.' }
-    ];
-    const resp = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: `Você é especialista em segurança digital focado em golpes no Brasil. Analise a imagem e responda APENAS em JSON válido, sem markdown.
-
-Formato: {"riskLevel":"ALTO"|"MÉDIO"|"BAIXO","riskPercent":0-100,"headline":"frase curta máx 55 chars","explanation":"explicação simples 2-3 frases","signals":["sinal 1","sinal 2","sinal 3"],"action":"orientação prática"}
-
-Responda em português do Brasil.`,
-        messages: [{ role: 'user', content: userContent }]
-      })
-    });
-    const data = await resp.json();
-    const raw = data.content.map(c => c.text || '').join('').replace(/```json|```/g,'').trim();
-    let r;
-    try { r = JSON.parse(raw); } catch(e) {
-      r = { riskLevel:'MÉDIO', riskPercent:50, headline:'Imagem analisada com ressalvas', explanation:'Não foi possível analisar completamente. Descreva o contexto em texto para melhor análise.', signals:['Análise de imagem incompleta'], action:'Seja cauteloso. Não faça pagamentos sem verificar com alguém de confiança.' };
-    }
-    showResult(r, '📷', 'Imagem analisada');
-  } catch(err) {
-    document.getElementById('resultContent').innerHTML = '<div class="loading-box"><div style="font-size:40px">⚠️</div><div class="loading-text">Erro ao analisar imagem.<br>Verifique sua conexão.</div><button class="btn btn-ghost" style="margin-top:16px;max-width:200px" onclick="showNav(\'home\')">Voltar</button></div>';
-  }
+// ═══ ANALISAR IMAGEM ═══
+document.getElementById('aib').addEventListener('click',async()=>{
+  if(!ib64){alert('Selecione uma imagem.');return;}
+  if(ac>=mx){sn('plans');return;}
+  if(K==='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'){alert('Configure sua chave de API primeiro.');return;}
+  uq();sl();
+  try{
+    const c=[{type:'image',source:{type:'base64',media_type:itp,data:ib64}},{type:'text',text:'Analise essa imagem. Verifique se contém sinais de golpe: textos suspeitos, links falsos, pedidos de PIX, urgência, falsa identidade de banco/governo, qualquer padrão de fraude digital no Brasil 2025.'}];
+    const sys=`Analise a imagem e responda APENAS em JSON: {"riskLevel":"ALTO"|"MÉDIO"|"BAIXO","riskPercent":0-100,"headline":"máx 55 chars","explanation":"2-3 frases simples","signals":["s1","s2","s3"],"action":"orientação prática"}. Português do Brasil.`;
+    const r=await cai([{role:'user',content:c}],sys);
+    ah('📷','Imagem analisada',r.riskLevel==='ALTO'?'#ef4444':r.riskLevel==='MÉDIO'?'#f59e0b':'#22c55e');rr(r);
+  }catch(e){se(e.message);}
 });
 
-// AUDIO ANALYZE
-document.getElementById('analyzeAudioBtn').addEventListener('click', async () => {
-  if (analysisCount >= maxFree) { showNav('plans'); return; }
-  updateQuota();
-  showLoading('Analisando áudio com IA...');
-  const duration = recordSeconds;
-  const prompt = `O usuário gravou um áudio de ${duration} segundos descrevendo uma situação que acredita ser suspeita ou um possível golpe. 
-
-Contexto do áudio: o usuário usou o app "Não Caia!" para verificar se está sendo vítima de golpe. 
-
-Analise baseado nos padrões mais comuns de golpe no Brasil e retorne sua análise. Como é áudio e não temos transcrição, faça uma análise contextual considerando que o usuário está preocupado com uma situação suspeita que pode envolver golpe digital, PIX, WhatsApp ou ligação suspeita.`;
-  try {
-    const r = await callAI(prompt, 'Esta é uma análise de áudio — seja útil mesmo sem transcrição literal, orientando sobre os golpes mais comuns.');
-    showResult(r, '🎙️', 'Áudio de ' + duration + 's analisado');
-  } catch(err) {
-    document.getElementById('resultContent').innerHTML = '<div class="loading-box"><div style="font-size:40px">⚠️</div><div class="loading-text">Erro ao analisar áudio.<br>Verifique sua conexão.</div><button class="btn btn-ghost" style="margin-top:16px;max-width:200px" onclick="showNav(\'home\')">Voltar</button></div>';
-  }
+// ═══ ANALISAR ÁUDIO ═══
+document.getElementById('aab').addEventListener('click',async()=>{
+  if(ac>=mx){sn('plans');return;}
+  if(K==='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'){alert('Configure sua chave de API primeiro.');return;}
+  uq();sl();
+  try{
+    const p=`Usuário gravou áudio de ${rs}s descrevendo situação suspeita de golpe no Brasil. Baseado nos golpes mais comuns em 2025 (PIX falso, WhatsApp clonado, suporte falso, phishing, FGTS, sorteios, emprego falso), faça análise de risco e oriente.`;
+    const r=await cai([{role:'user',content:p}]);
+    ah('🎙️','Áudio de '+rs+'s',r.riskLevel==='ALTO'?'#ef4444':r.riskLevel==='MÉDIO'?'#f59e0b':'#22c55e');rr(r);
+  }catch(e){se(e.message);}
 });
 
-// WHATSAPP
-function openWAEmergency(e) {
-  e.preventDefault();
-  closeModal('emergencyModal');
-  openModal('waModal');
+// ═══ WHATSAPP ═══
+function swa(){
+  const n=document.getElementById('wn').value.trim();
+  const num=document.getElementById('wnum').value.replace(/\D/g,'');
+  const msg=document.getElementById('wms').value;
+  if(!num){alert('Informe o número do WhatsApp.');return;}
+  sv={n:n||'Familiar',num};localStorage.setItem('nc_c',JSON.stringify(sv));usc();
+  window.open(`https://wa.me/55${num}?text=${encodeURIComponent(msg)}`,'_blank');
+  cm('wm');
 }
-
-function sendWA() {
-  const num = document.getElementById('waNumber').value.replace(/\D/g,'');
-  const msg = document.getElementById('waMessage').value;
-  const name = document.getElementById('waName').value || 'Familiar';
-  if (!num) { alert('Por favor, informe o número do WhatsApp.'); return; }
-  const waNum = '55' + num;
-  const encoded = encodeURIComponent(msg);
-  window.open(`https://wa.me/${waNum}?text=${encoded}`, '_blank');
-  closeModal('waModal');
-  // Salva preferência
-  document.querySelector('.pr-value') && (document.querySelector('[id=configEmergency] .pr-value').textContent = name);
-}
-
-// Fechar modais clicando fora
-document.getElementById('emergencyModal').addEventListener('click', function(e) {
-  if (e.target === this) closeModal('emergencyModal');
-});
-document.getElementById('waModal').addEventListener('click', function(e) {
-  if (e.target === this) closeModal('waModal');
-});
 </script>
 </body>
 </html>
