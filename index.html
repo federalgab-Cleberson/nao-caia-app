@@ -24,19 +24,25 @@ body{display:flex;align-items:center;justify-content:center}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes prog{from{width:0}to{width:100%}}
-@keyframes rp{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,0.4)}50%{box-shadow:0 0 0 12px rgba(220,38,38,0)}}
+@keyframes rp{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,0.5)}50%{box-shadow:0 0 0 16px rgba(220,38,38,0)}}
+
+/* SPLASH */
 #splash{background:linear-gradient(160deg,#060e1f,#0d2040);align-items:center;justify-content:center;gap:12px;animation:fadeIn 0.5s}
 .sg{width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.3),transparent 70%);display:flex;align-items:center;justify-content:center;animation:pulse 2s infinite;font-size:64px}
 .st{color:#fff;font-size:30px;font-weight:900;letter-spacing:-1px}.st span{color:#3b82f6}
 .ss{color:#4a6a9a;font-size:13px;text-align:center;max-width:220px;line-height:1.6}
 .sb{width:160px;height:3px;background:rgba(255,255,255,0.08);border-radius:2px;margin-top:36px;overflow:hidden}
 .sf{height:100%;background:linear-gradient(90deg,#2563eb,#60a5fa);border-radius:2px;animation:prog 2.6s ease forwards}
+
+/* BUTTONS */
 .btn{width:100%;padding:14px;border-radius:var(--r);font-size:15px;font-weight:700;border:none;cursor:pointer;transition:all 0.18s;font-family:var(--font)}
 .btn:active{transform:scale(0.97)}
 .bb{background:var(--blue);color:#fff;box-shadow:0 4px 16px rgba(29,78,216,0.3)}.bb:hover{background:#1e40af}
 .bg{background:transparent;color:var(--text2);border:1px solid var(--border);font-size:13px}.bg:hover{background:var(--bg2)}
 .br{background:#dc2626;color:#fff}.bt{background:#0f766e;color:#fff}
 .bp{padding:14px 22px 32px;display:flex;flex-direction:column;gap:10px}
+
+/* ONBOARDING */
 #onboarding{background:var(--bg)}
 .ob{flex:1;padding:44px 26px 16px}
 .op{display:inline-flex;align-items:center;background:#eff6ff;color:var(--blue);font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:18px;text-transform:uppercase;letter-spacing:0.5px}
@@ -46,6 +52,8 @@ body{display:flex;align-items:center;justify-content:center}
 .dots{display:flex;gap:6px;justify-content:center;padding:14px}
 .dot{width:8px;height:8px;border-radius:4px;background:var(--border);transition:all 0.3s}
 .dot.active{background:var(--blue);width:24px}
+
+/* HOME */
 .hh{padding:18px 18px 14px;background:linear-gradient(135deg,#060e1f,#0d2040);flex-shrink:0}
 .hr{display:flex;justify-content:space-between;align-items:flex-start}
 .hg{color:#4a6a9a;font-size:12px;font-weight:600}
@@ -56,14 +64,17 @@ body{display:flex;align-items:center;justify-content:center}
 .qf{height:100%;border-radius:2px;background:linear-gradient(90deg,#f59e0b,#fbbf24);transition:width 0.5s}
 .av{width:40px;height:40px;border-radius:50%;background:rgba(59,130,246,0.2);border:1.5px solid rgba(59,130,246,0.3);display:flex;align-items:center;justify-content:center;color:#60a5fa;font-size:13px;font-weight:800;cursor:pointer;flex-shrink:0}
 .sa{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}.sa::-webkit-scrollbar{display:none}
+
+/* EMERGENCY */
 .es{padding:12px 16px 0}
-.eb{width:100%;padding:16px 18px;border-radius:16px;background:linear-gradient(135deg,#dc2626,#b91c1c);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;gap:14px;font-family:var(--font);position:relative;overflow:hidden;box-shadow:0 4px 20px rgba(220,38,38,0.35);transition:transform 0.15s}
+.eb{width:100%;padding:18px 18px;border-radius:16px;background:linear-gradient(135deg,#dc2626,#b91c1c);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;gap:14px;font-family:var(--font);position:relative;overflow:hidden;box-shadow:0 6px 24px rgba(220,38,38,0.45);transition:transform 0.15s;animation:rp 2s infinite}
 .eb:active{transform:scale(0.97)}
-.ei{font-size:30px;flex-shrink:0}
+.ei{font-size:34px;flex-shrink:0}
 .et{display:flex;flex-direction:column;text-align:left}
-.el{font-size:16px;font-weight:800}
-.eh{font-size:11px;opacity:0.8;margin-top:2px;font-weight:600}
-.ep{position:absolute;right:16px;width:12px;height:12px;border-radius:50%;background:#fff;animation:rp 1.5s infinite}
+.el{font-size:17px;font-weight:800}
+.eh{font-size:12px;opacity:0.85;margin-top:2px;font-weight:600}
+
+/* ANALYZE */
 .aw{padding:14px 16px 10px}
 .at{display:flex;gap:6px;margin-bottom:12px}
 .atab{flex:1;padding:8px 4px;border-radius:10px;border:1.5px solid var(--border);background:#fff;font-size:11px;font-weight:700;color:var(--text2);cursor:pointer;font-family:var(--font);text-align:center;transition:all 0.18s;display:flex;flex-direction:column;align-items:center;gap:3px}
@@ -82,7 +93,7 @@ body{display:flex;align-items:center;justify-content:center}
 .id{border:2px dashed var(--border);border-radius:var(--r);padding:24px 16px;text-align:center;background:#fff;cursor:pointer;position:relative}
 .id:hover{border-color:#3b82f6;background:#f0f7ff}
 .id input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
-.ii{font-size:40px;color:var(--text2);margin-bottom:8px}
+.ii2{font-size:40px;color:var(--text2);margin-bottom:8px}
 .it{font-size:13px;color:var(--text2);font-weight:600}
 .is{font-size:11px;color:#aab4c8;margin-top:4px}
 .ip{border-radius:var(--r);overflow:hidden;margin-bottom:10px;position:relative}
@@ -97,25 +108,35 @@ body{display:flex;align-items:center;justify-content:center}
 .rh2{font-size:12px;color:#aab4c8;margin-top:6px;text-align:center;line-height:1.5;max-width:220px}
 .wv{display:flex;align-items:center;gap:3px;height:32px;margin:10px 0}
 .wvb{width:4px;border-radius:2px;background:var(--blue);transition:height 0.1s}
+
+/* QUICK */
 .st2{font-size:11px;font-weight:800;color:var(--text2);margin:0 16px 10px;text-transform:uppercase;letter-spacing:0.6px}
 .qg{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 16px}
 .qc{padding:14px 12px;border-radius:var(--r);border:1px solid var(--border);cursor:pointer;transition:all 0.18s;background:#fff}
 .qc:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,0.06)}.qc:active{transform:scale(0.97)}
 .qi{font-size:22px;margin-bottom:7px;display:block}
-.ql{font-size:12px;font-weight:800;color:var(--text)}
+.ql2{font-size:12px;font-weight:800;color:var(--text)}
 .qd{font-size:11px;color:var(--text2);margin-top:2px}
+
+/* HISTORY */
 .hw{padding:14px 16px 0}
-.hi{display:flex;align-items:center;gap:10px;background:#fff;border-radius:11px;padding:10px 13px;margin-bottom:8px;border:1px solid var(--border)}
+.hi2{display:flex;align-items:center;gap:10px;background:#fff;border-radius:11px;padding:10px 13px;margin-bottom:8px;border:1px solid var(--border)}
 .hd{width:10px;height:10px;border-radius:50%;flex-shrink:0}
 .ht{flex:1;font-size:12px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .htm{font-size:11px;color:var(--text2);flex-shrink:0}
+
+/* BOTTOM NAV */
 .bn{display:flex;border-top:1px solid var(--border);padding:8px 0 max(20px,env(safe-area-inset-bottom));background:var(--bg);flex-shrink:0}
 .ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:6px 0;color:var(--text2);font-size:10px;font-weight:700;transition:color 0.2s;border:none;background:transparent}
 .ni i{font-size:22px}.ni.active{color:var(--blue)}
+
+/* TOP BAR */
 .tb{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 10px;border-bottom:1px solid var(--border);background:var(--bg);flex-shrink:0}
 .tt{font-size:15px;font-weight:700;color:var(--text)}
 .ib{background:var(--bg2);border:none;cursor:pointer;color:var(--text2);font-size:20px;padding:7px;border-radius:10px;display:flex;align-items:center;transition:all 0.18s}
 .ib:hover{background:var(--bg3);color:var(--text)}
+
+/* RESULT */
 .rh{padding:20px 18px 16px;text-align:center;flex-shrink:0}
 .rb2{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:50px;font-size:17px;font-weight:800;margin-bottom:12px}
 .rhi{background:#fef2f2;color:#dc2626;border:2px solid #fca5a5}
@@ -138,6 +159,8 @@ body{display:flex;align-items:center;justify-content:center}
 .lb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:60px 20px;flex:1;text-align:center}
 .sp{width:40px;height:40px;border:3px solid var(--border);border-top-color:#3b82f6;border-radius:50%;animation:spin 0.8s linear infinite}
 .lt{font-size:13px;color:var(--text2);line-height:1.6}
+
+/* LIBRARY */
 .ls{padding:12px 16px 8px}
 .lsw{position:relative}
 .lsw i{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text2);font-size:16px}
@@ -151,26 +174,42 @@ body{display:flex;align-items:center;justify-content:center}
 .rp2{font-size:10px;font-weight:800;padding:3px 9px;border-radius:7px}
 .pr{background:#fef2f2;color:#dc2626}.py{background:#fffbeb;color:#d97706}
 .ld{font-size:12px;color:var(--text2);line-height:1.55}
-#elder{background:#fffbf0}
-.eh2{background:linear-gradient(135deg,#d97706,#f59e0b);padding:28px 20px 22px;flex-shrink:0}
-.et2{font-family:var(--font);font-size:26px;font-weight:900;color:#fff}
-.es2{color:#fef3c7;font-size:14px;margin-top:4px;font-weight:600}
-.ebo{flex:1;padding:20px 16px;display:flex;flex-direction:column;gap:12px;overflow-y:auto}
-.ebt{padding:22px 18px;border-radius:16px;border:none;cursor:pointer;display:flex;align-items:center;gap:14px;transition:transform 0.12s;width:100%}
-.ebt:active{transform:scale(0.97)}
-.eem{background:linear-gradient(135deg,#dc2626,#b91c1c);border:none;box-shadow:0 4px 16px rgba(220,38,38,0.3)}
-.erd{background:#fef2f2;border:2px solid #fca5a5}
-.eam{background:#fffbeb;border:2px solid #fcd34d}
-.ebl{background:#eff6ff;border:2px solid #bfdbfe}
-.eic{font-size:32px}
-.etx{display:flex;flex-direction:column;text-align:left}
-.elb{font-size:18px;font-weight:800;font-family:var(--font)}
-.ehi{font-size:12px;opacity:0.7;margin-top:2px;font-weight:600}
-.eem .elb,.eem .ehi{color:#fff}
-.erd .elb,.erd .ehi{color:#dc2626}
-.eam .elb,.eam .ehi{color:#b45309}
-.ebl .elb,.ebl .ehi{color:#1d4ed8}
-.etp{background:#fff;border-radius:14px;padding:14px 16px;border:1.5px solid #fde68a;font-size:13px;color:#92400e;line-height:1.7;font-weight:600}
+
+/* ══════════════════════════════════
+   MODO IDOSO — REDESENHADO
+══════════════════════════════════ */
+#elder{background:#fff8f0}
+.elder-header{background:linear-gradient(135deg,#c2410c,#ea580c);padding:28px 20px 22px;flex-shrink:0}
+.elder-title{font-size:28px;font-weight:900;color:#fff;display:flex;align-items:center;gap:10px}
+.elder-sub{color:#fed7aa;font-size:15px;margin-top:6px;font-weight:600}
+.elder-body{flex:1;padding:20px 16px;display:flex;flex-direction:column;gap:14px;overflow-y:auto}
+
+/* Botão emergência idoso — gigante e pulsante */
+.elder-emergency{width:100%;padding:26px 20px;border-radius:20px;background:linear-gradient(135deg,#dc2626,#b91c1c);border:none;cursor:pointer;display:flex;align-items:center;gap:16px;font-family:var(--font);box-shadow:0 8px 32px rgba(220,38,38,0.5);animation:rp 2s infinite;transition:transform 0.15s}
+.elder-emergency:active{transform:scale(0.97)}
+.elder-em-icon{font-size:44px;flex-shrink:0}
+.elder-em-text{display:flex;flex-direction:column;text-align:left}
+.elder-em-label{font-size:22px;font-weight:900;color:#fff;letter-spacing:-0.5px}
+.elder-em-hint{font-size:14px;color:#fecaca;margin-top:3px;font-weight:600}
+
+/* Botões grandes idoso */
+.elder-btn{width:100%;padding:22px 18px;border-radius:18px;border:none;cursor:pointer;display:flex;align-items:center;gap:16px;transition:transform 0.12s;font-family:var(--font)}
+.elder-btn:active{transform:scale(0.97)}
+.eb-red{background:#fef2f2;border:2.5px solid #fca5a5}
+.eb-amber{background:#fffbeb;border:2.5px solid #fcd34d}
+.eb-green{background:#f0fdf4;border:2.5px solid #86efac}
+.eb-blue{background:#eff6ff;border:2.5px solid #bfdbfe}
+.elder-icon{font-size:36px}
+.elder-txt{display:flex;flex-direction:column;text-align:left}
+.elder-lbl{font-size:20px;font-weight:800}
+.elder-hint2{font-size:13px;margin-top:3px;font-weight:600;opacity:0.75}
+.eb-red .elder-lbl,.eb-red .elder-hint2{color:#dc2626}
+.eb-amber .elder-lbl,.eb-amber .elder-hint2{color:#b45309}
+.eb-green .elder-lbl,.eb-green .elder-hint2{color:#15803d}
+.eb-blue .elder-lbl,.eb-blue .elder-hint2{color:#1d4ed8}
+.elder-tip{background:#fff;border-radius:16px;padding:16px 18px;border:2px solid #fde68a;font-size:14px;color:#92400e;line-height:1.8;font-weight:600}
+
+/* ALERTS */
 .tr{display:flex;border-bottom:1px solid var(--border);flex-shrink:0;background:var(--bg)}
 .tbt{flex:1;padding:11px;font-size:12px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--text2);border-bottom:2.5px solid transparent;margin-bottom:-1px;font-family:var(--font);transition:color 0.2s}
 .tbt.active{color:var(--blue);border-bottom-color:var(--blue)}
@@ -181,6 +220,8 @@ body{display:flex;align-items:center;justify-content:center}
 .at2{font-size:14px;font-weight:700;color:var(--text)}
 .ab2{font-size:12px;color:var(--text2);margin-top:4px;line-height:1.55}
 .nb{font-size:10px;font-weight:800;background:#fef2f2;color:#dc2626;padding:2px 7px;border-radius:5px}
+
+/* PLANS */
 .ph{background:linear-gradient(135deg,#060e1f,#0d2040);padding:24px 20px;text-align:center;flex-shrink:0}
 .pt{color:#fff;font-size:20px;font-weight:800}
 .ps2{color:#4a6a9a;font-size:12px;margin-top:4px}
@@ -196,11 +237,12 @@ body{display:flex;align-items:center;justify-content:center}
 .pfi i{font-size:16px}
 .pfi.ok i{color:#16a34a}.pfi.no i{color:#cbd5e1}.pfi.no{color:var(--text2);font-weight:400}
 .dc{padding:12px 14px 20px;font-size:11px;color:var(--text2);text-align:center;line-height:1.6}
+
+/* PROFILE */
 #profile{background:var(--bg)}
 .prh{background:linear-gradient(135deg,#060e1f,#0d2040);padding:32px 20px 24px;flex-shrink:0}
 .pra{width:64px;height:64px;border-radius:50%;background:rgba(59,130,246,0.2);border:2px solid rgba(59,130,246,0.35);display:flex;align-items:center;justify-content:center;color:#60a5fa;font-size:24px;font-weight:800;margin-bottom:12px}
 .prn{color:#fff;font-size:20px;font-weight:800}
-.pre{color:#4a6a9a;font-size:12px;margin-top:3px}
 .prc{display:inline-flex;align-items:center;gap:5px;background:rgba(59,130,246,0.15);color:#60a5fa;font-size:11px;font-weight:700;padding:4px 10px;border-radius:8px;margin-top:8px}
 .prb{flex:1;overflow-y:auto;padding:14px;-webkit-overflow-scrolling:touch}.prb::-webkit-scrollbar{display:none}
 .ps3{margin-bottom:18px}
@@ -214,11 +256,13 @@ body{display:flex;align-items:center;justify-content:center}
 .tg.on{background:#2563eb}
 .tgt{position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;transition:left 0.22s;box-shadow:0 1px 4px rgba(0,0,0,0.2)}
 .tg.on .tgt{left:18px}
+
+/* MODALS */
 .mo{position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:1000;display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
 .mo.open{display:flex}
-.ms{background:var(--bg);border-radius:24px 24px 0 0;padding:24px 22px max(36px,env(safe-area-inset-bottom));width:100%;max-width:390px;animation:fadeUp 0.3s}
+.ms{background:var(--bg);border-radius:24px 24px 0 0;padding:24px 22px max(36px,env(safe-area-inset-bottom));width:100%;max-width:390px;animation:fadeUp 0.3s;max-height:90vh;overflow-y:auto}
 .mh{width:36px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 20px}
-.mt{font-size:20px;font-weight:800;color:var(--text);margin-bottom:6px}
+.mt2{font-size:20px;font-weight:800;color:var(--text);margin-bottom:6px}
 .msub{font-size:13px;color:var(--text2);margin-bottom:20px;line-height:1.5}
 .eo{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:14px;border:1.5px solid var(--border);background:#fff;margin-bottom:10px;cursor:pointer;transition:all 0.18s;text-decoration:none}
 .eo:hover{transform:translateY(-1px)}
@@ -230,29 +274,39 @@ body{display:flex;align-items:center;justify-content:center}
 .eo.green{border-color:#86efac;background:#f0fdf4}
 .eo.blue{border-color:#bfdbfe;background:#eff6ff}
 .eo.wa{border-color:#bbf7d0;background:#f0fdf4}
+.eo.orange{border-color:#fed7aa;background:#fff7ed}
+
+/* WA MODAL */
 .wf{margin-bottom:14px}
 .wf label{font-size:11px;color:var(--text2);display:block;margin-bottom:5px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px}
 .wf input,.wf select{width:100%;padding:11px 13px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;background:var(--bg2);color:var(--text);outline:none;font-family:var(--font)}
-.saved-info{display:none;background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:10px;margin-bottom:16px;font-size:13px;color:#15803d;font-weight:600}
+.wf input:focus,.wf select:focus{border-color:#25d366}
+.saved-badge{background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:10px 12px;margin-bottom:14px;font-size:13px;color:#15803d;font-weight:600;display:none}
 </style>
 </head>
 <body>
 <div class="app" id="app">
+
+<!-- SPLASH -->
 <div class="screen active" id="splash">
   <div class="sg">🛡️</div>
   <div class="st">Não <span>Caia!</span></div>
   <div class="ss">Proteção completa contra golpes digitais</div>
   <div class="sb"><div class="sf"></div></div>
 </div>
+
+<!-- ONBOARDING -->
 <div class="screen" id="onboarding">
   <div class="ob" id="obc">
     <div id="ob0"><div class="op">🆕 Novidade</div><span class="oe">🎙️</span><div class="oh">Analise por voz, imagem ou texto</div><div class="op2">Grave um áudio, tire uma foto suspeita ou cole o texto. Nossa IA detecta golpes em segundos.</div></div>
-    <div id="ob1" style="display:none"><div class="op">🚨 Emergência</div><span class="oe">🆘</span><div class="oh">Botão de emergência real</div><div class="op2">Com um toque você liga para o PROCON, Polícia Civil ou abre o WhatsApp pedindo socorro.</div></div>
-    <div id="ob2" style="display:none"><div class="op">👵 Especial</div><span class="oe">👵</span><div class="oh">Modo Idoso com proteção total</div><div class="op2">Interface com botões grandes e acesso direto ao socorro, para quem precisa de mais proteção.</div></div>
+    <div id="ob1" style="display:none"><div class="op">🚨 Emergência</div><span class="oe">🆘</span><div class="oh">Botão de emergência real</div><div class="op2">Com um toque você liga para a Polícia Civil, PROCON ou aciona seu familiar de confiança.</div></div>
+    <div id="ob2" style="display:none"><div class="op">👵 Especial</div><span class="oe">👵</span><div class="oh">Modo Idoso com proteção total</div><div class="op2">Botões gigantes, letras grandes e acesso direto ao socorro — pensado para quem precisa de mais proteção.</div></div>
   </div>
   <div class="dots"><div class="dot active" id="d0"></div><div class="dot" id="d1"></div><div class="dot" id="d2"></div></div>
   <div class="bp"><button class="btn bb" id="obn">Continuar →</button><button class="btn bg" id="obs">Pular</button></div>
 </div>
+
+<!-- HOME -->
 <div class="screen" id="home">
   <div class="hh">
     <div class="hr">
@@ -263,7 +317,12 @@ body{display:flex;align-items:center;justify-content:center}
     <div class="qb"><div class="qf" id="qf" style="width:33%"></div></div>
   </div>
   <div class="sa">
-    <div class="es"><button class="eb" id="emb"><span class="ei">🆘</span><div class="et"><span class="el">Botão de Emergência</span><span class="eh">Toque para pedir ajuda imediata</span></div><div class="ep"></div></button></div>
+    <div class="es">
+      <button class="eb" id="emb">
+        <span class="ei">🆘</span>
+        <div class="et"><span class="el">EMERGÊNCIA — Toque aqui!</span><span class="eh">Ligue para Polícia, PROCON ou familiar</span></div>
+      </button>
+    </div>
     <div class="aw">
       <div class="at">
         <button class="atab active" id="tt" onclick="stab('text')"><i class="ti ti-keyboard"></i>Texto</button>
@@ -271,21 +330,38 @@ body{display:flex;align-items:center;justify-content:center}
         <button class="atab" id="ta" onclick="stab('audio')"><i class="ti ti-microphone"></i>Áudio</button>
       </div>
       <div class="ap active" id="pt">
-        <div class="ab"><div class="al">🔍 Isso é golpe?</div><textarea id="ai" placeholder="Cole aqui a mensagem suspeita, link ou descreva a situação..."></textarea><div class="af"><span class="cc" id="cc">0 caracteres</span><button class="an" id="atb">Analisar →</button></div></div>
+        <div class="ab"><div class="al">🔍 Isso é golpe?</div>
+          <textarea id="ai" placeholder="Cole aqui a mensagem suspeita, link ou descreva a situação..."></textarea>
+          <div class="af"><span class="cc" id="cc">0 caracteres</span><button class="an" id="atb">Analisar →</button></div>
+        </div>
       </div>
       <div class="ap" id="pi">
-        <div id="idd" class="id"><input type="file" id="ii" accept="image/*" capture="environment"/><div class="ii">📷</div><div class="it">Toque para tirar foto ou escolher imagem</div><div class="is">Screenshot de mensagem ou site suspeito</div></div>
-        <div id="ipw" style="display:none"><div class="ip"><img id="ip2" src="" alt=""/><button class="ir" id="irm">✕</button></div><button class="btn bb" id="aib">🔍 Analisar imagem com IA</button></div>
+        <div id="idd" class="id"><input type="file" id="ii" accept="image/*" capture="environment"/>
+          <div class="ii2">📷</div><div class="it">Toque para tirar foto ou escolher imagem</div>
+          <div class="is">Screenshot de mensagem ou site suspeito</div>
+        </div>
+        <div id="ipw" style="display:none">
+          <div class="ip"><img id="ip2" src="" alt=""/><button class="ir" id="irm">✕</button></div>
+          <button class="btn bb" id="aib">🔍 Analisar imagem com IA</button>
+        </div>
       </div>
       <div class="ap" id="pa">
         <div class="ac">
           <button class="rb" id="rcb"><i class="ti ti-microphone" id="rci"></i></button>
           <div class="rs" id="rcs">Toque para gravar</div>
           <div class="rt" id="rct"></div>
-          <div class="wv" id="wv" style="display:none"><div class="wvb" style="height:8px"></div><div class="wvb" style="height:20px"></div><div class="wvb" style="height:12px"></div><div class="wvb" style="height:28px"></div><div class="wvb" style="height:16px"></div><div class="wvb" style="height:24px"></div><div class="wvb" style="height:10px"></div><div class="wvb" style="height:18px"></div></div>
+          <div class="wv" id="wv" style="display:none">
+            <div class="wvb" style="height:8px"></div><div class="wvb" style="height:20px"></div>
+            <div class="wvb" style="height:12px"></div><div class="wvb" style="height:28px"></div>
+            <div class="wvb" style="height:16px"></div><div class="wvb" style="height:24px"></div>
+            <div class="wvb" style="height:10px"></div><div class="wvb" style="height:18px"></div>
+          </div>
           <div class="rh2" id="rhh">Descreva a situação suspeita com sua voz.</div>
         </div>
-        <div id="aaw" style="display:none;padding-top:8px"><button class="btn bb" id="aab">🔍 Analisar áudio com IA</button><button class="btn bg" style="margin-top:8px" id="rab">Gravar novamente</button></div>
+        <div id="aaw" style="display:none;padding-top:8px">
+          <button class="btn bb" id="aab">🔍 Analisar áudio com IA</button>
+          <button class="btn bg" style="margin-top:8px" id="rab">Gravar novamente</button>
+        </div>
       </div>
     </div>
     <div class="st2">Acesso rápido</div>
@@ -295,8 +371,12 @@ body{display:flex;align-items:center;justify-content:center}
       <div class="qc" id="ga"><span class="qi">🔔</span><div class="ql2">Alertas</div><div class="qd">3 novos hoje</div></div>
       <div class="qc" id="gp"><span class="qi">⭐</span><div class="ql2">Premium</div><div class="qd">Ilimitado</div></div>
     </div>
-    <div class="hw"><div class="st2" style="margin:14px 0 10px">Análises recentes</div>
-      <div id="hi"><div class="hi"><div class="hd" style="background:#ef4444"></div><div class="ht">📷 Print de mensagem suspeita</div><div class="htm">11h</div></div><div class="hi"><div class="hd" style="background:#22c55e"></div><div class="ht">💬 "Seu pedido foi enviado"</div><div class="htm">ontem</div></div></div>
+    <div class="hw">
+      <div class="st2" style="margin:14px 0 10px">Análises recentes</div>
+      <div id="hi">
+        <div class="hi2"><div class="hd" style="background:#ef4444"></div><div class="ht">📷 Print de mensagem suspeita</div><div class="htm">11h</div></div>
+        <div class="hi2"><div class="hd" style="background:#22c55e"></div><div class="ht">💬 "Seu pedido foi enviado"</div><div class="htm">ontem</div></div>
+      </div>
     </div>
     <div style="height:20px"></div>
   </div>
@@ -307,15 +387,19 @@ body{display:flex;align-items:center;justify-content:center}
     <button class="ni" id="np" onclick="sn('plans')"><i class="ti ti-star"></i>Premium</button>
   </div>
 </div>
+
+<!-- RESULT -->
 <div class="screen" id="result">
   <div class="tb"><button class="ib" id="br"><i class="ti ti-arrow-left"></i></button><span class="tt">Resultado</span><button class="ib" id="sr2"><i class="ti ti-share"></i></button></div>
   <div id="rc" style="flex:1;overflow-y:auto;display:flex;flex-direction:column;-webkit-overflow-scrolling:touch;"></div>
 </div>
+
+<!-- LIBRARY -->
 <div class="screen" id="library">
   <div class="tb"><button class="ib" id="blib"><i class="ti ti-arrow-left"></i></button><span class="tt">Biblioteca de golpes</span><div style="width:36px"></div></div>
   <div class="ls"><div class="lsw"><i class="ti ti-search"></i><input type="text" placeholder="Buscar..." id="lsi"/></div></div>
   <div class="ll" id="ll">
-    <div class="lc"><div class="lt2"><span class="li">💸</span><div class="ln">Golpe do PIX falso</div><span class="rp2 pr">ALTO</span></div><div class="ld">Mensagens pedindo PIX urgente, fingindo ser banco ou familiar.</div></div>
+    <div class="lc"><div class="lt2"><span class="li">💸</span><div class="ln">Golpe do PIX falso</div><span class="rp2 pr">ALTO</span></div><div class="ld">Mensagens pedindo PIX urgente fingindo ser banco ou familiar.</div></div>
     <div class="lc"><div class="lt2"><span class="li">📱</span><div class="ln">WhatsApp clonado</div><span class="rp2 pr">ALTO</span></div><div class="ld">Criminoso clona número e pede dinheiro para os contatos da vítima.</div></div>
     <div class="lc"><div class="lt2"><span class="li">☎️</span><div class="ln">Falso suporte técnico</div><span class="rp2 pr">ALTO</span></div><div class="ld">Ligação pedindo senhas ou acesso remoto ao celular.</div></div>
     <div class="lc"><div class="lt2"><span class="li">💼</span><div class="ln">Emprego falso</div><span class="rp2 py">MÉDIO</span></div><div class="ld">Ofertas com salário alto exigindo pagamento de "taxa" antecipada.</div></div>
@@ -325,17 +409,45 @@ body{display:flex;align-items:center;justify-content:center}
     <div class="lc"><div class="lt2"><span class="li">📦</span><div class="ln">Falso Correios / FGTS</div><span class="rp2 py">MÉDIO</span></div><div class="ld">SMS de encomenda retida ou saque FGTS exigindo pagamento via link.</div></div>
   </div>
 </div>
+
+<!-- ELDER — MODO IDOSO MELHORADO -->
 <div class="screen" id="elder">
-  <div class="eh2"><div class="et2">🛡️ Modo Proteção</div><div class="es2">Simples e seguro para você</div></div>
-  <div class="ebo">
-    <button class="ebt eem" id="ee"><span class="eic">🆘</span><div class="etx"><span class="elb">EMERGÊNCIA</span><span class="ehi">Toque para pedir socorro agora</span></div></button>
-    <button class="ebt erd" id="ec"><span class="eic">🔍</span><div class="etx"><span class="elb">Verificar mensagem</span><span class="ehi">Toque para analisar algo suspeito</span></div></button>
-    <button class="ebt eam" onclick="sn('alerts')"><span class="eic">⚠️</span><div class="etx"><span class="elb">Avisos de golpes</span><span class="ehi">Veja os mais recentes</span></div></button>
-    <button class="ebt ebl" id="ew"><span class="eic">💬</span><div class="etx"><span class="elb">WhatsApp familiar</span><span class="ehi">Enviar mensagem de segurança</span></div></button>
-    <div class="etp">💡 <strong>Dica de ouro:</strong> Nenhum banco pede senha por telefone. Nenhum familiar pede PIX com urgência. Em dúvida, <strong>não pague nada</strong>.</div>
-    <button class="btn bg" onclick="sn('home')">Voltar</button>
+  <div class="elder-header">
+    <div class="elder-title">🛡️ Modo Proteção</div>
+    <div class="elder-sub">Simples, seguro e direto para você</div>
+  </div>
+  <div class="elder-body">
+    <!-- Botão emergência gigante e pulsante -->
+    <button class="elder-emergency" id="ee">
+      <span class="elder-em-icon">🆘</span>
+      <div class="elder-em-text">
+        <span class="elder-em-label">EMERGÊNCIA</span>
+        <span class="elder-em-hint">Toque aqui para pedir socorro agora</span>
+      </div>
+    </button>
+    <button class="elder-btn eb-red" id="ec">
+      <span class="elder-icon">🔍</span>
+      <div class="elder-txt"><span class="elder-lbl">Verificar mensagem</span><span class="elder-hint2">Analisar algo suspeito com IA</span></div>
+    </button>
+    <button class="elder-btn eb-amber" onclick="sn('alerts')">
+      <span class="elder-icon">⚠️</span>
+      <div class="elder-txt"><span class="elder-lbl">Avisos de golpes</span><span class="elder-hint2">Ver os mais recentes no Brasil</span></div>
+    </button>
+    <button class="elder-btn eb-green" id="ew">
+      <span class="elder-icon">💬</span>
+      <div class="elder-txt"><span class="elder-lbl">WhatsApp familiar</span><span class="elder-hint2">Falar com alguém de confiança</span></div>
+    </button>
+    <div class="elder-tip">
+      💡 <strong>Lembre-se sempre:</strong><br>
+      ✋ Nenhum banco pede senha por telefone<br>
+      ✋ Nenhum familiar pede PIX com urgência<br>
+      ✋ Em dúvida, <strong>não pague nada</strong> e ligue para alguém de confiança
+    </div>
+    <button class="btn bg" onclick="sn('home')" style="font-size:16px;padding:16px">← Voltar à tela principal</button>
   </div>
 </div>
+
+<!-- ALERTS -->
 <div class="screen" id="alerts">
   <div class="tb"><button class="ib" id="bal"><i class="ti ti-arrow-left"></i></button><span class="tt">Alertas</span><div style="width:36px"></div></div>
   <div class="tr"><button class="tbt active" onclick="sat(this)">Hoje</button><button class="tbt" onclick="sat(this)">Esta semana</button><button class="tbt" onclick="sat(this)">Histórico</button></div>
@@ -347,16 +459,28 @@ body{display:flex;align-items:center;justify-content:center}
     <div class="ac2 ai2"><div class="ad">3 dias atrás</div><div class="at2">Alta de golpes em idosos detectada</div><div class="ab2">+40% em tentativas por ligação em SP e RJ. Alerte familiares.</div></div>
   </div>
 </div>
+
+<!-- PLANS -->
 <div class="screen" id="plans">
   <div class="tb"><button class="ib" id="bpl"><i class="ti ti-arrow-left"></i></button><span class="tt">Planos</span><div style="width:36px"></div></div>
   <div class="ph"><div class="pt">Proteção para sua família</div><div class="ps2">Cancele quando quiser</div></div>
   <div class="plb">
-    <div class="plc"><div class="pn">Gratuito</div><div class="pp">R$0<span>/mês</span></div><div class="pf"><div class="pfi ok"><i class="ti ti-check"></i>3 análises/dia</div><div class="pfi ok"><i class="ti ti-check"></i>Texto, imagem, áudio</div><div class="pfi ok"><i class="ti ti-check"></i>Botão emergência</div><div class="pfi no"><i class="ti ti-x"></i>Alertas em tempo real</div><div class="pfi no"><i class="ti ti-x"></i>WhatsApp automático</div></div></div>
-    <div class="plc ft"><div class="pb">⭐ MAIS POPULAR</div><div class="pn">Premium</div><div class="pp">R$14,90<span>/mês</span></div><div class="pf"><div class="pfi ok"><i class="ti ti-check"></i>Análises ilimitadas</div><div class="pfi ok"><i class="ti ti-check"></i>Alertas em tempo real</div><div class="pfi ok"><i class="ti ti-check"></i>Modo Idoso completo</div><div class="pfi ok"><i class="ti ti-check"></i>WhatsApp automático</div><div class="pfi ok"><i class="ti ti-check"></i>Suporte prioritário</div></div><button class="btn bb" style="margin-top:14px" onclick="alert('Em breve!')">Assinar Premium</button></div>
-    <div class="plc"><div class="pn">Família</div><div class="pp">R$24,90<span>/mês</span></div><div class="pf"><div class="pfi ok"><i class="ti ti-check"></i>Tudo do Premium</div><div class="pfi ok"><i class="ti ti-check"></i>Até 5 membros</div><div class="pfi ok"><i class="ti ti-check"></i>Painel familiar</div></div><button class="btn bt" style="margin-top:14px" onclick="alert('Em breve!')">Assinar Família</button></div>
+    <div class="plc"><div class="pn">Gratuito</div><div class="pp">R$0<span>/mês</span></div>
+      <div class="pf"><div class="pfi ok"><i class="ti ti-check"></i>3 análises/dia</div><div class="pfi ok"><i class="ti ti-check"></i>Texto, imagem, áudio</div><div class="pfi ok"><i class="ti ti-check"></i>Botão emergência</div><div class="pfi no"><i class="ti ti-x"></i>Alertas em tempo real</div><div class="pfi no"><i class="ti ti-x"></i>WhatsApp automático</div></div>
+    </div>
+    <div class="plc ft"><div class="pb">⭐ MAIS POPULAR</div><div class="pn">Premium</div><div class="pp">R$14,90<span>/mês</span></div>
+      <div class="pf"><div class="pfi ok"><i class="ti ti-check"></i>Análises ilimitadas</div><div class="pfi ok"><i class="ti ti-check"></i>Alertas em tempo real</div><div class="pfi ok"><i class="ti ti-check"></i>Modo Idoso completo</div><div class="pfi ok"><i class="ti ti-check"></i>WhatsApp automático</div><div class="pfi ok"><i class="ti ti-check"></i>Suporte prioritário</div></div>
+      <button class="btn bb" style="margin-top:14px" onclick="alert('Em breve!')">Assinar Premium</button>
+    </div>
+    <div class="plc"><div class="pn">Família</div><div class="pp">R$24,90<span>/mês</span></div>
+      <div class="pf"><div class="pfi ok"><i class="ti ti-check"></i>Tudo do Premium</div><div class="pfi ok"><i class="ti ti-check"></i>Até 5 membros</div><div class="pfi ok"><i class="ti ti-check"></i>Painel familiar</div></div>
+      <button class="btn bt" style="margin-top:14px" onclick="alert('Em breve!')">Assinar Família</button>
+    </div>
     <div class="dc">⚠️ O Não Caia! auxilia na identificação de golpes, mas não garante proteção total.</div>
   </div>
 </div>
+
+<!-- PROFILE -->
 <div class="screen" id="profile">
   <div class="tb"><button class="ib" id="bpr"><i class="ti ti-arrow-left"></i></button><span class="tt">Perfil</span><div style="width:36px"></div></div>
   <div class="prh"><div class="pra">🛡️</div><div class="prn">Usuário</div><div class="prc">Plano Gratuito</div></div>
@@ -365,8 +489,8 @@ body{display:flex;align-items:center;justify-content:center}
       <div class="pr2" onclick="sn('plans')"><i class="ti ti-star"></i><span class="pr2l">Assinar Premium</span><i class="ti ti-chevron-right"></i></div>
       <div class="pr2" onclick="ss('elder')"><i class="ti ti-accessible"></i><span class="pr2l">Modo Idoso</span><i class="ti ti-chevron-right"></i></div>
     </div>
-    <div class="ps3"><div class="pst">Emergência</div>
-      <div class="pr2" id="ce"><i class="ti ti-phone"></i><span class="pr2l">Contato de emergência</span><span class="pr2v" id="ecl">Não configurado</span><i class="ti ti-chevron-right"></i></div>
+    <div class="ps3"><div class="pst">Contato de Emergência</div>
+      <div class="pr2" id="ce"><i class="ti ti-phone"></i><span class="pr2l">WhatsApp familiar</span><span class="pr2v" id="ecl">Toque para configurar</span><i class="ti ti-chevron-right"></i></div>
     </div>
     <div class="ps3"><div class="pst">Notificações</div>
       <div class="pr2"><i class="ti ti-bell"></i><span class="pr2l">Alertas de golpes</span><button class="tg on" onclick="this.classList.toggle('on')"><div class="tgt"></div></button></div>
@@ -379,53 +503,82 @@ body{display:flex;align-items:center;justify-content:center}
   </div>
 </div>
 </div>
-<div class="mo" id="em"><div class="ms"><div class="mh"></div><div class="mt">🆘 Preciso de ajuda agora</div><div class="msub">Escolha como quer ser ajudado.</div>
-  <a class="eo red" href="tel:151"><span class="eoi">📞</span><div class="eot"><div class="eol">Ligar para o PROCON</div><div class="eod">151 — gratuito, 24h</div></div></a>
-  <a class="eo green" href="tel:197"><span class="eoi">🚔</span><div class="eot"><div class="eol">Delegacia de Crimes Digitais</div><div class="eod">197 — Polícia Civil</div></div></a>
-  <a class="eo wa" href="#" id="wel"><span class="eoi">💬</span><div class="eot"><div class="eol">WhatsApp — familiar de confiança</div><div class="eod">Enviar mensagem de socorro</div></div></a>
-  <a class="eo blue" href="tel:08007228007"><span class="eoi">🏦</span><div class="eot"><div class="eol">Banco Central — Fraudes</div><div class="eod">0800-722-8007</div></div></a>
-  <button class="btn bg" style="margin-top:10px" onclick="cm('em')">Fechar</button>
-</div></div>
-<div class="mo" id="wm"><div class="ms"><div class="mh"></div><div class="mt">💬 WhatsApp familiar</div>
-  <div class="saved-info" id="si"></div>
-  <div class="wf"><label>Nome do familiar</label><input type="text" id="wn" placeholder="Ex: Minha filha Ana"/></div>
-  <div class="wf"><label>Número (com DDD)</label><input type="tel" id="wnum" placeholder="Ex: 83999998888"/></div>
-  <div class="wf"><label>Mensagem</label><select id="wms">
-    <option value="Oi! Tudo bem com você? Estou usando o app Não Caia! para checar se está tudo seguro. 🛡️">Verificação de segurança</option>
-    <option value="Recebi uma mensagem estranha e não sei se é golpe. Pode me ajudar?">Pedir ajuda sobre mensagem</option>
-    <option value="Alguém pediu um PIX pra mim. É você? Confirme antes de eu enviar qualquer coisa.">Confirmar pedido de PIX</option>
-    <option value="🚨 ATENÇÃO: Acho que estou sofrendo um golpe agora. Me ligue urgente!">Emergência — ligue urgente</option>
-  </select></div>
-  <button class="btn bb" style="background:#25d366;box-shadow:0 4px 14px rgba(37,211,102,0.3);margin-bottom:10px" onclick="swa()">💬 Abrir WhatsApp</button>
-  <button class="btn bg" onclick="cm('wm')">Cancelar</button>
-</div></div>
+
+<!-- MODAL EMERGÊNCIA -->
+<div class="mo" id="em">
+  <div class="ms">
+    <div class="mh"></div>
+    <div class="mt2">🆘 Preciso de ajuda agora</div>
+    <div class="msub">Escolha como quer ser ajudado. Você não está sozinho.</div>
+    <a class="eo red" href="tel:190"><span class="eoi">🚔</span><div class="eot"><div class="eol">Polícia Militar</div><div class="eod">190 — Emergências, 24h, gratuito</div></div></a>
+    <a class="eo green" href="tel:197"><span class="eoi">💻</span><div class="eot"><div class="eol">Delegacia de Crimes Digitais</div><div class="eod">197 — Polícia Civil, crimes online</div></div></a>
+    <a class="eo orange" href="tel:151"><span class="eoi">⚖️</span><div class="eot"><div class="eol">PROCON Nacional</div><div class="eod">151 — Defesa do consumidor, gratuito</div></div></a>
+    <a class="eo blue" href="tel:08007228007"><span class="eoi">🏦</span><div class="eot"><div class="eol">Banco Central — Fraudes</div><div class="eod">0800-722-8007 — Denunciar fraude bancária</div></div></a>
+    <a class="eo wa" href="#" id="wel"><span class="eoi">💬</span><div class="eot"><div class="eol">WhatsApp familiar de confiança</div><div class="eod" id="waContactInfo">Toque para configurar contato</div></div></a>
+    <button class="btn bg" style="margin-top:10px" onclick="cm('em')">Fechar</button>
+  </div>
+</div>
+
+<!-- MODAL WHATSAPP — com contato salvo -->
+<div class="mo" id="wm">
+  <div class="ms">
+    <div class="mh"></div>
+    <div class="mt2">💬 WhatsApp familiar</div>
+    <div class="saved-badge" id="svb"></div>
+    <div class="wf"><label>Nome do familiar</label><input type="text" id="wn" placeholder="Ex: Minha filha Ana"/></div>
+    <div class="wf"><label>Número WhatsApp (com DDD, só números)</label><input type="tel" id="wnum" placeholder="Ex: 83999998888"/></div>
+    <div class="wf"><label>Mensagem</label>
+      <select id="wms">
+        <option value="Oi! Tudo bem com você? Estou usando o app Não Caia! para checar se está tudo seguro. 🛡️">Verificação de segurança</option>
+        <option value="Recebi uma mensagem estranha e não sei se é golpe. Pode me ajudar?">Pedir ajuda sobre mensagem</option>
+        <option value="Alguém pediu um PIX pra mim dizendo ser você. É verdade? Confirme antes de eu enviar qualquer coisa.">Confirmar pedido de PIX</option>
+        <option value="🚨 ATENÇÃO: Acho que estou sofrendo um golpe agora. Me ligue urgente!">Emergência — ligue urgente</option>
+      </select>
+    </div>
+    <button class="btn bb" style="background:#25d366;box-shadow:0 4px 14px rgba(37,211,102,0.3);margin-bottom:10px" onclick="swa()">💬 Abrir WhatsApp agora</button>
+    <button class="btn bg" onclick="cm('wm')">Cancelar</button>
+  </div>
+</div>
+
 <script>
-// ═══ CONFIGURAÇÃO ═══
-// IMPORTANTE: Cole aqui sua chave da Anthropic (começa com sk-ant-)
-const K = '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';
-
 // ═══ ESTADO ═══
-let ac=1,mx=3,os=0,mr=null,ch=[],rt=null,rs=0,ir=false,ib64=null,itp='image/jpeg';
+let ac=1,mx=3,os=0;
+let mr=null,ch=[],rt=null,rs=0,ir=false;
+let ib64=null,itp='image/jpeg';
+
+// ═══ CONTATO SALVO ═══
 let sv=null;
-try{sv=JSON.parse(localStorage.getItem('nc_c')||'null')}catch(e){}
-if(sv){document.getElementById('wn').value=sv.n||'';document.getElementById('wnum').value=sv.num||'';usc();}
+try{sv=JSON.parse(localStorage.getItem('nc_contato')||'null');}catch(e){}
+function carregarContato(){
+  if(!sv)return;
+  document.getElementById('wn').value=sv.nome||'';
+  document.getElementById('wnum').value=sv.num||'';
+  const b=document.getElementById('svb');
+  b.style.display='block';
+  b.textContent='✅ Contato salvo: '+sv.nome+' ('+sv.num+')';
+  document.getElementById('ecl').textContent=sv.nome;
+  document.getElementById('waContactInfo').textContent='Enviar para '+sv.nome+' ('+sv.num+')';
+}
+carregarContato();
 
-function usc(){if(!sv)return;const e=document.getElementById('si');e.style.display='block';e.textContent='✅ Salvo: '+sv.n+' ('+sv.num+')';document.getElementById('ecl').textContent=sv.n;}
-
-// ═══ NAV ═══
+// ═══ NAVEGAÇÃO ═══
 function ss(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
 function sn(t){ss(t);['home','library','alerts','plans'].forEach(x=>{const n=document.getElementById('n'+x[0]);if(n)n.classList.toggle('active',x===t);});}
 function om(id){document.getElementById(id).classList.add('open');}
 function cm(id){document.getElementById(id).classList.remove('open');}
 
+// ═══ INIT ═══
 setTimeout(()=>ss('onboarding'),2700);
 
+// ═══ ONBOARDING ═══
 document.getElementById('obn').addEventListener('click',()=>{
   document.getElementById('ob'+os).style.display='none';os++;
   if(os<3){document.getElementById('ob'+os).style.display='block';[0,1,2].forEach(i=>document.getElementById('d'+i).classList.toggle('active',i===os));if(os===2)document.getElementById('obn').textContent='Começar →';}
   else sn('home');
 });
 document.getElementById('obs').addEventListener('click',()=>sn('home'));
+
+// ═══ BOTÕES ═══
 document.getElementById('avt').addEventListener('click',()=>ss('profile'));
 document.getElementById('br').addEventListener('click',()=>sn('home'));
 document.getElementById('sr2').addEventListener('click',()=>{if(navigator.share)navigator.share({title:'Não Caia!',url:location.href});else alert('Link: '+location.href);});
@@ -442,12 +595,20 @@ document.getElementById('ee').addEventListener('click',()=>om('em'));
 document.getElementById('ec').addEventListener('click',()=>sn('home'));
 document.getElementById('ew').addEventListener('click',()=>om('wm'));
 document.getElementById('ce').addEventListener('click',()=>om('wm'));
-document.getElementById('wel').addEventListener('click',e=>{e.preventDefault();cm('em');om('wm');});
+document.getElementById('wel').addEventListener('click',e=>{
+  if(sv){const num=sv.num,msg=document.getElementById('wms').value;window.open('https://wa.me/55'+num+'?text='+encodeURIComponent(msg),'_blank');cm('em');}
+  else{e.preventDefault();cm('em');om('wm');}
+});
 ['em','wm'].forEach(id=>document.getElementById(id).addEventListener('click',function(e){if(e.target===this)cm(id);}));
 
+// ═══ ABAS ═══
 function stab(t){document.querySelectorAll('.atab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.ap').forEach(x=>x.classList.remove('active'));document.getElementById('t'+t[0]).classList.add('active');document.getElementById('p'+t[0]).classList.add('active');}
 function sat(el){document.querySelectorAll('.tbt').forEach(b=>b.classList.remove('active'));el.classList.add('active');}
+
+// ═══ CHAR COUNT ═══
 document.getElementById('ai').addEventListener('input',function(){document.getElementById('cc').textContent=this.value.length+' caracteres';});
+
+// ═══ BUSCA ═══
 document.getElementById('lsi').addEventListener('input',function(){const q=this.value.toLowerCase();document.querySelectorAll('#ll .lc').forEach(c=>{c.style.display=c.textContent.toLowerCase().includes(q)?'':'none';});});
 
 // ═══ IMAGEM ═══
@@ -476,19 +637,36 @@ async function str2(){
 function spr(){if(mr&&ir){ir=false;clearInterval(rt);mr.stop();document.getElementById('rcb').classList.remove('rec');document.getElementById('rci').className='ti ti-microphone';}}
 function aw2(){if(!ir)return;document.querySelectorAll('.wvb').forEach(b=>{b.style.height=(Math.random()*28+4)+'px';});setTimeout(aw2,150);}
 
-// ═══ CHAMADA IA ═══
-async function cai(msgs,sys){
-  const sp=sys||`Você é especialista em golpes digitais no Brasil 2025. Conhece todos os golpes atuais e emergentes. Responda APENAS em JSON válido sem markdown: {"riskLevel":"ALTO"|"MÉDIO"|"BAIXO","riskPercent":0-100,"headline":"máx 55 chars","explanation":"2-3 frases simples","signals":["s1","s2","s3"],"action":"orientação prática"}. Detecte: urgência, PIX, segredo, pressão, links suspeitos, ofertas boas demais, dados bancários, falsa identidade. Português do Brasil.`;
-  const r=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:systemPrompt,messages:msgs})});
-  if(!r.ok){const e=await r.json();throw new Error(e.error?.message||'Erro '+r.status);}
-  const d=await r.json();
-  const raw=d.content.map(c=>c.text||'').join('').replace(/```json|```/g,'').trim();
-  try{return JSON.parse(raw);}catch(e){return{riskLevel:'MÉDIO',riskPercent:55,headline:'Não foi possível analisar',explanation:'Tente novamente com mais detalhes.',signals:['Análise incompleta'],action:'Seja cauteloso. Não faça pagamentos sem verificar.'};}
+// ═══ CHAMADA IA via /api/analyze ═══
+async function callAI(messages, systemPrompt) {
+  const sys = systemPrompt || `Você é especialista em golpes digitais no Brasil 2025. Conhece todos os golpes atuais e emergentes. Responda APENAS em JSON válido sem markdown: {"riskLevel":"ALTO"|"MÉDIO"|"BAIXO","riskPercent":0-100,"headline":"máx 55 chars","explanation":"2-3 frases simples em linguagem leiga","signals":["sinal 1","sinal 2","sinal 3"],"action":"orientação prática clara"}. Detecte: urgência, PIX, segredo, pressão psicológica, links suspeitos, ofertas boas demais, dados bancários, falsa identidade. Responda em português do Brasil.`;
+
+  const resp = await fetch('/api/analyze', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1000,
+      system: sys,
+      messages: messages
+    })
+  });
+
+  if (!resp.ok) {
+    const err = await resp.json();
+    throw new Error(err.error?.message || 'Erro ' + resp.status);
+  }
+
+  const data = await resp.json();
+  const raw = data.content.map(c=>c.text||'').join('').replace(/```json|```/g,'').trim();
+  try{return JSON.parse(raw);}
+  catch(e){return{riskLevel:'MÉDIO',riskPercent:55,headline:'Não foi possível analisar',explanation:'Tente novamente com mais detalhes.',signals:['Análise incompleta'],action:'Seja cauteloso. Não faça pagamentos sem verificar com alguém de confiança.'};}
 }
+
 function uq(){ac++;document.getElementById('qf').style.width=Math.round((ac/mx)*100)+'%';document.getElementById('ql').textContent=ac+' de '+mx+' análises usadas hoje';}
-function ah(ic,tx,cl){const h=document.getElementById('hi'),n=document.createElement('div');n.className='hi';const s=tx.length>45?tx.slice(0,42)+'...':tx;n.innerHTML=`<div class="hd" style="background:${cl}"></div><div class="ht">${ic} "${s}"</div><div class="htm">agora</div>`;h.insertBefore(n,h.firstChild);}
-function sl(){ss('result');document.getElementById('rc').innerHTML=`<div class="lb"><div class="sp"></div><div class="lt">Analisando com IA...<br><span style="font-size:12px;display:block;margin-top:4px;color:#94a3b8">Verificando padrões de golpe no Brasil</span></div></div>`;}
-function se(m){document.getElementById('rc').innerHTML=`<div class="lb"><div style="font-size:40px">⚠️</div><div class="lt">${m||'Erro ao conectar com a IA.'}<br>Verifique sua conexão.</div><button class="btn bg" style="margin-top:16px;max-width:200px" onclick="sn('home')">Voltar</button></div>`;}
+function ah(ic,tx,cl){const h=document.getElementById('hi'),n=document.createElement('div');n.className='hi2';const s=tx.length>45?tx.slice(0,42)+'...':tx;n.innerHTML=`<div class="hd" style="background:${cl}"></div><div class="ht">${ic} "${s}"</div><div class="htm">agora</div>`;h.insertBefore(n,h.firstChild);}
+function sl(msg){ss('result');document.getElementById('rc').innerHTML=`<div class="lb"><div class="sp"></div><div class="lt">${msg||'Analisando com IA...'}<br><span style="font-size:12px;display:block;margin-top:4px;color:#94a3b8">Verificando padrões de golpe no Brasil</span></div></div>`;}
+function se(m){document.getElementById('rc').innerHTML=`<div class="lb"><div style="font-size:40px">⚠️</div><div class="lt">${m||'Erro ao conectar.'}<br>Verifique sua conexão.</div><button class="btn bg" style="margin-top:16px;max-width:200px" onclick="sn('home')">Voltar</button></div>`;}
 function rr(r){
   const lc=r.riskLevel==='ALTO'?'rhi':r.riskLevel==='MÉDIO'?'rhm':'rhl';
   const em=r.riskLevel==='ALTO'?'🔴':r.riskLevel==='MÉDIO'?'🟡':'🟢';
@@ -502,7 +680,10 @@ function rr(r){
       <div class="rc"><div class="rct">Sinais identificados</div><ul class="sl">${(r.signals||[]).map(s=>`<li class="si"><span class="sd ${dc}"></span>${s}</li>`).join('')}</ul></div>
       <div class="rc" style="background:${bg};border:1px solid ${bd}"><div class="rct">O que fazer agora</div><div class="rcb" style="font-weight:700">${r.action}</div></div>
       ${r.riskLevel==='ALTO'?`<button class="btn br" style="margin-bottom:10px" onclick="om('em')">🆘 Preciso de ajuda agora</button>`:''}
-      <div class="sr2"><button class="sb2" onclick="if(navigator.share){navigator.share({title:'Não Caia!',url:location.href})}else{alert('Link: '+location.href)}"><i class="ti ti-share"></i>Compartilhar</button><button class="sb2" onclick="sn('home')"><i class="ti ti-plus"></i>Nova análise</button></div>
+      <div class="sr2">
+        <button class="sb2" onclick="if(navigator.share){navigator.share({title:'Não Caia!',url:location.href})}else{alert('Link: '+location.href)}"><i class="ti ti-share"></i>Compartilhar</button>
+        <button class="sb2" onclick="sn('home')"><i class="ti ti-plus"></i>Nova análise</button>
+      </div>
       <div style="height:20px"></div>
     </div>`;
 }
@@ -512,46 +693,50 @@ document.getElementById('atb').addEventListener('click',async()=>{
   const t=document.getElementById('ai').value.trim();
   if(!t){alert('Cole ou descreva a situação suspeita.');return;}
   if(ac>=mx){sn('plans');return;}
-  
-  uq();sl();
-  try{const r=await cai([{role:'user',content:t}]);ah('💬',t,r.riskLevel==='ALTO'?'#ef4444':r.riskLevel==='MÉDIO'?'#f59e0b':'#22c55e');rr(r);}
-  catch(e){se(e.message);}
+  uq();sl('Analisando texto com IA...');
+  try{
+    const r=await callAI([{role:'user',content:t}]);
+    ah('💬',t,r.riskLevel==='ALTO'?'#ef4444':r.riskLevel==='MÉDIO'?'#f59e0b':'#22c55e');
+    rr(r);
+  }catch(e){se(e.message);}
 });
 
 // ═══ ANALISAR IMAGEM ═══
 document.getElementById('aib').addEventListener('click',async()=>{
   if(!ib64){alert('Selecione uma imagem.');return;}
   if(ac>=mx){sn('plans');return;}
-  
-  uq();sl();
+  uq();sl('Analisando imagem com IA...');
   try{
-    const c=[{type:'image',source:{type:'base64',media_type:itp,data:ib64}},{type:'text',text:'Analise essa imagem. Verifique se contém sinais de golpe: textos suspeitos, links falsos, pedidos de PIX, urgência, falsa identidade de banco/governo, qualquer padrão de fraude digital no Brasil 2025.'}];
     const sys=`Analise a imagem e responda APENAS em JSON: {"riskLevel":"ALTO"|"MÉDIO"|"BAIXO","riskPercent":0-100,"headline":"máx 55 chars","explanation":"2-3 frases simples","signals":["s1","s2","s3"],"action":"orientação prática"}. Português do Brasil.`;
-    const r=await cai([{role:'user',content:c}],sys);
-    ah('📷','Imagem analisada',r.riskLevel==='ALTO'?'#ef4444':r.riskLevel==='MÉDIO'?'#f59e0b':'#22c55e');rr(r);
+    const content=[{type:'image',source:{type:'base64',media_type:itp,data:ib64}},{type:'text',text:'Analise essa imagem. Identifique sinais de golpe: textos suspeitos, links falsos, pedidos de PIX, urgência, falsa identidade de banco ou governo.'}];
+    const r=await callAI([{role:'user',content}],sys);
+    ah('📷','Imagem analisada',r.riskLevel==='ALTO'?'#ef4444':r.riskLevel==='MÉDIO'?'#f59e0b':'#22c55e');
+    rr(r);
   }catch(e){se(e.message);}
 });
 
 // ═══ ANALISAR ÁUDIO ═══
 document.getElementById('aab').addEventListener('click',async()=>{
   if(ac>=mx){sn('plans');return;}
-  
-  uq();sl();
+  uq();sl('Analisando áudio com IA...');
   try{
-    const p=`Usuário gravou áudio de ${rs}s descrevendo situação suspeita de golpe no Brasil. Baseado nos golpes mais comuns em 2025 (PIX falso, WhatsApp clonado, suporte falso, phishing, FGTS, sorteios, emprego falso), faça análise de risco e oriente.`;
-    const r=await cai([{role:'user',content:p}]);
-    ah('🎙️','Áudio de '+rs+'s',r.riskLevel==='ALTO'?'#ef4444':r.riskLevel==='MÉDIO'?'#f59e0b':'#22c55e');rr(r);
+    const p=`Usuário gravou áudio de ${rs}s descrevendo situação suspeita de golpe no Brasil. Com base nos golpes mais comuns em 2025 (PIX falso, WhatsApp clonado, suporte falso, phishing, FGTS, sorteios, emprego falso), faça análise de risco e oriente claramente.`;
+    const r=await callAI([{role:'user',content:p}]);
+    ah('🎙️','Áudio de '+rs+'s',r.riskLevel==='ALTO'?'#ef4444':r.riskLevel==='MÉDIO'?'#f59e0b':'#22c55e');
+    rr(r);
   }catch(e){se(e.message);}
 });
 
-// ═══ WHATSAPP ═══
+// ═══ WHATSAPP — salva contato automaticamente ═══
 function swa(){
-  const n=document.getElementById('wn').value.trim();
+  const nome=document.getElementById('wn').value.trim();
   const num=document.getElementById('wnum').value.replace(/\D/g,'');
   const msg=document.getElementById('wms').value;
-  if(!num){alert('Informe o número do WhatsApp.');return;}
-  sv={n:n||'Familiar',num};localStorage.setItem('nc_c',JSON.stringify(sv));usc();
-  window.open(`https://wa.me/55${num}?text=${encodeURIComponent(msg)}`,'_blank');
+  if(!num){alert('Informe o número do WhatsApp com DDD.');return;}
+  sv={nome:nome||'Familiar',num};
+  localStorage.setItem('nc_contato',JSON.stringify(sv));
+  carregarContato();
+  window.open('https://wa.me/55'+num+'?text='+encodeURIComponent(msg),'_blank');
   cm('wm');
 }
 </script>
