@@ -653,12 +653,15 @@ async function callAI(messages, systemPrompt) {
   });
 
   if (!resp.ok) {
-    const err = await resp.json();
-    throw new Error(err.error?.message || 'Erro ' + resp.status);
+    let errMsg = 'Erro ' + resp.status;
+    try { const err = await resp.json(); errMsg = err.error?.message || errMsg; } catch(e){}
+    throw new Error(errMsg);
   }
 
-  const data = await resp.json();
-  const raw = data.content.map(c=>c.text||'').join('').replace(/```json|```/g,'').trim();
+  let data;
+  try { data = await resp.json(); } catch(e) { throw new Error('Resposta inválida da API'); }
+  if (!data || !data.content) throw new Error('Resposta vazia da API');
+  const raw = (data.content || []).map(c=>c.text||'').join('').replace(/```json|```/g,'').trim();
   try{return JSON.parse(raw);}
   catch(e){return{riskLevel:'MÉDIO',riskPercent:55,headline:'Não foi possível analisar',explanation:'Tente novamente com mais detalhes.',signals:['Análise incompleta'],action:'Seja cauteloso. Não faça pagamentos sem verificar com alguém de confiança.'};}
 }
@@ -677,7 +680,7 @@ function rr(r){
     <div class="rh"><div class="rb2 ${lc}">${em} ${r.riskLevel} RISCO</div><div class="rhe">${r.headline}</div><div class="rhp">Probabilidade de golpe: ${r.riskPercent}%</div></div>
     <div class="rsc">
       <div class="rc"><div class="rct">O que detectamos</div><div class="rcb">${r.explanation}</div></div>
-      <div class="rc"><div class="rct">Sinais identificados</div><ul class="sl">${(r.signals||[]).map(s=>`<li class="si"><span class="sd ${dc}"></span>${s}</li>`).join('')}</ul></div>
+      <div class="rc"><div class="rct">Sinais identificados</div><ul class="sl">${(Array.isArray(r.signals)?r.signals:[]).map(s=>`<li class="si"><span class="sd ${dc}"></span>${s}</li>`).join('')}</ul></div>
       <div class="rc" style="background:${bg};border:1px solid ${bd}"><div class="rct">O que fazer agora</div><div class="rcb" style="font-weight:700">${r.action}</div></div>
       ${r.riskLevel==='ALTO'?`<button class="btn br" style="margin-bottom:10px" onclick="om('em')">🆘 Preciso de ajuda agora</button>`:''}
       <div class="sr2">
