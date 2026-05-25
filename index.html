@@ -7,6 +7,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <meta name="apple-mobile-web-app-title" content="Não Caia!"/>
+<meta name="description" content="Proteção contra golpes digitais para você e sua família"/>
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAAAAB3RJTUUH6QUSBjAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231d4ed8'/%3E%3Cstop offset='1' stop-color='%230ea5e9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='512' height='512' rx='112' fill='url(%23g)'/%3E%3Ctext x='256' y='360' font-size='300' text-anchor='middle'%3E🛡️%3C/text%3E%3Ctext x='256' y='460' font-size='52' font-weight='bold' text-anchor='middle' fill='white' font-family='Arial' opacity='0.9'%3ENão Caia!%3C/text%3E%3C/svg%3E"/>
 <title>🛡️ Não Caia!</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
@@ -24,25 +27,20 @@ body{display:flex;align-items:center;justify-content:center}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes prog{from{width:0}to{width:100%}}
-@keyframes rp{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,0.5)}50%{box-shadow:0 0 0 16px rgba(220,38,38,0)}}
+@keyframes rp{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,0.5)}50%{box-shadow:0 0 0 18px rgba(220,38,38,0)}}
 
-/* SPLASH */
 #splash{background:linear-gradient(160deg,#060e1f,#0d2040);align-items:center;justify-content:center;gap:12px;animation:fadeIn 0.5s}
 .sg{width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.3),transparent 70%);display:flex;align-items:center;justify-content:center;animation:pulse 2s infinite;font-size:64px}
 .st{color:#fff;font-size:30px;font-weight:900;letter-spacing:-1px}.st span{color:#3b82f6}
 .ss{color:#4a6a9a;font-size:13px;text-align:center;max-width:220px;line-height:1.6}
 .sb{width:160px;height:3px;background:rgba(255,255,255,0.08);border-radius:2px;margin-top:36px;overflow:hidden}
 .sf{height:100%;background:linear-gradient(90deg,#2563eb,#60a5fa);border-radius:2px;animation:prog 2.6s ease forwards}
-
-/* BUTTONS */
 .btn{width:100%;padding:14px;border-radius:var(--r);font-size:15px;font-weight:700;border:none;cursor:pointer;transition:all 0.18s;font-family:var(--font)}
 .btn:active{transform:scale(0.97)}
 .bb{background:var(--blue);color:#fff;box-shadow:0 4px 16px rgba(29,78,216,0.3)}.bb:hover{background:#1e40af}
 .bg{background:transparent;color:var(--text2);border:1px solid var(--border);font-size:13px}.bg:hover{background:var(--bg2)}
-.br{background:#dc2626;color:#fff}.bt{background:#0f766e;color:#fff}
+.br2{background:#dc2626;color:#fff}.bt{background:#0f766e;color:#fff}
 .bp{padding:14px 22px 32px;display:flex;flex-direction:column;gap:10px}
-
-/* ONBOARDING */
 #onboarding{background:var(--bg)}
 .ob{flex:1;padding:44px 26px 16px}
 .op{display:inline-flex;align-items:center;background:#eff6ff;color:var(--blue);font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:18px;text-transform:uppercase;letter-spacing:0.5px}
@@ -52,8 +50,6 @@ body{display:flex;align-items:center;justify-content:center}
 .dots{display:flex;gap:6px;justify-content:center;padding:14px}
 .dot{width:8px;height:8px;border-radius:4px;background:var(--border);transition:all 0.3s}
 .dot.active{background:var(--blue);width:24px}
-
-/* HOME */
 .hh{padding:18px 18px 14px;background:linear-gradient(135deg,#060e1f,#0d2040);flex-shrink:0}
 .hr{display:flex;justify-content:space-between;align-items:flex-start}
 .hg{color:#4a6a9a;font-size:12px;font-weight:600}
@@ -64,17 +60,13 @@ body{display:flex;align-items:center;justify-content:center}
 .qf{height:100%;border-radius:2px;background:linear-gradient(90deg,#f59e0b,#fbbf24);transition:width 0.5s}
 .av{width:40px;height:40px;border-radius:50%;background:rgba(59,130,246,0.2);border:1.5px solid rgba(59,130,246,0.3);display:flex;align-items:center;justify-content:center;color:#60a5fa;font-size:13px;font-weight:800;cursor:pointer;flex-shrink:0}
 .sa{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}.sa::-webkit-scrollbar{display:none}
-
-/* EMERGENCY */
 .es{padding:12px 16px 0}
-.eb{width:100%;padding:18px 18px;border-radius:16px;background:linear-gradient(135deg,#dc2626,#b91c1c);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;gap:14px;font-family:var(--font);position:relative;overflow:hidden;box-shadow:0 6px 24px rgba(220,38,38,0.45);transition:transform 0.15s;animation:rp 2s infinite}
+.eb{width:100%;padding:18px;border-radius:16px;background:linear-gradient(135deg,#dc2626,#b91c1c);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;gap:14px;font-family:var(--font);box-shadow:0 6px 24px rgba(220,38,38,0.45);transition:transform 0.15s;animation:rp 2s infinite}
 .eb:active{transform:scale(0.97)}
 .ei{font-size:34px;flex-shrink:0}
 .et{display:flex;flex-direction:column;text-align:left}
 .el{font-size:17px;font-weight:800}
 .eh{font-size:12px;opacity:0.85;margin-top:2px;font-weight:600}
-
-/* ANALYZE */
 .aw{padding:14px 16px 10px}
 .at{display:flex;gap:6px;margin-bottom:12px}
 .atab{flex:1;padding:8px 4px;border-radius:10px;border:1.5px solid var(--border);background:#fff;font-size:11px;font-weight:700;color:var(--text2);cursor:pointer;font-family:var(--font);text-align:center;transition:all 0.18s;display:flex;flex-direction:column;align-items:center;gap:3px}
@@ -88,8 +80,8 @@ body{display:flex;align-items:center;justify-content:center}
 .ab textarea::placeholder{color:#aab4c8}
 .af{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
 .cc{font-size:11px;color:var(--text2)}
-.an{padding:9px 18px;border-radius:9px;background:var(--blue);color:#fff;font-size:12px;font-weight:800;border:none;cursor:pointer;font-family:var(--font);text-transform:uppercase}
-.an:hover{background:#1e40af}
+.an2{padding:9px 18px;border-radius:9px;background:var(--blue);color:#fff;font-size:12px;font-weight:800;border:none;cursor:pointer;font-family:var(--font);text-transform:uppercase}
+.an2:hover{background:#1e40af}
 .id{border:2px dashed var(--border);border-radius:var(--r);padding:24px 16px;text-align:center;background:#fff;cursor:pointer;position:relative}
 .id:hover{border-color:#3b82f6;background:#f0f7ff}
 .id input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
@@ -108,8 +100,6 @@ body{display:flex;align-items:center;justify-content:center}
 .rh2{font-size:12px;color:#aab4c8;margin-top:6px;text-align:center;line-height:1.5;max-width:220px}
 .wv{display:flex;align-items:center;gap:3px;height:32px;margin:10px 0}
 .wvb{width:4px;border-radius:2px;background:var(--blue);transition:height 0.1s}
-
-/* QUICK */
 .st2{font-size:11px;font-weight:800;color:var(--text2);margin:0 16px 10px;text-transform:uppercase;letter-spacing:0.6px}
 .qg{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 16px}
 .qc{padding:14px 12px;border-radius:var(--r);border:1px solid var(--border);cursor:pointer;transition:all 0.18s;background:#fff}
@@ -117,26 +107,28 @@ body{display:flex;align-items:center;justify-content:center}
 .qi{font-size:22px;margin-bottom:7px;display:block}
 .ql2{font-size:12px;font-weight:800;color:var(--text)}
 .qd{font-size:11px;color:var(--text2);margin-top:2px}
-
-/* HISTORY */
 .hw{padding:14px 16px 0}
 .hi2{display:flex;align-items:center;gap:10px;background:#fff;border-radius:11px;padding:10px 13px;margin-bottom:8px;border:1px solid var(--border)}
 .hd{width:10px;height:10px;border-radius:50%;flex-shrink:0}
 .ht{flex:1;font-size:12px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .htm{font-size:11px;color:var(--text2);flex-shrink:0}
 
-/* BOTTOM NAV */
+/* SHARE STRIP */
+.share-strip{margin:12px 16px 0;background:linear-gradient(135deg,#0f172a,#1e3a5f);border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer}
+.share-strip:active{transform:scale(0.98)}
+.share-icon{font-size:28px;flex-shrink:0}
+.share-text{flex:1}
+.share-label{color:#fff;font-size:13px;font-weight:700}
+.share-desc{color:#4a6a9a;font-size:11px;margin-top:2px}
+.share-arrow{color:#3b82f6;font-size:20px}
+
 .bn{display:flex;border-top:1px solid var(--border);padding:8px 0 max(20px,env(safe-area-inset-bottom));background:var(--bg);flex-shrink:0}
 .ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:6px 0;color:var(--text2);font-size:10px;font-weight:700;transition:color 0.2s;border:none;background:transparent}
 .ni i{font-size:22px}.ni.active{color:var(--blue)}
-
-/* TOP BAR */
 .tb{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 10px;border-bottom:1px solid var(--border);background:var(--bg);flex-shrink:0}
 .tt{font-size:15px;font-weight:700;color:var(--text)}
 .ib{background:var(--bg2);border:none;cursor:pointer;color:var(--text2);font-size:20px;padding:7px;border-radius:10px;display:flex;align-items:center;transition:all 0.18s}
 .ib:hover{background:var(--bg3);color:var(--text)}
-
-/* RESULT */
 .rh{padding:20px 18px 16px;text-align:center;flex-shrink:0}
 .rb2{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:50px;font-size:17px;font-weight:800;margin-bottom:12px}
 .rhi{background:#fef2f2;color:#dc2626;border:2px solid #fca5a5}
@@ -159,14 +151,12 @@ body{display:flex;align-items:center;justify-content:center}
 .lb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:60px 20px;flex:1;text-align:center}
 .sp{width:40px;height:40px;border:3px solid var(--border);border-top-color:#3b82f6;border-radius:50%;animation:spin 0.8s linear infinite}
 .lt{font-size:13px;color:var(--text2);line-height:1.6}
-
-/* LIBRARY */
 .ls{padding:12px 16px 8px}
 .lsw{position:relative}
 .lsw i{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text2);font-size:16px}
 .lsw input{width:100%;padding:10px 13px 10px 38px;border:1.5px solid var(--border);border-radius:11px;font-size:13px;background:var(--bg2);color:var(--text);outline:none;font-family:var(--font)}
 .ll{flex:1;overflow-y:auto;padding:4px 14px 14px;-webkit-overflow-scrolling:touch}.ll::-webkit-scrollbar{display:none}
-.lc{background:#fff;border-radius:var(--r);padding:14px;margin-bottom:9px;border:1px solid var(--border);transition:all 0.18s;cursor:pointer}
+.lc{background:#fff;border-radius:var(--r);padding:14px;margin-bottom:9px;border:1px solid var(--border);transition:all 0.18s}
 .lc:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,0.06)}
 .lt2{display:flex;align-items:center;gap:10px;margin-bottom:6px}
 .li{font-size:24px}
@@ -174,25 +164,17 @@ body{display:flex;align-items:center;justify-content:center}
 .rp2{font-size:10px;font-weight:800;padding:3px 9px;border-radius:7px}
 .pr{background:#fef2f2;color:#dc2626}.py{background:#fffbeb;color:#d97706}
 .ld{font-size:12px;color:var(--text2);line-height:1.55}
-
-/* ══════════════════════════════════
-   MODO IDOSO — REDESENHADO
-══════════════════════════════════ */
 #elder{background:#fff8f0}
 .elder-header{background:linear-gradient(135deg,#c2410c,#ea580c);padding:28px 20px 22px;flex-shrink:0}
 .elder-title{font-size:28px;font-weight:900;color:#fff;display:flex;align-items:center;gap:10px}
 .elder-sub{color:#fed7aa;font-size:15px;margin-top:6px;font-weight:600}
 .elder-body{flex:1;padding:20px 16px;display:flex;flex-direction:column;gap:14px;overflow-y:auto}
-
-/* Botão emergência idoso — gigante e pulsante */
 .elder-emergency{width:100%;padding:26px 20px;border-radius:20px;background:linear-gradient(135deg,#dc2626,#b91c1c);border:none;cursor:pointer;display:flex;align-items:center;gap:16px;font-family:var(--font);box-shadow:0 8px 32px rgba(220,38,38,0.5);animation:rp 2s infinite;transition:transform 0.15s}
 .elder-emergency:active{transform:scale(0.97)}
 .elder-em-icon{font-size:44px;flex-shrink:0}
 .elder-em-text{display:flex;flex-direction:column;text-align:left}
-.elder-em-label{font-size:22px;font-weight:900;color:#fff;letter-spacing:-0.5px}
+.elder-em-label{font-size:22px;font-weight:900;color:#fff}
 .elder-em-hint{font-size:14px;color:#fecaca;margin-top:3px;font-weight:600}
-
-/* Botões grandes idoso */
 .elder-btn{width:100%;padding:22px 18px;border-radius:18px;border:none;cursor:pointer;display:flex;align-items:center;gap:16px;transition:transform 0.12s;font-family:var(--font)}
 .elder-btn:active{transform:scale(0.97)}
 .eb-red{background:#fef2f2;border:2.5px solid #fca5a5}
@@ -208,20 +190,16 @@ body{display:flex;align-items:center;justify-content:center}
 .eb-green .elder-lbl,.eb-green .elder-hint2{color:#15803d}
 .eb-blue .elder-lbl,.eb-blue .elder-hint2{color:#1d4ed8}
 .elder-tip{background:#fff;border-radius:16px;padding:16px 18px;border:2px solid #fde68a;font-size:14px;color:#92400e;line-height:1.8;font-weight:600}
-
-/* ALERTS */
 .tr{display:flex;border-bottom:1px solid var(--border);flex-shrink:0;background:var(--bg)}
 .tbt{flex:1;padding:11px;font-size:12px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--text2);border-bottom:2.5px solid transparent;margin-bottom:-1px;font-family:var(--font);transition:color 0.2s}
 .tbt.active{color:var(--blue);border-bottom-color:var(--blue)}
 .ali{flex:1;overflow-y:auto;padding:12px 14px;-webkit-overflow-scrolling:touch}.ali::-webkit-scrollbar{display:none}
 .ac2{border-left:3.5px solid;border-radius:0 12px 12px 0;padding:12px 14px;margin-bottom:9px;background:#fff;border-top:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
-.ac2.an2{border-left-color:#ef4444}.ac2.aw2{border-left-color:#f59e0b}.ac2.ai2{border-left-color:#3b82f6}
+.ac2.an2b{border-left-color:#ef4444}.ac2.aw2{border-left-color:#f59e0b}.ac2.ai2{border-left-color:#3b82f6}
 .ad{font-size:11px;color:var(--text2);margin-bottom:4px;display:flex;align-items:center;gap:7px;font-weight:600}
 .at2{font-size:14px;font-weight:700;color:var(--text)}
 .ab2{font-size:12px;color:var(--text2);margin-top:4px;line-height:1.55}
 .nb{font-size:10px;font-weight:800;background:#fef2f2;color:#dc2626;padding:2px 7px;border-radius:5px}
-
-/* PLANS */
 .ph{background:linear-gradient(135deg,#060e1f,#0d2040);padding:24px 20px;text-align:center;flex-shrink:0}
 .pt{color:#fff;font-size:20px;font-weight:800}
 .ps2{color:#4a6a9a;font-size:12px;margin-top:4px}
@@ -237,8 +215,6 @@ body{display:flex;align-items:center;justify-content:center}
 .pfi i{font-size:16px}
 .pfi.ok i{color:#16a34a}.pfi.no i{color:#cbd5e1}.pfi.no{color:var(--text2);font-weight:400}
 .dc{padding:12px 14px 20px;font-size:11px;color:var(--text2);text-align:center;line-height:1.6}
-
-/* PROFILE */
 #profile{background:var(--bg)}
 .prh{background:linear-gradient(135deg,#060e1f,#0d2040);padding:32px 20px 24px;flex-shrink:0}
 .pra{width:64px;height:64px;border-radius:50%;background:rgba(59,130,246,0.2);border:2px solid rgba(59,130,246,0.35);display:flex;align-items:center;justify-content:center;color:#60a5fa;font-size:24px;font-weight:800;margin-bottom:12px}
@@ -256,14 +232,12 @@ body{display:flex;align-items:center;justify-content:center}
 .tg.on{background:#2563eb}
 .tgt{position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;transition:left 0.22s;box-shadow:0 1px 4px rgba(0,0,0,0.2)}
 .tg.on .tgt{left:18px}
-
-/* MODALS */
 .mo{position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:1000;display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
 .mo.open{display:flex}
 .ms{background:var(--bg);border-radius:24px 24px 0 0;padding:24px 22px max(36px,env(safe-area-inset-bottom));width:100%;max-width:390px;animation:fadeUp 0.3s;max-height:90vh;overflow-y:auto}
 .mh{width:36px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 20px}
 .mt2{font-size:20px;font-weight:800;color:var(--text);margin-bottom:6px}
-.msub{font-size:13px;color:var(--text2);margin-bottom:20px;line-height:1.5}
+.msub{font-size:13px;color:var(--text2);margin-bottom:16px;line-height:1.5}
 .eo{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:14px;border:1.5px solid var(--border);background:#fff;margin-bottom:10px;cursor:pointer;transition:all 0.18s;text-decoration:none}
 .eo:hover{transform:translateY(-1px)}
 .eoi{font-size:28px;flex-shrink:0}
@@ -276,12 +250,37 @@ body{display:flex;align-items:center;justify-content:center}
 .eo.wa{border-color:#bbf7d0;background:#f0fdf4}
 .eo.orange{border-color:#fed7aa;background:#fff7ed}
 
-/* WA MODAL */
+/* CONTATOS MÚLTIPLOS */
+.contact-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:8px;display:flex;align-items:center;gap:12px}
+.contact-avatar{width:36px;height:36px;border-radius:50%;background:var(--blue-light, #eff6ff);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;background:#eff6ff}
+.contact-info{flex:1}
+.contact-name{font-size:13px;font-weight:700;color:var(--text)}
+.contact-num{font-size:11px;color:var(--text2);margin-top:2px}
+.contact-actions{display:flex;gap:6px}
+.contact-btn{width:32px;height:32px;border-radius:8px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all 0.18s}
+.contact-btn.wa{background:#f0fdf4;color:#16a34a}
+.contact-btn.del{background:#fef2f2;color:#dc2626}
+.add-contact-btn{width:100%;padding:12px;border-radius:12px;border:2px dashed var(--border);background:transparent;cursor:pointer;font-size:13px;font-weight:600;color:var(--text2);font-family:var(--font);transition:all 0.18s;display:flex;align-items:center;justify-content:center;gap:8px}
+.add-contact-btn:hover{border-color:var(--blue);color:var(--blue);background:#eff6ff}
 .wf{margin-bottom:14px}
 .wf label{font-size:11px;color:var(--text2);display:block;margin-bottom:5px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px}
 .wf input,.wf select{width:100%;padding:11px 13px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;background:var(--bg2);color:var(--text);outline:none;font-family:var(--font)}
-.wf input:focus,.wf select:focus{border-color:#25d366}
-.saved-badge{background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:10px 12px;margin-bottom:14px;font-size:13px;color:#15803d;font-weight:600;display:none}
+.wf input:focus{border-color:#25d366}
+
+/* SHARE MODAL */
+.share-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.share-opt{padding:16px 12px;border-radius:14px;border:1.5px solid var(--border);background:#fff;cursor:pointer;text-align:center;transition:all 0.18s}
+.share-opt:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,0.08)}
+.share-opt-icon{font-size:28px;margin-bottom:6px;display:block}
+.share-opt-label{font-size:12px;font-weight:700;color:var(--text)}
+.share-opt-desc{font-size:11px;color:var(--text2);margin-top:2px}
+.share-opt.wa{border-color:#bbf7d0;background:#f0fdf4}
+.share-opt.link{border-color:#bfdbfe;background:#eff6ff}
+.share-opt.msg{border-color:#ddd6fe;background:#f5f3ff}
+.share-opt.qr{border-color:#fed7aa;background:#fff7ed}
+.link-box{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px;display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.link-text{flex:1;font-size:13px;color:var(--text);font-weight:600;word-break:break-all}
+.copy-btn{padding:6px 12px;background:var(--blue);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;flex-shrink:0;font-family:var(--font)}
 </style>
 </head>
 <body>
@@ -295,11 +294,28 @@ body{display:flex;align-items:center;justify-content:center}
   <div class="sb"><div class="sf"></div></div>
 </div>
 
+<!-- BOAS-VINDAS / CADASTRO DE NOME -->
+<div class="screen" id="welcome">
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 28px;background:linear-gradient(160deg,#060e1f,#0d2040)">
+    <div style="font-size:72px;margin-bottom:20px;animation:pulse 2s infinite">🛡️</div>
+    <div style="font-family:var(--font);font-size:28px;font-weight:900;color:#fff;margin-bottom:8px;letter-spacing:-0.5px">Bem-vindo ao<br><span style="color:#3b82f6">Não Caia!</span></div>
+    <div style="font-size:14px;color:#4a6a9a;text-align:center;line-height:1.6;margin-bottom:36px">Proteção contra golpes digitais<br>para você e sua família</div>
+    <div style="width:100%;background:rgba(255,255,255,0.05);border-radius:16px;padding:20px;border:1px solid rgba(255,255,255,0.1)">
+      <div style="font-size:12px;font-weight:700;color:#4a6a9a;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:10px">Como posso te chamar?</div>
+      <input type="text" id="welcomeName" placeholder="Digite seu nome" style="width:100%;padding:14px 16px;border-radius:12px;border:1.5px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:16px;font-family:var(--font);font-weight:600;outline:none" oninput="this.style.borderColor='#3b82f6'"/>
+      <div style="font-size:11px;color:#2d4a6e;margin-top:8px">Seu nome fica salvo apenas no seu celular</div>
+    </div>
+  </div>
+  <div style="padding:14px 22px max(32px,env(safe-area-inset-bottom));background:#060e1f;display:flex;flex-direction:column;gap:10px">
+    <button class="btn bb" onclick="salvarNome()" style="font-size:16px;padding:16px">Começar a me proteger →</button>
+  </div>
+</div>
+
 <!-- ONBOARDING -->
 <div class="screen" id="onboarding">
   <div class="ob" id="obc">
     <div id="ob0"><div class="op">🆕 Novidade</div><span class="oe">🎙️</span><div class="oh">Analise por voz, imagem ou texto</div><div class="op2">Grave um áudio, tire uma foto suspeita ou cole o texto. Nossa IA detecta golpes em segundos.</div></div>
-    <div id="ob1" style="display:none"><div class="op">🚨 Emergência</div><span class="oe">🆘</span><div class="oh">Botão de emergência real</div><div class="op2">Com um toque você liga para a Polícia Civil, PROCON ou aciona seu familiar de confiança.</div></div>
+    <div id="ob1" style="display:none"><div class="op">🚨 Emergência</div><span class="oe">🆘</span><div class="oh">Avise até 3 familiares ao mesmo tempo</div><div class="op2">Cadastre seus familiares de confiança e avise todos de uma vez em caso de emergência.</div></div>
     <div id="ob2" style="display:none"><div class="op">👵 Especial</div><span class="oe">👵</span><div class="oh">Modo Idoso com proteção total</div><div class="op2">Botões gigantes, letras grandes e acesso direto ao socorro — pensado para quem precisa de mais proteção.</div></div>
   </div>
   <div class="dots"><div class="dot active" id="d0"></div><div class="dot" id="d1"></div><div class="dot" id="d2"></div></div>
@@ -310,7 +326,7 @@ body{display:flex;align-items:center;justify-content:center}
 <div class="screen" id="home">
   <div class="hh">
     <div class="hr">
-      <div><div class="hg">Proteção ativa</div><div class="hn">Bem-vindo! 🛡️</div><div class="pc">Plano Gratuito</div></div>
+      <div><div class="hg">Proteção ativa</div><div class="hn"><span class="hero-name-text">Bem-vindo!</span> 🛡️</div><div class="pc">Plano Gratuito</div></div>
       <div class="av" id="avt">NC</div>
     </div>
     <div class="hq" id="ql">1 de 3 análises usadas hoje</div>
@@ -320,7 +336,7 @@ body{display:flex;align-items:center;justify-content:center}
     <div class="es">
       <button class="eb" id="emb">
         <span class="ei">🆘</span>
-        <div class="et"><span class="el">EMERGÊNCIA — Toque aqui!</span><span class="eh">Ligue para Polícia, PROCON ou familiar</span></div>
+        <div class="et"><span class="el">EMERGÊNCIA — Toque aqui!</span><span class="eh">Avisa todos os seus familiares</span></div>
       </button>
     </div>
     <div class="aw">
@@ -332,7 +348,7 @@ body{display:flex;align-items:center;justify-content:center}
       <div class="ap active" id="pt">
         <div class="ab"><div class="al">🔍 Isso é golpe?</div>
           <textarea id="ai" placeholder="Cole aqui a mensagem suspeita, link ou descreva a situação..."></textarea>
-          <div class="af"><span class="cc" id="cc">0 caracteres</span><button class="an" id="atb">Analisar →</button></div>
+          <div class="af"><span class="cc" id="cc">0 caracteres</span><button class="an2" id="atb">Analisar →</button></div>
         </div>
       </div>
       <div class="ap" id="pi">
@@ -364,7 +380,18 @@ body{display:flex;align-items:center;justify-content:center}
         </div>
       </div>
     </div>
-    <div class="st2">Acesso rápido</div>
+
+    <!-- SHARE STRIP -->
+    <div class="share-strip" id="shareStrip">
+      <span class="share-icon">📤</span>
+      <div class="share-text">
+        <div class="share-label">Compartilhar app com familiares</div>
+        <div class="share-desc">Proteja quem você ama — envie o link agora</div>
+      </div>
+      <i class="ti ti-chevron-right share-arrow"></i>
+    </div>
+
+    <div class="st2" style="margin-top:14px">Acesso rápido</div>
     <div class="qg">
       <div class="qc" id="gl"><span class="qi">📚</span><div class="ql2">Biblioteca</div><div class="qd">Golpes comuns</div></div>
       <div class="qc" id="ge"><span class="qi">👵</span><div class="ql2">Modo Idoso</div><div class="qd">Interface simples</div></div>
@@ -410,40 +437,22 @@ body{display:flex;align-items:center;justify-content:center}
   </div>
 </div>
 
-<!-- ELDER — MODO IDOSO MELHORADO -->
+<!-- ELDER -->
 <div class="screen" id="elder">
   <div class="elder-header">
     <div class="elder-title">🛡️ Modo Proteção</div>
     <div class="elder-sub">Simples, seguro e direto para você</div>
   </div>
   <div class="elder-body">
-    <!-- Botão emergência gigante e pulsante -->
     <button class="elder-emergency" id="ee">
       <span class="elder-em-icon">🆘</span>
-      <div class="elder-em-text">
-        <span class="elder-em-label">EMERGÊNCIA</span>
-        <span class="elder-em-hint">Toque aqui para pedir socorro agora</span>
-      </div>
+      <div class="elder-em-text"><span class="elder-em-label">EMERGÊNCIA</span><span class="elder-em-hint">Avisa todos os seus familiares agora</span></div>
     </button>
-    <button class="elder-btn eb-red" id="ec">
-      <span class="elder-icon">🔍</span>
-      <div class="elder-txt"><span class="elder-lbl">Verificar mensagem</span><span class="elder-hint2">Analisar algo suspeito com IA</span></div>
-    </button>
-    <button class="elder-btn eb-amber" onclick="sn('alerts')">
-      <span class="elder-icon">⚠️</span>
-      <div class="elder-txt"><span class="elder-lbl">Avisos de golpes</span><span class="elder-hint2">Ver os mais recentes no Brasil</span></div>
-    </button>
-    <button class="elder-btn eb-green" id="ew">
-      <span class="elder-icon">💬</span>
-      <div class="elder-txt"><span class="elder-lbl">WhatsApp familiar</span><span class="elder-hint2">Falar com alguém de confiança</span></div>
-    </button>
-    <div class="elder-tip">
-      💡 <strong>Lembre-se sempre:</strong><br>
-      ✋ Nenhum banco pede senha por telefone<br>
-      ✋ Nenhum familiar pede PIX com urgência<br>
-      ✋ Em dúvida, <strong>não pague nada</strong> e ligue para alguém de confiança
-    </div>
-    <button class="btn bg" onclick="sn('home')" style="font-size:16px;padding:16px">← Voltar à tela principal</button>
+    <button class="elder-btn eb-red" id="ec"><span class="elder-icon">🔍</span><div class="elder-txt"><span class="elder-lbl">Verificar mensagem</span><span class="elder-hint2">Analisar algo suspeito com IA</span></div></button>
+    <button class="elder-btn eb-amber" onclick="sn('alerts')"><span class="elder-icon">⚠️</span><div class="elder-txt"><span class="elder-lbl">Avisos de golpes</span><span class="elder-hint2">Ver os mais recentes no Brasil</span></div></button>
+    <button class="elder-btn eb-green" id="ew"><span class="elder-icon">💬</span><div class="elder-txt"><span class="elder-lbl">WhatsApp familiar</span><span class="elder-hint2">Falar com alguém de confiança</span></div></button>
+    <div class="elder-tip">💡 <strong>Lembre-se sempre:</strong><br>✋ Nenhum banco pede senha por telefone<br>✋ Nenhum familiar pede PIX com urgência<br>✋ Em dúvida, <strong>não pague nada</strong></div>
+    <button class="btn bg" onclick="sn('home')" style="font-size:16px;padding:16px">← Voltar</button>
   </div>
 </div>
 
@@ -452,9 +461,9 @@ body{display:flex;align-items:center;justify-content:center}
   <div class="tb"><button class="ib" id="bal"><i class="ti ti-arrow-left"></i></button><span class="tt">Alertas</span><div style="width:36px"></div></div>
   <div class="tr"><button class="tbt active" onclick="sat(this)">Hoje</button><button class="tbt" onclick="sat(this)">Esta semana</button><button class="tbt" onclick="sat(this)">Histórico</button></div>
   <div class="ali">
-    <div class="ac2 an2"><div class="ad">Hoje, 09:14 <span class="nb">NOVO</span></div><div class="at2">Golpe do sorteio Nubank circulando</div><div class="ab2">Mensagens prometem R$500 via link. Não clique nem preencha dados.</div></div>
-    <div class="ac2 an2"><div class="ad">Hoje, 07:30 <span class="nb">NOVO</span></div><div class="at2">SMS falso dos Correios</div><div class="ab2">Encomenda retida exigindo taxa. Correios nunca cobram por SMS.</div></div>
-    <div class="ac2 an2"><div class="ad">Hoje, 06:15 <span class="nb">NOVO</span></div><div class="at2">Falso assistente do FGTS</div><div class="ab2">Links prometem saque fora do calendário. Use só o app Caixa Tem.</div></div>
+    <div class="ac2 an2b"><div class="ad">Hoje, 09:14 <span class="nb">NOVO</span></div><div class="at2">Golpe do sorteio Nubank circulando</div><div class="ab2">Mensagens prometem R$500 via link. Não clique nem preencha dados.</div></div>
+    <div class="ac2 an2b"><div class="ad">Hoje, 07:30 <span class="nb">NOVO</span></div><div class="at2">SMS falso dos Correios</div><div class="ab2">Encomenda retida exigindo taxa. Correios nunca cobram por SMS.</div></div>
+    <div class="ac2 an2b"><div class="ad">Hoje, 06:15 <span class="nb">NOVO</span></div><div class="at2">Falso assistente do FGTS</div><div class="ab2">Links prometem saque fora do calendário. Use só o app Caixa Tem.</div></div>
     <div class="ac2 aw2"><div class="ad">Ontem, 16:22</div><div class="at2">Falsa central do Bradesco</div><div class="ab2">Ligações pedindo dados do cartão. Nenhum banco pede senha.</div></div>
     <div class="ac2 ai2"><div class="ad">3 dias atrás</div><div class="at2">Alta de golpes em idosos detectada</div><div class="ab2">+40% em tentativas por ligação em SP e RJ. Alerte familiares.</div></div>
   </div>
@@ -466,15 +475,16 @@ body{display:flex;align-items:center;justify-content:center}
   <div class="ph"><div class="pt">Proteção para sua família</div><div class="ps2">Cancele quando quiser</div></div>
   <div class="plb">
     <div class="plc"><div class="pn">Gratuito</div><div class="pp">R$0<span>/mês</span></div>
-      <div class="pf"><div class="pfi ok"><i class="ti ti-check"></i>3 análises/dia</div><div class="pfi ok"><i class="ti ti-check"></i>Texto, imagem, áudio</div><div class="pfi ok"><i class="ti ti-check"></i>Botão emergência</div><div class="pfi no"><i class="ti ti-x"></i>Alertas em tempo real</div><div class="pfi no"><i class="ti ti-x"></i>WhatsApp automático</div></div>
+      <div class="pf"><div class="pfi ok"><i class="ti ti-check"></i>3 análises/dia</div><div class="pfi ok"><i class="ti ti-check"></i>Texto, imagem, áudio</div><div class="pfi ok"><i class="ti ti-check"></i>Botão emergência</div><div class="pfi no"><i class="ti ti-x"></i>Alertas em tempo real</div><div class="pfi ok"><i class="ti ti-check"></i>1 familiar de emergência</div>
+          <div class="pfi no"><i class="ti ti-x"></i>Até 3 familiares (Premium)</div></div>
     </div>
     <div class="plc ft"><div class="pb">⭐ MAIS POPULAR</div><div class="pn">Premium</div><div class="pp">R$14,90<span>/mês</span></div>
-      <div class="pf"><div class="pfi ok"><i class="ti ti-check"></i>Análises ilimitadas</div><div class="pfi ok"><i class="ti ti-check"></i>Alertas em tempo real</div><div class="pfi ok"><i class="ti ti-check"></i>Modo Idoso completo</div><div class="pfi ok"><i class="ti ti-check"></i>WhatsApp automático</div><div class="pfi ok"><i class="ti ti-check"></i>Suporte prioritário</div></div>
-      <button class="btn bb" style="margin-top:14px" onclick="alert('Em breve!')">Assinar Premium</button>
+      <div class="pf"><div class="pfi ok"><i class="ti ti-check"></i>Análises ilimitadas</div><div class="pfi ok"><i class="ti ti-check"></i>Alertas em tempo real</div><div class="pfi ok"><i class="ti ti-check"></i>Modo Idoso completo</div><div class="pfi ok"><i class="ti ti-check"></i>Até 3 familiares de emergência</div><div class="pfi ok"><i class="ti ti-check"></i>Suporte prioritário</div></div>
+      <button class="btn bb" style="margin-top:14px" onclick="om('kiwify')">Assinar via Kiwify</button>
     </div>
     <div class="plc"><div class="pn">Família</div><div class="pp">R$24,90<span>/mês</span></div>
       <div class="pf"><div class="pfi ok"><i class="ti ti-check"></i>Tudo do Premium</div><div class="pfi ok"><i class="ti ti-check"></i>Até 5 membros</div><div class="pfi ok"><i class="ti ti-check"></i>Painel familiar</div></div>
-      <button class="btn bt" style="margin-top:14px" onclick="alert('Em breve!')">Assinar Família</button>
+      <button class="btn bt" style="margin-top:14px" onclick="om('kiwify')">Assinar via Kiwify</button>
     </div>
     <div class="dc">⚠️ O Não Caia! auxilia na identificação de golpes, mas não garante proteção total.</div>
   </div>
@@ -489,11 +499,23 @@ body{display:flex;align-items:center;justify-content:center}
       <div class="pr2" onclick="sn('plans')"><i class="ti ti-star"></i><span class="pr2l">Assinar Premium</span><i class="ti ti-chevron-right"></i></div>
       <div class="pr2" onclick="ss('elder')"><i class="ti ti-accessible"></i><span class="pr2l">Modo Idoso</span><i class="ti ti-chevron-right"></i></div>
     </div>
-    <div class="ps3"><div class="pst">Contato de Emergência</div>
-      <div class="pr2" id="ce"><i class="ti ti-phone"></i><span class="pr2l">WhatsApp familiar</span><span class="pr2v" id="ecl">Toque para configurar</span><i class="ti ti-chevron-right"></i></div>
+    <div class="ps3"><div class="pst">Familiares de emergência</div>
+      <div id="contactsList"></div>
+      <button class="add-contact-btn" id="addContactBtn" onclick="om('wm')">➕ Adicionar familiar <span id="contactLimit" style="font-size:11px;opacity:0.7"></span></button>
     </div>
     <div class="ps3"><div class="pst">Notificações</div>
       <div class="pr2"><i class="ti ti-bell"></i><span class="pr2l">Alertas de golpes</span><button class="tg on" onclick="this.classList.toggle('on')"><div class="tgt"></div></button></div>
+    </div>
+    <div class="ps3"><div class="pst">Compartilhar app</div>
+      <div class="pr2" onclick="om('shareModal')"><i class="ti ti-share"></i><span class="pr2l">Enviar para familiares</span><i class="ti ti-chevron-right"></i></div>
+    </div>
+    <div class="ps3"><div class="pst">Ativar Premium</div>
+      <div class="pr2" id="activatePremiumBtn" onclick="om('premiumCode')">
+        <i class="ti ti-key"></i>
+        <span class="pr2l">Inserir código de ativação</span>
+        <span class="pr2v" id="premiumStatus">Gratuito</span>
+        <i class="ti ti-chevron-right"></i>
+      </div>
     </div>
     <div class="ps3"><div class="pst">Sobre</div>
       <div class="pr2"><i class="ti ti-file-text"></i><span class="pr2l">Termos de Uso</span><i class="ti ti-chevron-right"></i></div>
@@ -509,34 +531,110 @@ body{display:flex;align-items:center;justify-content:center}
   <div class="ms">
     <div class="mh"></div>
     <div class="mt2">🆘 Preciso de ajuda agora</div>
-    <div class="msub">Escolha como quer ser ajudado. Você não está sozinho.</div>
+    <div class="msub">Escolha como quer ser ajudado.</div>
     <a class="eo red" href="tel:190"><span class="eoi">🚔</span><div class="eot"><div class="eol">Polícia Militar</div><div class="eod">190 — Emergências, 24h, gratuito</div></div></a>
-    <a class="eo green" href="tel:197"><span class="eoi">💻</span><div class="eot"><div class="eol">Delegacia de Crimes Digitais</div><div class="eod">197 — Polícia Civil, crimes online</div></div></a>
-    <a class="eo orange" href="tel:151"><span class="eoi">⚖️</span><div class="eot"><div class="eol">PROCON Nacional</div><div class="eod">151 — Defesa do consumidor, gratuito</div></div></a>
-    <a class="eo blue" href="tel:08007228007"><span class="eoi">🏦</span><div class="eot"><div class="eol">Banco Central — Fraudes</div><div class="eod">0800-722-8007 — Denunciar fraude bancária</div></div></a>
-    <a class="eo wa" href="#" id="wel"><span class="eoi">💬</span><div class="eot"><div class="eol">WhatsApp familiar de confiança</div><div class="eod" id="waContactInfo">Toque para configurar contato</div></div></a>
+    <a class="eo green" href="tel:197"><span class="eoi">💻</span><div class="eot"><div class="eol">Delegacia de Crimes Digitais</div><div class="eod">197 — Polícia Civil</div></div></a>
+    <a class="eo orange" href="tel:151"><span class="eoi">⚖️</span><div class="eot"><div class="eol">PROCON Nacional</div><div class="eod">151 — Defesa do consumidor</div></div></a>
+    <a class="eo blue" href="tel:08007228007"><span class="eoi">🏦</span><div class="eot"><div class="eol">Banco Central — Fraudes</div><div class="eod">0800-722-8007</div></div></a>
+    <div id="emContactsSection"></div>
+    <div id="emMsgSection" style="display:none">
+      <div style="font-size:13px;font-weight:700;color:var(--text);margin:14px 0 8px">📨 Escolha a mensagem:</div>
+      <div id="emMsgOptions"></div>
+      <button class="btn bg" style="margin-top:4px" onclick="document.getElementById('emMsgSection').style.display='none';document.getElementById('emContactsSection').style.display='block'">← Voltar para contatos</button>
+    </div>
     <button class="btn bg" style="margin-top:10px" onclick="cm('em')">Fechar</button>
   </div>
 </div>
 
-<!-- MODAL WHATSAPP — com contato salvo -->
+<!-- MODAL ADICIONAR FAMILIAR -->
 <div class="mo" id="wm">
   <div class="ms">
     <div class="mh"></div>
-    <div class="mt2">💬 WhatsApp familiar</div>
-    <div class="saved-badge" id="svb"></div>
+    <div class="mt2" id="wmTitle">💬 Adicionar familiar</div>
+    <div class="msub">Cadastre um familiar de confiança para receber alertas de emergência.</div>
     <div class="wf"><label>Nome do familiar</label><input type="text" id="wn" placeholder="Ex: Minha filha Ana"/></div>
-    <div class="wf"><label>Número WhatsApp (com DDD, só números)</label><input type="tel" id="wnum" placeholder="Ex: 83999998888"/></div>
-    <div class="wf"><label>Mensagem</label>
+    <div class="wf"><label>Número WhatsApp (com DDD)</label><input type="tel" id="wnum" placeholder="Ex: 83999998888"/></div>
+    <div class="wf"><label>Mensagem padrão</label>
       <select id="wms">
         <option value="Oi! Tudo bem com você? Estou usando o app Não Caia! para checar se está tudo seguro. 🛡️">Verificação de segurança</option>
         <option value="Recebi uma mensagem estranha e não sei se é golpe. Pode me ajudar?">Pedir ajuda sobre mensagem</option>
-        <option value="Alguém pediu um PIX pra mim dizendo ser você. É verdade? Confirme antes de eu enviar qualquer coisa.">Confirmar pedido de PIX</option>
+        <option value="Alguém pediu um PIX pra mim dizendo ser você. É verdade? Confirme antes de eu enviar.">Confirmar pedido de PIX</option>
         <option value="🚨 ATENÇÃO: Acho que estou sofrendo um golpe agora. Me ligue urgente!">Emergência — ligue urgente</option>
       </select>
     </div>
-    <button class="btn bb" style="background:#25d366;box-shadow:0 4px 14px rgba(37,211,102,0.3);margin-bottom:10px" onclick="swa()">💬 Abrir WhatsApp agora</button>
+    <button class="btn bb" style="background:#25d366;box-shadow:0 4px 14px rgba(37,211,102,0.3);margin-bottom:10px" onclick="saveContact()">💾 Salvar familiar</button>
     <button class="btn bg" onclick="cm('wm')">Cancelar</button>
+  </div>
+</div>
+
+<!-- MODAL COMPARTILHAR -->
+<div class="mo" id="shareModal">
+  <div class="ms">
+    <div class="mh"></div>
+    <div class="mt2">📤 Compartilhar Não Caia!</div>
+    <div class="msub">Proteja quem você ama — envie o app para seus familiares agora.</div>
+    <div class="link-box">
+      <div class="link-text" id="appLink">nao-caia-app.vercel.app</div>
+      <button class="copy-btn" onclick="copyLink()">Copiar</button>
+    </div>
+    <div class="share-options">
+      <div class="share-opt wa" onclick="shareWhatsApp()">
+        <span class="share-opt-icon">💬</span>
+        <div class="share-opt-label">WhatsApp</div>
+        <div class="share-opt-desc">Enviar para contatos</div>
+      </div>
+      <div class="share-opt link" onclick="copyLink()">
+        <span class="share-opt-icon">🔗</span>
+        <div class="share-opt-label">Copiar link</div>
+        <div class="share-opt-desc">Colar em qualquer lugar</div>
+      </div>
+      <div class="share-opt msg" onclick="shareNative()">
+        <span class="share-opt-icon">📱</span>
+        <div class="share-opt-label">Compartilhar</div>
+        <div class="share-opt-desc">Via apps do celular</div>
+      </div>
+      <div class="share-opt qr" onclick="shareWhatsAppFamiliares()">
+        <span class="share-opt-icon">👨‍👩‍👧</span>
+        <div class="share-opt-label">Familiares</div>
+        <div class="share-opt-desc">Avisar cadastrados</div>
+      </div>
+    </div>
+    <button class="btn bg" onclick="cm('shareModal')">Fechar</button>
+  </div>
+</div>
+
+<!-- MODAL CÓDIGO PREMIUM -->
+<div class="mo" id="premiumCode">
+  <div class="ms">
+    <div class="mh"></div>
+    <div class="mt2">🔑 Ativar Premium</div>
+    <div class="msub">Digite o código que você recebeu após a compra.</div>
+    <div class="wf">
+      <label>Código de ativação</label>
+      <input type="text" id="premiumCodeInput" placeholder="Ex: NAOCAIA-XXXX-XXXX" style="text-transform:uppercase;letter-spacing:2px;font-weight:700;font-size:16px"/>
+    </div>
+    <div style="background:#fffbeb;border:1px solid #fcd34d;border-radius:10px;padding:12px;font-size:12px;color:#92400e;margin-bottom:16px;line-height:1.6">
+      💡 O código é enviado por e-mail após a compra na Kiwify. Não recebeu? Entre em contato com o suporte.
+    </div>
+    <button class="btn bb" style="margin-bottom:10px" onclick="ativarPremium()">✅ Ativar agora</button>
+    <button class="btn bg" onclick="cm('premiumCode')">Cancelar</button>
+  </div>
+</div>
+
+<!-- MODAL KIWIFY -->
+<div class="mo" id="kiwify">
+  <div class="ms">
+    <div class="mh"></div>
+    <div class="mt2">⭐ Assinar Premium</div>
+    <div class="msub">Complete o pagamento pela Kiwify — plataforma segura, aceita PIX e cartão.</div>
+    <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:12px;padding:14px;margin-bottom:16px;font-size:13px;color:#15803d;font-weight:600;line-height:1.6">
+      ✅ Pagamento 100% seguro<br>
+      ✅ Cancele quando quiser<br>
+      ✅ Suporte em português<br>
+      ✅ PIX, cartão e boleto
+    </div>
+    <button class="btn bb" style="margin-bottom:10px" onclick="window.open('https://kiwify.com.br','_blank');cm('kiwify')">Continuar para pagamento →</button>
+    <button class="btn bg" onclick="cm('kiwify')">Voltar</button>
   </div>
 </div>
 
@@ -546,20 +644,176 @@ let ac=1,mx=3,os=0;
 let mr=null,ch=[],rt=null,rs=0,ir=false;
 let ib64=null,itp='image/jpeg';
 
-// ═══ CONTATO SALVO ═══
-let sv=null;
-try{sv=JSON.parse(localStorage.getItem('nc_contato')||'null');}catch(e){}
-function carregarContato(){
-  if(!sv)return;
-  document.getElementById('wn').value=sv.nome||'';
-  document.getElementById('wnum').value=sv.num||'';
-  const b=document.getElementById('svb');
-  b.style.display='block';
-  b.textContent='✅ Contato salvo: '+sv.nome+' ('+sv.num+')';
-  document.getElementById('ecl').textContent=sv.nome;
-  document.getElementById('waContactInfo').textContent='Enviar para '+sv.nome+' ('+sv.num+')';
+// ═══ NOME E PREMIUM ═══
+let userName = localStorage.getItem('nc_nome') || '';
+let isPremiumUser = localStorage.getItem('nc_premium') === 'true';
+
+// Códigos Premium válidos (você gera e envia para clientes)
+const PREMIUM_CODES = [
+  'NAOCAIA-2025-PREM',
+  'NAOCAIA-VIP1-2025',
+  'NAOCAIA-VIP2-2025',
+  'NAOCAIA-VIP3-2025',
+  'NAOCAIA-VIP4-2025',
+  'NAOCAIA-VIP5-2025',
+  'NAOCAIA-FAM1-2025',
+  'NAOCAIA-FAM2-2025',
+  'NAOCAIA-FAM3-2025',
+  'NAOCAIA-FAM4-2025',
+  'NAOCAIA-TEST-0001'
+];
+
+function salvarNome(){
+  const nome = document.getElementById('welcomeName').value.trim();
+  if(!nome){ alert('Digite seu nome para continuar.'); return; }
+  localStorage.setItem('nc_nome', nome);
+  userName = nome;
+  atualizarNome();
+  ss('onboarding');
 }
-carregarContato();
+
+function atualizarNome(){
+  const els = document.querySelectorAll('.hero-name-text');
+  els.forEach(el => el.textContent = userName || 'Bem-vindo!');
+  const prn = document.querySelector('.prn');
+  if(prn) prn.textContent = userName || 'Usuário';
+}
+
+function ativarPremium(){
+  const code = document.getElementById('premiumCodeInput').value.trim().toUpperCase();
+  if(!code){ alert('Digite o código de ativação.'); return; }
+  if(PREMIUM_CODES.includes(code)){
+    localStorage.setItem('nc_premium', 'true');
+    localStorage.setItem('nc_premium_code', code);
+    isPremiumUser = true;
+    atualizarStatusPremium();
+    cm('premiumCode');
+    alert('🎉 Premium ativado com sucesso!\n\nAgora você tem:\n✅ Análises ilimitadas\n✅ Até 3 familiares\n✅ Alertas em tempo real\n✅ Modo Idoso completo');
+  } else {
+    alert('❌ Código inválido ou já utilizado.\n\nVerifique o e-mail de confirmação da compra ou entre em contato com o suporte.');
+  }
+}
+
+function atualizarStatusPremium(){
+  const chip = document.querySelector('.pc');
+  if(chip) chip.textContent = isPremiumUser ? '⭐ Premium' : 'Plano Gratuito';
+  const prc = document.querySelector('.prc');
+  if(prc) prc.textContent = isPremiumUser ? '⭐ Premium' : 'Plano Gratuito';
+  const status = document.getElementById('premiumStatus');
+  if(status) status.textContent = isPremiumUser ? '✅ Ativo' : 'Gratuito';
+  if(isPremiumUser){ mx=999; }
+}
+
+// ═══ MÚLTIPLOS CONTATOS ═══
+let contatos=[];
+try{contatos=JSON.parse(localStorage.getItem('nc_contatos')||'[]');}catch(e){}
+
+function salvarContatos(){localStorage.setItem('nc_contatos',JSON.stringify(contatos));}
+
+function renderContatos(){
+  const list=document.getElementById('contactsList');
+  const emSec=document.getElementById('emContactsSection');
+  if(!list)return;
+  const isPremium=localStorage.getItem('nc_premium')==='true';
+  const limite=isPremium?3:1;
+  const limitEl=document.getElementById('contactLimit');
+  if(limitEl)limitEl.textContent='('+contatos.length+'/'+limite+')';
+  list.innerHTML='';
+  emSec.innerHTML='';
+  if(contatos.length===0){
+    list.innerHTML='<div style="font-size:12px;color:var(--text2);text-align:center;padding:8px">Nenhum familiar cadastrado ainda</div>';
+    return;
+  }
+  contatos.forEach((c,i)=>{
+    list.innerHTML+=`<div class="contact-card">
+      <div class="contact-avatar">👤</div>
+      <div class="contact-info"><div class="contact-name">${c.nome}</div><div class="contact-num">${c.num}</div></div>
+      <div class="contact-actions">
+        <button class="contact-btn wa" onclick="abrirWA(${i})" title="WhatsApp">💬</button>
+        <button class="contact-btn del" onclick="deletarContato(${i})" title="Remover">🗑️</button>
+      </div>
+    </div>`;
+    emSec.innerHTML+=`<a class="eo wa" href="#" onclick="abrirWA(${i});event.preventDefault()">
+      <span class="eoi">💬</span>
+      <div class="eot"><div class="eol">${c.nome}</div><div class="eod">WhatsApp — ${c.num}</div></div>
+    </a>`;
+  });
+}
+
+function abrirWA(i){
+  const c=contatos[i];
+  const msgs=[
+    {label:'✅ Verificação de segurança',msg:'Oi '+c.nome+'! Tudo bem? Estou usando o app Não Caia! para checar se está tudo seguro. 🛡️'},
+    {label:'❓ Pedir ajuda sobre mensagem',msg:'Oi '+c.nome+'! Recebi uma mensagem estranha e não sei se é golpe. Pode me ajudar?'},
+    {label:'💸 Confirmar pedido de PIX',msg:'Oi '+c.nome+'! Alguém pediu um PIX pra mim dizendo ser você. É verdade? Confirme antes de eu enviar qualquer coisa.'},
+    {label:'🚨 Emergência — ligue urgente',msg:'🚨 ATENÇÃO '+c.nome+': Acho que estou sofrendo um golpe agora. Me ligue urgente!'}
+  ];
+  const sec=document.getElementById('emMsgSection');
+  const emC=document.getElementById('emContactsSection');
+  const opts=document.getElementById('emMsgOptions');
+  opts.innerHTML='<div style="font-size:12px;color:var(--text2);margin-bottom:10px">Enviando para: <strong>'+c.nome+'</strong> ('+c.num+')</div>';
+  msgs.forEach(m=>{
+    opts.innerHTML+=`<div class="eo wa" style="margin-bottom:8px;cursor:pointer" onclick="window.open('https://wa.me/55${c.num.replace(/\D/g,'')}?text='+encodeURIComponent('${m.msg.replace(/'/g,"\'")}'),'_blank')">
+      <div class="eot"><div class="eol">${m.label}</div><div class="eod">${m.msg.substring(0,50)}...</div></div>
+    </div>`;
+  });
+  emC.style.display='none';
+  sec.style.display='block';
+}
+
+function deletarContato(i){
+  if(confirm('Remover '+contatos[i].nome+'?')){
+    contatos.splice(i,1);
+    salvarContatos();
+    renderContatos();
+  }
+}
+
+function saveContact(){
+  const nome=document.getElementById('wn').value.trim();
+  const num=document.getElementById('wnum').value.replace(/\D/g,'');
+  if(!nome||!num){alert('Preencha nome e número.');return;}
+  const isPremium = localStorage.getItem('nc_premium') === 'true';
+  const limite = isPremium ? 3 : 1;
+  if(contatos.length>=limite){
+    if(!isPremium){
+      if(confirm('No plano Gratuito você pode cadastrar apenas 1 familiar.\n\nAssine o Premium para cadastrar até 3 familiares!\n\nVer planos Premium?')){
+        cm('wm'); sn('plans');
+      }
+    } else {
+      alert('Máximo de 3 familiares no plano Premium.');
+    }
+    return;
+  }
+  contatos.push({nome,num});
+  salvarContatos();
+  renderContatos();
+  document.getElementById('wn').value='';
+  document.getElementById('wnum').value='';
+  cm('wm');
+}
+
+renderContatos();
+
+// ═══ COMPARTILHAR ═══
+const APP_URL='https://nao-caia-app.vercel.app';
+const APP_MSG='🛡️ *Não Caia!* — Proteção contra golpes digitais\n\nEsse app detecta golpes de PIX, WhatsApp, ligações e muito mais usando IA!\n\nInstale grátis agora: '+APP_URL;
+
+function copyLink(){
+  navigator.clipboard.writeText(APP_URL).then(()=>alert('✅ Link copiado! Cole onde quiser.')).catch(()=>{
+    const el=document.createElement('textarea');el.value=APP_URL;document.body.appendChild(el);el.select();document.execCommand('copy');document.body.removeChild(el);alert('✅ Link copiado!');
+  });
+}
+function shareWhatsApp(){window.open('https://wa.me/?text='+encodeURIComponent(APP_MSG),'_blank');}
+function shareNative(){
+  if(navigator.share)navigator.share({title:'Não Caia!',text:'Proteção contra golpes digitais com IA',url:APP_URL});
+  else copyLink();
+}
+function shareWhatsAppFamiliares(){
+  if(contatos.length===0){alert('Cadastre familiares primeiro no seu perfil.');return;}
+  contatos.forEach(c=>{window.open('https://wa.me/55'+c.num+'?text='+encodeURIComponent(APP_MSG),'_blank');});
+  cm('shareModal');
+}
 
 // ═══ NAVEGAÇÃO ═══
 function ss(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
@@ -567,21 +821,22 @@ function sn(t){ss(t);['home','library','alerts','plans'].forEach(x=>{const n=doc
 function om(id){document.getElementById(id).classList.add('open');}
 function cm(id){document.getElementById(id).classList.remove('open');}
 
-// ═══ INIT ═══
-setTimeout(()=>ss('onboarding'),2700);
+setTimeout(()=>{
+  if(!userName){ ss('welcome'); }
+  else { ss('onboarding'); }
+  atualizarNome();
+  atualizarStatusPremium();
+},2700);
 
-// ═══ ONBOARDING ═══
 document.getElementById('obn').addEventListener('click',()=>{
   document.getElementById('ob'+os).style.display='none';os++;
   if(os<3){document.getElementById('ob'+os).style.display='block';[0,1,2].forEach(i=>document.getElementById('d'+i).classList.toggle('active',i===os));if(os===2)document.getElementById('obn').textContent='Começar →';}
   else sn('home');
 });
 document.getElementById('obs').addEventListener('click',()=>sn('home'));
-
-// ═══ BOTÕES ═══
 document.getElementById('avt').addEventListener('click',()=>ss('profile'));
 document.getElementById('br').addEventListener('click',()=>sn('home'));
-document.getElementById('sr2').addEventListener('click',()=>{if(navigator.share)navigator.share({title:'Não Caia!',url:location.href});else alert('Link: '+location.href);});
+document.getElementById('sr2').addEventListener('click',()=>om('shareModal'));
 document.getElementById('blib').addEventListener('click',()=>sn('home'));
 document.getElementById('bal').addEventListener('click',()=>sn('home'));
 document.getElementById('bpl').addEventListener('click',()=>sn('home'));
@@ -594,21 +849,12 @@ document.getElementById('emb').addEventListener('click',()=>om('em'));
 document.getElementById('ee').addEventListener('click',()=>om('em'));
 document.getElementById('ec').addEventListener('click',()=>sn('home'));
 document.getElementById('ew').addEventListener('click',()=>om('wm'));
-document.getElementById('ce').addEventListener('click',()=>om('wm'));
-document.getElementById('wel').addEventListener('click',e=>{
-  if(sv){const num=sv.num,msg=document.getElementById('wms').value;window.open('https://wa.me/55'+num+'?text='+encodeURIComponent(msg),'_blank');cm('em');}
-  else{e.preventDefault();cm('em');om('wm');}
-});
-['em','wm'].forEach(id=>document.getElementById(id).addEventListener('click',function(e){if(e.target===this)cm(id);}));
+document.getElementById('shareStrip').addEventListener('click',()=>om('shareModal'));
+['em','wm','shareModal','kiwify'].forEach(id=>document.getElementById(id).addEventListener('click',function(e){if(e.target===this)cm(id);}));
 
-// ═══ ABAS ═══
 function stab(t){document.querySelectorAll('.atab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.ap').forEach(x=>x.classList.remove('active'));document.getElementById('t'+t[0]).classList.add('active');document.getElementById('p'+t[0]).classList.add('active');}
 function sat(el){document.querySelectorAll('.tbt').forEach(b=>b.classList.remove('active'));el.classList.add('active');}
-
-// ═══ CHAR COUNT ═══
 document.getElementById('ai').addEventListener('input',function(){document.getElementById('cc').textContent=this.value.length+' caracteres';});
-
-// ═══ BUSCA ═══
 document.getElementById('lsi').addEventListener('input',function(){const q=this.value.toLowerCase();document.querySelectorAll('#ll .lc').forEach(c=>{c.style.display=c.textContent.toLowerCase().includes(q)?'':'none';});});
 
 // ═══ IMAGEM ═══
@@ -637,39 +883,21 @@ async function str2(){
 function spr(){if(mr&&ir){ir=false;clearInterval(rt);mr.stop();document.getElementById('rcb').classList.remove('rec');document.getElementById('rci').className='ti ti-microphone';}}
 function aw2(){if(!ir)return;document.querySelectorAll('.wvb').forEach(b=>{b.style.height=(Math.random()*28+4)+'px';});setTimeout(aw2,150);}
 
-// ═══ CHAMADA IA via /api/analyze ═══
-async function callAI(messages, systemPrompt) {
-  const sys = systemPrompt || `Você é especialista em golpes digitais no Brasil 2025. Conhece todos os golpes atuais e emergentes. Responda APENAS em JSON válido sem markdown: {"riskLevel":"ALTO"|"MÉDIO"|"BAIXO","riskPercent":0-100,"headline":"máx 55 chars","explanation":"2-3 frases simples em linguagem leiga","signals":["sinal 1","sinal 2","sinal 3"],"action":"orientação prática clara"}. Detecte: urgência, PIX, segredo, pressão psicológica, links suspeitos, ofertas boas demais, dados bancários, falsa identidade. Responda em português do Brasil.`;
-
-  const resp = await fetch('/api/analyze', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 1000,
-      system: sys,
-      messages: messages
-    })
-  });
-
-  if (!resp.ok) {
-    let errMsg = 'Erro ' + resp.status;
-    try { const err = await resp.json(); errMsg = err.error?.message || errMsg; } catch(e){}
-    throw new Error(errMsg);
-  }
-
-  let data;
-  try { data = await resp.json(); } catch(e) { throw new Error('Resposta inválida da API'); }
-  if (!data || !data.content) throw new Error('Resposta vazia da API');
-  const raw = (data.content || []).map(c=>c.text||'').join('').replace(/```json|```/g,'').trim();
-  try{return JSON.parse(raw);}
-  catch(e){return{riskLevel:'MÉDIO',riskPercent:55,headline:'Não foi possível analisar',explanation:'Tente novamente com mais detalhes.',signals:['Análise incompleta'],action:'Seja cauteloso. Não faça pagamentos sem verificar com alguém de confiança.'};}
+// ═══ CHAMADA IA ═══
+async function callAI(messages,systemPrompt){
+  const sys=systemPrompt||`Você é especialista em golpes digitais no Brasil 2025. Conhece todos os golpes atuais e emergentes. Responda APENAS em JSON válido sem markdown: {"riskLevel":"ALTO"|"MÉDIO"|"BAIXO","riskPercent":0-100,"headline":"máx 55 chars","explanation":"2-3 frases simples em linguagem leiga","signals":["sinal 1","sinal 2","sinal 3"],"action":"orientação prática clara"}. Detecte: urgência, PIX, segredo, pressão psicológica, links suspeitos, ofertas boas demais, dados bancários, falsa identidade. Responda em português do Brasil.`;
+  const resp=await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,system:sys,messages})});
+  if(!resp.ok){const e=await resp.json();throw new Error(e.error?.message||'Erro '+resp.status);}
+  let data;try{data=await resp.json();}catch(e){throw new Error('Resposta inválida');}
+  if(!data||!data.content)throw new Error('Sem resposta da IA');
+  const raw=(Array.isArray(data.content)?data.content:[]).map(c=>c.text||'').join('').replace(/```json|```/g,'').trim();
+  try{return JSON.parse(raw);}catch(e){return{riskLevel:'MÉDIO',riskPercent:55,headline:'Não foi possível analisar',explanation:'Tente novamente.',signals:['Análise incompleta'],action:'Seja cauteloso. Não faça pagamentos sem verificar.'};}
 }
 
 function uq(){ac++;document.getElementById('qf').style.width=Math.round((ac/mx)*100)+'%';document.getElementById('ql').textContent=ac+' de '+mx+' análises usadas hoje';}
 function ah(ic,tx,cl){const h=document.getElementById('hi'),n=document.createElement('div');n.className='hi2';const s=tx.length>45?tx.slice(0,42)+'...':tx;n.innerHTML=`<div class="hd" style="background:${cl}"></div><div class="ht">${ic} "${s}"</div><div class="htm">agora</div>`;h.insertBefore(n,h.firstChild);}
-function sl(msg){ss('result');document.getElementById('rc').innerHTML=`<div class="lb"><div class="sp"></div><div class="lt">${msg||'Analisando com IA...'}<br><span style="font-size:12px;display:block;margin-top:4px;color:#94a3b8">Verificando padrões de golpe no Brasil</span></div></div>`;}
-function se(m){document.getElementById('rc').innerHTML=`<div class="lb"><div style="font-size:40px">⚠️</div><div class="lt">${m||'Erro ao conectar.'}<br>Verifique sua conexão.</div><button class="btn bg" style="margin-top:16px;max-width:200px" onclick="sn('home')">Voltar</button></div>`;}
+function sl2(msg){ss('result');document.getElementById('rc').innerHTML=`<div class="lb"><div class="sp"></div><div class="lt">${msg||'Analisando com IA...'}<br><span style="font-size:12px;display:block;margin-top:4px;color:#94a3b8">Verificando padrões de golpe no Brasil</span></div></div>`;}
+function se(m){document.getElementById('rc').innerHTML=`<div class="lb"><div style="font-size:40px">⚠️</div><div class="lt">${m||'Erro ao conectar.'}</div><button class="btn bg" style="margin-top:16px;max-width:200px" onclick="sn('home')">Voltar</button></div>`;}
 function rr(r){
   const lc=r.riskLevel==='ALTO'?'rhi':r.riskLevel==='MÉDIO'?'rhm':'rhl';
   const em=r.riskLevel==='ALTO'?'🔴':r.riskLevel==='MÉDIO'?'🟡':'🟢';
@@ -682,66 +910,45 @@ function rr(r){
       <div class="rc"><div class="rct">O que detectamos</div><div class="rcb">${r.explanation}</div></div>
       <div class="rc"><div class="rct">Sinais identificados</div><ul class="sl">${(Array.isArray(r.signals)?r.signals:[]).map(s=>`<li class="si"><span class="sd ${dc}"></span>${s}</li>`).join('')}</ul></div>
       <div class="rc" style="background:${bg};border:1px solid ${bd}"><div class="rct">O que fazer agora</div><div class="rcb" style="font-weight:700">${r.action}</div></div>
-      ${r.riskLevel==='ALTO'?`<button class="btn br" style="margin-bottom:10px" onclick="om('em')">🆘 Preciso de ajuda agora</button>`:''}
+      ${r.riskLevel==='ALTO'?`<button class="btn br2" style="margin-bottom:10px" onclick="om('em')">🆘 Preciso de ajuda agora</button>`:''}
       <div class="sr2">
-        <button class="sb2" onclick="if(navigator.share){navigator.share({title:'Não Caia!',url:location.href})}else{alert('Link: '+location.href)}"><i class="ti ti-share"></i>Compartilhar</button>
+        <button class="sb2" onclick="om('shareModal')"><i class="ti ti-share"></i>Compartilhar</button>
         <button class="sb2" onclick="sn('home')"><i class="ti ti-plus"></i>Nova análise</button>
       </div>
       <div style="height:20px"></div>
     </div>`;
 }
 
-// ═══ ANALISAR TEXTO ═══
 document.getElementById('atb').addEventListener('click',async()=>{
   const t=document.getElementById('ai').value.trim();
   if(!t){alert('Cole ou descreva a situação suspeita.');return;}
   if(ac>=mx){sn('plans');return;}
-  uq();sl('Analisando texto com IA...');
-  try{
-    const r=await callAI([{role:'user',content:t}]);
-    ah('💬',t,r.riskLevel==='ALTO'?'#ef4444':r.riskLevel==='MÉDIO'?'#f59e0b':'#22c55e');
-    rr(r);
-  }catch(e){se(e.message);}
+  uq();sl2('Analisando texto com IA...');
+  try{const r=await callAI([{role:'user',content:t}]);ah('💬',t,r.riskLevel==='ALTO'?'#ef4444':r.riskLevel==='MÉDIO'?'#f59e0b':'#22c55e');rr(r);}
+  catch(e){se(e.message);}
 });
 
-// ═══ ANALISAR IMAGEM ═══
 document.getElementById('aib').addEventListener('click',async()=>{
   if(!ib64){alert('Selecione uma imagem.');return;}
   if(ac>=mx){sn('plans');return;}
-  uq();sl('Analisando imagem com IA...');
+  uq();sl2('Analisando imagem com IA...');
   try{
     const sys=`Analise a imagem e responda APENAS em JSON: {"riskLevel":"ALTO"|"MÉDIO"|"BAIXO","riskPercent":0-100,"headline":"máx 55 chars","explanation":"2-3 frases simples","signals":["s1","s2","s3"],"action":"orientação prática"}. Português do Brasil.`;
-    const content=[{type:'image',source:{type:'base64',media_type:itp,data:ib64}},{type:'text',text:'Analise essa imagem. Identifique sinais de golpe: textos suspeitos, links falsos, pedidos de PIX, urgência, falsa identidade de banco ou governo.'}];
+    const content=[{type:'image',source:{type:'base64',media_type:itp,data:ib64}},{type:'text',text:'Analise essa imagem. Identifique sinais de golpe: textos suspeitos, links falsos, pedidos de PIX, urgência, falsa identidade.'}];
     const r=await callAI([{role:'user',content}],sys);
-    ah('📷','Imagem analisada',r.riskLevel==='ALTO'?'#ef4444':r.riskLevel==='MÉDIO'?'#f59e0b':'#22c55e');
-    rr(r);
+    ah('📷','Imagem analisada',r.riskLevel==='ALTO'?'#ef4444':r.riskLevel==='MÉDIO'?'#f59e0b':'#22c55e');rr(r);
   }catch(e){se(e.message);}
 });
 
-// ═══ ANALISAR ÁUDIO ═══
 document.getElementById('aab').addEventListener('click',async()=>{
   if(ac>=mx){sn('plans');return;}
-  uq();sl('Analisando áudio com IA...');
+  uq();sl2('Analisando áudio com IA...');
   try{
-    const p=`Usuário gravou áudio de ${rs}s descrevendo situação suspeita de golpe no Brasil. Com base nos golpes mais comuns em 2025 (PIX falso, WhatsApp clonado, suporte falso, phishing, FGTS, sorteios, emprego falso), faça análise de risco e oriente claramente.`;
+    const p=`Usuário gravou áudio de ${rs}s descrevendo situação suspeita de golpe no Brasil. Com base nos golpes mais comuns em 2025, faça análise de risco e oriente claramente.`;
     const r=await callAI([{role:'user',content:p}]);
-    ah('🎙️','Áudio de '+rs+'s',r.riskLevel==='ALTO'?'#ef4444':r.riskLevel==='MÉDIO'?'#f59e0b':'#22c55e');
-    rr(r);
+    ah('🎙️','Áudio de '+rs+'s',r.riskLevel==='ALTO'?'#ef4444':r.riskLevel==='MÉDIO'?'#f59e0b':'#22c55e');rr(r);
   }catch(e){se(e.message);}
 });
-
-// ═══ WHATSAPP — salva contato automaticamente ═══
-function swa(){
-  const nome=document.getElementById('wn').value.trim();
-  const num=document.getElementById('wnum').value.replace(/\D/g,'');
-  const msg=document.getElementById('wms').value;
-  if(!num){alert('Informe o número do WhatsApp com DDD.');return;}
-  sv={nome:nome||'Familiar',num};
-  localStorage.setItem('nc_contato',JSON.stringify(sv));
-  carregarContato();
-  window.open('https://wa.me/55'+num+'?text='+encodeURIComponent(msg),'_blank');
-  cm('wm');
-}
 </script>
 </body>
 </html>
